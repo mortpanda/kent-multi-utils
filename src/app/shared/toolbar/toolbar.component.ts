@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuListService } from '../menu-list/menu-list.service';
 import { ViewEncapsulation } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import {MenuItem} from 'primeng/api';
 
 @Component({
   selector: 'app-toolbar',
@@ -10,6 +11,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   encapsulation: ViewEncapsulation.None
 })
 export class ToolbarComponent implements OnInit {
+  toolbarItems: MenuItem[];
   smallScreen: boolean;
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -21,8 +23,8 @@ export class ToolbarComponent implements OnInit {
     ]).subscribe(result => {
       this.smallScreen = result.matches;
     });
-    
-   }
+    this.toolbarItems = this.MenuListService.smallToolbar;
+  }
 
   ngOnInit(): void {
   }

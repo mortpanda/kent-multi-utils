@@ -13,6 +13,8 @@ import { TooltipModule } from 'primeng/tooltip';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { PrimeIcons } from 'primeng/api';
+import {MenubarModule} from 'primeng/menubar';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,7 @@ import { PrimeIcons } from 'primeng/api';
     SpeedDialModule,
     TooltipModule,
     ToolbarModule,
-
+    MenubarModule,
 
   ],
   providers: [],
