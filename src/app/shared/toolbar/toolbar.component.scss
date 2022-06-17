@@ -1,0 +1,17 @@
+.toolbarBanner {
+    width: 150px !important;
+    border-radius: 5px !important;
+    border-style: solid !important;
+    border-color: #6e6e78 !important;
+    border-width: 1px !important;
+    padding: 5px !important;
+    background-color: #FFFFFF !important;
+}
+
+#mainToolbar {
+    .p-toolbar {
+        padding: 5px !important;
+        background-color: transparent!important;
+        border: none!important;
+    }
+}
