@@ -19,9 +19,9 @@ export class MenuListService {
         tooltipLabel: "Websites",
         tooltipPosition: "top",
       },
-      icon: "pi pi-bars",
+      icon: "pi pi-bookmark-fill",
       style: 'font-size: 2rem;',
-      routerLink: '/'
+      routerLink: '/websites'
     },
     
 
@@ -42,11 +42,12 @@ export class MenuListService {
         tooltipLabel: "World Clock",
         tooltipPosition: "top",
       },
-      icon: "pi pi-bars",
+      icon: "pi pi-clock",
       style: 'font-size: 2rem;',
       routerLink: '/'
     },
 
+    
   ]
 
 
@@ -55,7 +56,7 @@ export class MenuListService {
     {
       label: "Main Menu",
       icon: "pi pi-bars",
-
+      routerLink: '/start',
     },
 
     {
@@ -78,12 +79,12 @@ export class MenuListService {
   mainDockItems = [
     {
       tooltipOptions: {
-        tooltipLabel: "Daily Websites",
+        tooltipLabel: "Main Menu",
         tooltipPosition: "right",
       },
       icon: "pi pi-bars",
       style: 'font-size: 2rem;',
-      routerLink: '/'
+      routerLink: '/start',
     },
 
     {

@@ -16,18 +16,22 @@
 }
 
 .appMainContainer {
-    text-align: center!important;
+    text-align: center !important;
     color: #FFFFFF;
     // border-style: dotted;
     width: 85vw !important;
-    margin: auto!important;
+    margin: auto !important;
 }
 
+.pi{
+    text-decoration: none !important;
+}
 
 #mainDock {
     .p-dock {
         .p-dock-list {
             padding: 6px !important;
+            text-decoration: none !important;
         }
     }
 
@@ -45,7 +49,7 @@
     }
 }
 
-#mainAppMenu{
+#mainAppMenu {
     left: 50% !important;
     margin-left: -72px !important;
     top: 40% !important;
@@ -75,7 +79,35 @@
     }
 
     .pi {
-        font-size: 36px!important;
+        font-size: 36px !important;
     }
 }
 
+.locationInfo {
+    width: 100% !important;
+}
+
+.weatherInfo {
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+}
+
+.weatherIcon {
+    height: 50px !important;
+}
+
+.userName {
+    position: fixed !important;
+    right: 5% !important;
+    // -webkit-backdrop-filter: blur(70px) !important;
+    // backdrop-filter: blur(70px) !important;
+    // border-radius: 5px !important;
+    // padding: 5px !important;
+}
+
+.MainDiv {
+    // border-style: dotted;
+
+    width: 85vw !important;
+
+}

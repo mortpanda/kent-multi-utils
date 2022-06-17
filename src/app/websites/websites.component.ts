@@ -12,13 +12,12 @@ import { GetWeatherService } from '../shared/weather/get-weather.service';
 import { DataService } from '../shared/data-service/data.service';
 
 @Component({
-  selector: 'app-start',
-  templateUrl: './start.component.html',
-  styleUrls: ['./start.component.scss'],
+  selector: 'app-websites',
+  templateUrl: './websites.component.html',
+  styleUrls: ['./websites.component.scss'],
   encapsulation: ViewEncapsulation.None
-
 })
-export class StartComponent implements OnInit {
+export class WebsitesComponent implements OnInit {
   smallScreen: boolean;
   public authService = new OktaAuth(this.OktaSDKAuthService.config);
   strUserSession;
@@ -87,3 +86,4 @@ export class StartComponent implements OnInit {
   // }
 
 }
+

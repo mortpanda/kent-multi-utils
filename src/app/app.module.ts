@@ -16,6 +16,7 @@ import { PrimeIcons } from 'primeng/api';
 import {MenubarModule} from 'primeng/menubar';
 import { StartComponent } from './start/start.component';
 import { HttpClientModule } from '@angular/common/http';
+import { WebsitesComponent } from './websites/websites.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     LandingComponent,
     NavMainComponent,
     ToolbarComponent,
-    StartComponent
+    StartComponent,
+    WebsitesComponent
   ],
   imports: [
     BrowserModule,
