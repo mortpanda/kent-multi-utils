@@ -14,13 +14,16 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { PrimeIcons } from 'primeng/api';
 import {MenubarModule} from 'primeng/menubar';
+import { StartComponent } from './start/start.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
     NavMainComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    StartComponent
   ],
   imports: [
     BrowserModule,
@@ -33,9 +36,9 @@ import {MenubarModule} from 'primeng/menubar';
     TooltipModule,
     ToolbarModule,
     MenubarModule,
-
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,16 @@
+<div class="startMainDiv" fxLayout="row wrap" fxLayoutAlign="center center">
+    <div class="userName">
+        {{strFullName}}
+    </div>
+    <div class="locationInfo">
+        {{GetWeatherService?.arrWeather?.name}}
+    </div>
+    <div class="mainMenuDiv">
+        <p-speedDial [model]="mainAppMenu" type="circle" radius="150" showIcon="pi pi-microsoft" hideIcon="pi pi-times"
+            buttonClassName="p-button-outlined" id="mainAppMenu"></p-speedDial>
+    </div>
+
+    <!-- <div>
+        <img src="assets/img/lion-logo-long.png">
+    </div> -->
+</div>
