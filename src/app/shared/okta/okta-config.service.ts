@@ -23,6 +23,7 @@ export class OktaConfigService {
   strLogo = "assets/img/gunmachan.jpg";
   strMeEP = '/api/v1/users/me';
   
+strMyWebsiteURL = 'https://kent-nagao-oie.workflows.oktapreview.com/api/flo/439a805c4248b81d24da704d697d13df/invoke';
 
   strGitHubRepo = "https://github.com/mortpanda/my-apps-launcher-v2";
 

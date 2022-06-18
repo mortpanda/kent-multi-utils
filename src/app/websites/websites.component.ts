@@ -10,6 +10,8 @@ import { MenuListService } from '../shared/menu-list/menu-list.service';
 import { GetGeolocationService } from '../shared/geolocation/geolocation.service';
 import { GetWeatherService } from '../shared/weather/get-weather.service';
 import { DataService } from '../shared/data-service/data.service';
+import { OktaApiService } from '../shared/okta/okta-api.service';
+import { EmailValidator } from '@angular/forms';
 
 @Component({
   selector: 'app-websites',
@@ -25,6 +27,9 @@ export class WebsitesComponent implements OnInit {
   strFullName;
   mainAppMenu = [];
   selectedMessage: any;
+  myKey;
+  myAccessToken;
+  myEmail;
 
   myTemp;
   myLocation;
@@ -40,6 +45,7 @@ export class WebsitesComponent implements OnInit {
     public GetGeolocationService: GetGeolocationService,
     public GetWeatherService: GetWeatherService,
     private DataService: DataService,
+    private OktaApiService: OktaApiService,
   ) {
     breakpointObserver.observe([
       Breakpoints.XSmall,
@@ -48,15 +54,12 @@ export class WebsitesComponent implements OnInit {
       this.smallScreen = result.matches;
     });
     this.mainAppMenu = this.MenuListService.mainAppMenu;
-
-
-
   }
 
-  
+
   async ngOnInit() {
     await this.GetGeolocationService.GetGeo();
-      
+
 
     this.strUserSession = await this.authService.isAuthenticated();
     console.log(this.strUserSession)
@@ -72,18 +75,35 @@ export class WebsitesComponent implements OnInit {
             console.log(err);
             window.location.replace(this.OktaConfigService.strPostLogoutURL);
           })
-        this.strFullName = this.strThisUser.name;
+        this.strFullName = await this.strThisUser.name;
+        this.myAccessToken = await this.OktaGetTokenService.GetAccessToken()
+        this.myKey = await this.myAccessToken.claims.myKey;
+        this.myEmail = await this.myAccessToken.claims.sub;
+// console.log(this.myAccessToken)
+        await this.GetMyWebsites(this.OktaConfigService.strMyWebsiteURL, this.myKey, this.myEmail)
 
         break;
     }
-    console.log(this.strThisUser)
+    console.log(this.strThisUser);
+    console.log(this.myKey);
 
   }
 
-  // async OpenWebsite(url) {
-  //   await window.open(url, '_blank');
+  myWebsites;
+  async GetMyWebsites(url, mykey, email) {
+    let requestURI;
+    requestURI = url;
 
-  // }
+    let requestBody;
+    requestBody = {
+      mykey: mykey,
+      email: email,
+
+    }
+    this.myWebsites = await this.OktaApiService.InvokeFlow(requestURI, requestBody);
+    console.log(this.myWebsites);
+
+  }
 
 }
 
