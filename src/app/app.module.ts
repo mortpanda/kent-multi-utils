@@ -17,6 +17,8 @@ import {MenubarModule} from 'primeng/menubar';
 import { StartComponent } from './start/start.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WebsitesComponent } from './websites/websites.component';
+import {PanelModule} from 'primeng/panel';
+import {CardModule} from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { WebsitesComponent } from './websites/websites.component';
     ToolbarModule,
     MenubarModule,
     HttpClientModule,
+    PanelModule,
+    CardModule,
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
