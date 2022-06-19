@@ -22,9 +22,9 @@ export class OktaConfigService {
   strBrand = '#abd5d6';
   strLogo = "assets/img/gunmachan.jpg";
   strMeEP = '/api/v1/users/me';
-  
-strMyWebsiteURL = 'https://kent-nagao-oie.workflows.oktapreview.com/api/flo/439a805c4248b81d24da704d697d13df/invoke';
 
+  strMyWebsiteURL = 'https://kent-nagao-oie.workflows.oktapreview.com/api/flo/439a805c4248b81d24da704d697d13df/invoke';
+  strMyCaterigory = 'https://kent-nagao-oie.workflows.oktapreview.com/api/flo/91e7db2628468a341efeede851d3da27/invoke';
   strGitHubRepo = "https://github.com/mortpanda/my-apps-launcher-v2";
 
   //Git Pages https://kent-nagao-oie.oktapreview.com

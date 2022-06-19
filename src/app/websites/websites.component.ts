@@ -11,7 +11,7 @@ import { GetGeolocationService } from '../shared/geolocation/geolocation.service
 import { GetWeatherService } from '../shared/weather/get-weather.service';
 import { DataService } from '../shared/data-service/data.service';
 import { OktaApiService } from '../shared/okta/okta-api.service';
-import { EmailValidator } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-websites',
@@ -34,6 +34,10 @@ export class WebsitesComponent implements OnInit {
   myTemp;
   myLocation;
   myWeather;
+  mySites: boolean;
+  myWebsites;
+  myCategories;
+  myAPIStatus;
 
   constructor(
     private OktaGetTokenService: OktaGetTokenService,
@@ -46,6 +50,7 @@ export class WebsitesComponent implements OnInit {
     public GetWeatherService: GetWeatherService,
     private DataService: DataService,
     private OktaApiService: OktaApiService,
+    private messageService: MessageService,
   ) {
     breakpointObserver.observe([
       Breakpoints.XSmall,
@@ -54,6 +59,7 @@ export class WebsitesComponent implements OnInit {
       this.smallScreen = result.matches;
     });
     this.mainAppMenu = this.MenuListService.mainAppMenu;
+    this.mySites = false;
   }
 
 
@@ -79,17 +85,24 @@ export class WebsitesComponent implements OnInit {
         this.myAccessToken = await this.OktaGetTokenService.GetAccessToken()
         this.myKey = await this.myAccessToken.claims.myKey;
         this.myEmail = await this.myAccessToken.claims.sub;
-// console.log(this.myAccessToken)
-        await this.GetMyWebsites(this.OktaConfigService.strMyWebsiteURL, this.myKey, this.myEmail)
+        this.myWebsites = await this.GetMyWebsites(this.OktaConfigService.strMyWebsiteURL, this.myKey, this.myEmail)
+        console.log(this.myWebsites);
+        this.myCategories = await this.GetMyWebsites(this.OktaConfigService.strMyCaterigory, this.myKey, this.myEmail)
+        console.log(this.myCategories);
+        this.mySites = true;
+        // this.myAPIStatus = this.OktaApiService.processApiResponse(this.myWebsites);
+        this.testCat = await this.OktaApiService.processArrayRes(this.myCategories);
+console.log(this.testCat)
 
         break;
+        
     }
     console.log(this.strThisUser);
     console.log(this.myKey);
 
   }
+testCat;
 
-  myWebsites;
   async GetMyWebsites(url, mykey, email) {
     let requestURI;
     requestURI = url;
@@ -100,10 +113,26 @@ export class WebsitesComponent implements OnInit {
       email: email,
 
     }
-    this.myWebsites = await this.OktaApiService.InvokeFlow(requestURI, requestBody);
-    console.log(this.myWebsites);
+    var strWebsites;
+    strWebsites = await this.OktaApiService.InvokeFlow(requestURI, requestBody);
+    return strWebsites;
+
 
   }
+
+
+  toastMsg;
+  showSuccess() {
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: this.toastMsg });
+  }
+
+  showError() {
+    this.messageService.add({ severity: 'error', summary: 'Error', detail: this.toastMsg });
+  }
+  onReject() {
+    this.messageService.clear('c');
+  }
+
 
 }
 

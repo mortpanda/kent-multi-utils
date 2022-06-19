@@ -26,11 +26,11 @@ export class OktaApiService {
     })
       .then(response => response.json())
     let responseJson = await thisFetch;
-    return responseJson       
+    return responseJson
   }
 
 
-  async InvokeFlow(url,content) {
+  async InvokeFlow(url, content) {
     const thisFetch = fetch(url, {
       method: 'POST',
       headers: {
@@ -42,8 +42,39 @@ export class OktaApiService {
     })
       .then(response => response.json())
     let responseJson = await thisFetch;
-    return responseJson       
+    return responseJson
   }
+
+  // async processApiResponse(arrRes) {
+  //   var ResStatus;
+  //   switch (arrRes.length > 0) {
+  //     case true: {
+  //       ResStatus = "SUCCESS"
+  //       break;
+  //     }
+
+  //     case false: {
+  //       ResStatus = "FAILURE"
+  //       break;
+  //     }
+
+  //   }
+  //   return ResStatus;
+  // }
+
+
+
+
+  async processArrayRes(arrCat){
+    let arrCategories;
+    for (let i = 0; i < arrCat.length; i++){
+      console.log(arrCat[i].categories);
+      arrCategories[i] = {label :  arrCat[i].categories};
+    }
+return
+
+  }
+
 
 }
 

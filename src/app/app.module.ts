@@ -13,13 +13,15 @@ import { TooltipModule } from 'primeng/tooltip';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { PrimeIcons } from 'primeng/api';
-import {MenubarModule} from 'primeng/menubar';
+import { MenubarModule } from 'primeng/menubar';
 import { StartComponent } from './start/start.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WebsitesComponent } from './websites/websites.component';
-import {PanelModule} from 'primeng/panel';
-import {CardModule} from 'primeng/card';
-
+import { PanelModule } from 'primeng/panel';
+import { CardModule } from 'primeng/card';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import {TabMenuModule} from 'primeng/tabmenu';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,8 +45,11 @@ import {CardModule} from 'primeng/card';
     HttpClientModule,
     PanelModule,
     CardModule,
+    ToastModule,
+    TabMenuModule,
+    
   ],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule,MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
