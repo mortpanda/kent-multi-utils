@@ -23,11 +23,18 @@
 
                             <div class="sitesDiv" *ngFor="let dailyURL of dailySites">
                                 <p-button id="sitesBtn" (onClick)="OpenWebsite(dailyURL.strUri)">
-                                    <div class="btnDiv"fxLayout="columns wrap" fxLayoutAlign="center">
+                                    <div class="btnDiv" fxLayout="columns wrap" fxLayoutAlign="center">
                                         <div class="leftBtn">
                                             <img src="assets/img/panda-logo.png" class="btnImage">
                                         </div>
-                                        <div class="rightBtn">right</div>
+                                        <div class="rightBtn">
+                                            <h3>{{dailyURL.name}}</h3> 
+                                            {{dailyURL.strUri}}
+                                        </div>
+
+                                        <div class="copyDiv" fxLayout="columns wrap" fxLayoutAlign="center center">
+                                            test
+                                        </div>
                                     </div>
                                 </p-button>
                             </div>
