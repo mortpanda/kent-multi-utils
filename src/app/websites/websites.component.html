@@ -1,6 +1,4 @@
-
 <div class="MainDiv" fxLayout="row wrap" fxLayoutAlign="center center">
-
     <div *ngIf="mySites; else notShow">
         <div class="userName">
             {{strFullName}}
@@ -12,8 +10,7 @@
                 <img src="{{GetWeatherService?.myWeatherIcon}}" class="weatherIcon">
             </div>
         </div>
-
-
+        
         <div class="websitesMainDiv">
             <p-card id="websitesCard">
                 <!-- <p-tabView [model]="myCategories" id="mySiteTab"></p-tabView> -->
@@ -172,14 +169,16 @@
 
 
                 </p-tabView>
-
+                    
             </p-card>
+            
         </div>
+        <app-add-app-dial></app-add-app-dial>
     </div>
     <ng-template #notShow>
         <div class="loader"></div>
     </ng-template>
-    <app-add-app-dial></app-add-app-dial>
+    
 </div>
 
 

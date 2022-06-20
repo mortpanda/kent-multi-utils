@@ -21,8 +21,12 @@ import { PanelModule } from 'primeng/panel';
 import { CardModule } from 'primeng/card';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-import {TabViewModule} from 'primeng/tabview';
+import { TabViewModule } from 'primeng/tabview';
 import { AddAppDialComponent } from './shared/add-app-dial/add-app-dial.component';
+import { UtilModalComponent } from './shared/util-modal/util-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,8 @@ import { AddAppDialComponent } from './shared/add-app-dial/add-app-dial.componen
     ToolbarComponent,
     StartComponent,
     WebsitesComponent,
-    AddAppDialComponent
+    AddAppDialComponent,
+    UtilModalComponent
   ],
   imports: [
     BrowserModule,
@@ -50,9 +55,15 @@ import { AddAppDialComponent } from './shared/add-app-dial/add-app-dial.componen
     CardModule,
     ToastModule,
     TabViewModule,
-    
+    MatDialogModule,
+    FormsModule,
+    InputTextModule,
+
   ],
-  providers: [HttpClientModule,MessageService],
+  providers: [HttpClientModule,
+    MessageService,
+    UtilModalComponent,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

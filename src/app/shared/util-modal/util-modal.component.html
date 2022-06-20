@@ -1,0 +1,55 @@
+<!-- ///////////////////////////////////////// -->
+<!-- Website Add -->
+<!-- ///////////////////////////////////////// -->
+
+
+<div *ngIf="bolWebsite; else notShow" fxLayout="row wrap" fxLayoutAlign="center center">
+    <div class="modalBannerDiv">
+        <img src="assets/img/lion-logo-long.png" class="modalBanner">
+    </div>
+    <div>
+        <span class="p-input-icon-right">
+            <i class="pi pi-spin pi-spinner"></i>
+            <input type="text" pInputText />
+        </span>
+    </div>
+</div>
+<ng-template #notShow></ng-template>
+
+
+<!-- ///////////////////////////////////////// -->
+<!-- Bookmark Add -->
+<!-- ///////////////////////////////////////// -->
+
+
+<div *ngIf="bolBookmark; else notShow">
+    <div class="modalBannerDiv">
+        <img src="assets/img/logo-full.png" class="modalBanner">
+    </div>
+    <div>
+
+    </div>
+</div>
+<ng-template #notShow></ng-template>
+
+
+<!-- ///////////////////////////////////////// -->
+<!-- Toast content -->
+<!-- ///////////////////////////////////////// -->
+<p-toast position="top-right"></p-toast>
+<p-toast position="top-left" key="tl"></p-toast>
+<p-toast position="top-center" key="tc"></p-toast>
+<p-toast position="bottom-center" key="bc"></p-toast>
+
+<p-toast position="top-right" key="c" (onClose)="onReject()" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="p-flex p-flex-column" style="flex: 1">
+            <div class="p-text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+
+        </div>
+    </ng-template>
+</p-toast>

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { ViewEncapsulation } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import {UtilModalComponent} from '../util-modal/util-modal.component';
+import { DataService } from '../data-service/data.service';
+import { Subject, BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 
 @Component({
   selector: 'app-add-app-dial',
@@ -10,32 +14,44 @@ import { ViewEncapsulation } from '@angular/core';
 })
 export class AddAppDialComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _matdialog: MatDialog,
+    private UtilModalComponent:UtilModalComponent,
+    private DataService: DataService,
+  ) { }
 
   addUtils = [
     {
       tooltipOptions: {
         tooltipLabel: "Add Websites",
-        tooltipPosition: "top",
+        tooltipPosition: "left",
       },
       icon: "pi pi-microsoft",
-      // style: 'font-size: 2rem;',
       command: () => {
-        this.GoHome();
+        this.openModal("addWebsites");
       }
     },
     {
       tooltipOptions: {
         tooltipLabel: "Add Bookmark",
-        tooltipPosition: "top",
+        tooltipPosition: "left",
       },
       icon: "pi pi-star-fill",
-      // style: 'font-size: 2rem;',
       command: () => {
-        this.GoHome();
+        this.openModal("addBookmark");
       }
     },
   ]
+
+  openModal(action) {
+    this.DataService.changeMessage(action);
+    const DialogConfig = new MatDialogConfig();
+    DialogConfig.disableClose = false;
+    DialogConfig.id = "modal-component";
+    DialogConfig.height = "auto";
+    DialogConfig.width = "400px";
+    const modalDialog = this._matdialog.open(UtilModalComponent, DialogConfig);
+  }
 
 
   ngOnInit(): void {
