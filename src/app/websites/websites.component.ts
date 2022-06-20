@@ -13,6 +13,7 @@ import { DataService } from '../shared/data-service/data.service';
 import { OktaApiService } from '../shared/okta/okta-api.service';
 import { MessageService } from 'primeng/api';
 
+
 @Component({
   selector: 'app-websites',
   templateUrl: './websites.component.html',
@@ -38,6 +39,8 @@ export class WebsitesComponent implements OnInit {
   myWebsites;
   myCategories;
   myAPIStatus;
+  GetWebsiteStatus;
+  toastMsg;
 
   constructor(
     private OktaGetTokenService: OktaGetTokenService,
@@ -87,21 +90,138 @@ export class WebsitesComponent implements OnInit {
         this.myEmail = await this.myAccessToken.claims.sub;
         this.myWebsites = await this.GetMyWebsites(this.OktaConfigService.strMyWebsiteURL, this.myKey, this.myEmail)
         console.log(this.myWebsites);
-        this.myCategories = await this.GetMyWebsites(this.OktaConfigService.strMyCaterigory, this.myKey, this.myEmail)
-        console.log(this.myCategories);
-        this.mySites = true;
-        // this.myAPIStatus = this.OktaApiService.processApiResponse(this.myWebsites);
-        this.testCat = await this.OktaApiService.processArrayRes(this.myCategories);
-console.log(this.testCat)
+        this.GetWebsiteStatus = await this.OktaApiService.processApiResponse(this.myWebsites);
+        await console.log(this.GetWebsiteStatus);
 
+        switch (this.GetWebsiteStatus) {
+          case "SUCCESS": {
+            this.toastMsg = "Websites Downloaded";
+            this.showSuccess();
+            //here
+            await this.processWebSites(this.myWebsites);
+            break;
+          }
+          case "FAILURE": {
+            this.toastMsg = "FAILED";
+            this.showError();
+            break;
+          }
+        }
+
+
+
+        this.mySites = true;
         break;
-        
+
     }
     console.log(this.strThisUser);
     console.log(this.myKey);
 
   }
-testCat;
+
+  myOieuApps = [];
+  DevInfo = [];
+  Klab = [];
+  websiteOkta = [];
+  userDashboard = [];
+  adminDashboard = [];
+  dailySites = [];
+
+  async processWebSites(arrWebsites) {
+    var intOIE = 0;
+    var intDevInfo = 0;
+    var intKlab = 0;
+    var intOktaSites = 0;
+    var intUserDash = 0;
+    var intAdminDash = 0;
+    var intDaly = 0;
+    for (var i = 0; i < arrWebsites.length; i++) {
+
+      switch (arrWebsites[i].websiteCategory) {
+        case "My OIE Project Apps": {
+          //myOiuApps
+
+          this.myOieuApps[intOIE] = ({
+            name: arrWebsites[i].websiteName,
+            strUri: arrWebsites[i].websiteURL,
+            strCat: arrWebsites[i].websiteCategory,
+          })
+          intOIE++
+          break;
+        }
+        case "Dev Info": {
+          //DevInfo
+          this.DevInfo[intDevInfo] = ({
+            name: arrWebsites[i].websiteName,
+            strUri: arrWebsites[i].websiteURL,
+            strCat: arrWebsites[i].websiteCategory,
+          })
+          intDevInfo++
+          break;
+        }
+        case "KLab Sites": {
+          //Klab
+          this.Klab[intKlab] = ({
+            name: arrWebsites[i].websiteName,
+            strUri: arrWebsites[i].websiteURL,
+            strCat: arrWebsites[i].websiteCategory,
+          })
+          intKlab++
+          break;
+        }
+        case "Okta Websites": {
+          //websiteOkta
+          this.websiteOkta[intOktaSites] = ({
+            name: arrWebsites[i].websiteName,
+            strUri: arrWebsites[i].websiteURL,
+            strCat: arrWebsites[i].websiteCategory,
+          })
+          intOktaSites++
+          break;
+        }
+        case "User Dashboards": {
+          //userDashboard
+          this.userDashboard[intUserDash] = ({
+            name: arrWebsites[i].websiteName,
+            strUri: arrWebsites[i].websiteURL,
+            strCat: arrWebsites[i].websiteCategory,
+          })
+          intUserDash++
+          break;
+        }
+        case "Admin Dashboards": {
+          //adminDashboard
+          this.adminDashboard[intAdminDash] = ({
+            name: arrWebsites[i].websiteName,
+            strUri: arrWebsites[i].websiteURL,
+            strCat: arrWebsites[i].websiteCategory,
+          })
+          intAdminDash++
+          break;
+        }
+        case "Daily Websites": {
+          //dailySites
+          this.dailySites[intDaly] = ({
+            name: arrWebsites[i].websiteName,
+            strUri: arrWebsites[i].websiteURL,
+            strCat: arrWebsites[i].websiteCategory,
+          })
+          intDaly++
+          break;
+        }
+
+      }
+
+
+    }
+    console.log(this.myOieuApps)
+    console.log(this.DevInfo)
+    console.log(this.Klab)
+    console.log(this.websiteOkta)
+    console.log(this.userDashboard)
+    console.log(this.adminDashboard)
+    console.log(this.dailySites)
+  }
 
   async GetMyWebsites(url, mykey, email) {
     let requestURI;
@@ -117,11 +237,14 @@ testCat;
     strWebsites = await this.OktaApiService.InvokeFlow(requestURI, requestBody);
     return strWebsites;
 
+  }
+
+  async OpenWebsite(url) {
+    await window.open(url, '_blank');
 
   }
 
 
-  toastMsg;
   showSuccess() {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: this.toastMsg });
   }

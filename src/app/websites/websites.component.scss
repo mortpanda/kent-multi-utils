@@ -1,67 +1,186 @@
 .websitesMainDiv {
-    // border-style: dotted;
-    // margin-top: 50px !important;
+  // border-style: dotted;
+  // margin-top: 50px !important;
 
-    width: 85vw !important;
-    height: 75vh !important;
-}
-
-
-
-#websitesCard{
-    .p-card{
-// -webkit-box-shadow: 0px 5px 12px 0px #6e6e78 !important;
-        // box-shadow: 0px 5px 12px 0px #6e6e78 !important;
-        height: 75vh !important;
-        opacity: .2;
-    }
+  width: 80vw !important;
+  height: 75vh !important;
 }
 
 .loader {
-    margin-top:10vh!important;
-    /* the colors */
-    --c1: #F77825;
-    --c2: #D3CE3D;
-    --c3: #60B99A;
-    --c4: #554236;
-    /**/
-    
-    width: 180px; /* control the size */
-    aspect-ratio: 8/5;
-    --_g: no-repeat radial-gradient(#000 68%,#0000 71%);
-    -webkit-mask: var(--_g),var(--_g),var(--_g);
-    -webkit-mask-size: 25% 40%;
-    background: 
-      conic-gradient(var(--c1) 50%,var(--c2) 0) no-repeat,
-      conic-gradient(var(--c3) 50%,var(--c4) 0) no-repeat;
-    background-size: 200% 50%;
-    animation: 
-      back 4s infinite steps(1),
-      load 2s infinite;
+  margin-top: 10vh !important;
+  /* the colors */
+  --c1: #F77825;
+  --c2: #D3CE3D;
+  --c3: #60B99A;
+  --c4: #554236;
+  /**/
+
+  width: 180px;
+  /* control the size */
+  aspect-ratio: 8/5;
+  --_g: no-repeat radial-gradient(#000 68%, #0000 71%);
+  -webkit-mask: var(--_g), var(--_g), var(--_g);
+  -webkit-mask-size: 25% 40%;
+  background:
+    conic-gradient(var(--c1) 50%, var(--c2) 0) no-repeat,
+    conic-gradient(var(--c3) 50%, var(--c4) 0) no-repeat;
+  background-size: 200% 50%;
+  animation:
+    back 4s infinite steps(1),
+    load 2s infinite;
+}
+
+@keyframes load {
+  0% {
+    -webkit-mask-position: 0% 0%, 50% 0%, 100% 0%
   }
-  
-  @keyframes load {
-    0%    {-webkit-mask-position: 0% 0%  ,50% 0%  ,100% 0%  }
-    16.67%{-webkit-mask-position: 0% 100%,50% 0%  ,100% 0%  }
-    33.33%{-webkit-mask-position: 0% 100%,50% 100%,100% 0%  }
-    50%   {-webkit-mask-position: 0% 100%,50% 100%,100% 100%}
-    66.67%{-webkit-mask-position: 0% 0%  ,50% 100%,100% 100%}
-    83.33%{-webkit-mask-position: 0% 0%  ,50% 0%  ,100% 100%}
-    100%  {-webkit-mask-position: 0% 0%  ,50% 0%  ,100% 0%  }
+
+  16.67% {
+    -webkit-mask-position: 0% 100%, 50% 0%, 100% 0%
   }
-  @keyframes back {
-    0%,
-    100%{background-position: 0%   0%,0%   100%}
-    25% {background-position: 100% 0%,0%   100%}
-    50% {background-position: 100% 0%,100% 100%}
-    75% {background-position: 0%   0%,100% 100%}
+
+  33.33% {
+    -webkit-mask-position: 0% 100%, 50% 100%, 100% 0%
   }
-  
-  
-  
+
+  50% {
+    -webkit-mask-position: 0% 100%, 50% 100%, 100% 100%
+  }
+
+  66.67% {
+    -webkit-mask-position: 0% 0%, 50% 100%, 100% 100%
+  }
+
+  83.33% {
+    -webkit-mask-position: 0% 0%, 50% 0%, 100% 100%
+  }
+
+  100% {
+    -webkit-mask-position: 0% 0%, 50% 0%, 100% 0%
+  }
+}
+
+@keyframes back {
+
+  0%,
+  100% {
+    background-position: 0% 0%, 0% 100%
+  }
+
+  25% {
+    background-position: 100% 0%, 0% 100%
+  }
+
+  50% {
+    background-position: 100% 0%, 100% 100%
+  }
+
+  75% {
+    background-position: 0% 0%, 100% 100%
+  }
+}
+
+#websitesCard {
+  .p-card {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    height: 75vh !important;
+    background-color: transparent !important;
+    overflow-y: auto;
+  }
+}
+
 //   body {
 //     margin:0;
 //     min-height:100vh;
 //     display:grid;
 //     place-content:center;
 //   }
+#mySiteTab {
+
+  .p-tabview {
+    background-color: transparent !important;
+
+    .p-tabview-nav {
+      background-color: transparent !important;
+    }
+  }
+
+  .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+    background-color: transparent !important;
+    color: #FFFFFF;
+  }
+
+  .p-tabview-panels {
+    background-color: transparent !important;
+  }
+
+  .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+
+    padding: 1rem;
+    font-weight: 300;
+
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#websitesCard {
+  .p-card::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#websitesCard {
+  .p-card {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+}
+
+.sitesDiv {
+  // border-style: dotted;
+  width: 250px !important;
+  height: 100px !important;
+  margin: 5px !important;
+}
+
+#sitesBtn {
+  .p-button {
+    width: 250px !important;
+    height: 100px !important;
+    background-color: #FFFFFF !important;
+    color: gray !important;
+    border-color: gray !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+}
+
+.btnDiv {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.leftBtn {
+  color: black;
+  border-style: dotted;
+  width: 30% !important;
+}
+
+.rightBtn {
+  color: black;
+  border-style: dotted;
+  width: 70% !important;
+  font-size: 10px!important;
+}
+
+.btnImage {
+  margin-top:10px!important;
+  width: 65px !important;
+}

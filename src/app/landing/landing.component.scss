@@ -5,7 +5,7 @@
 
 .smlandingMainDiv{
     // border-style: dotted !important;   
-    margin-top: 50px!important;
+    margin-top: 20px!important;
 
 }
 
@@ -16,10 +16,17 @@
     // margin-top: 50px !important;
 }
 
-#okta-sign-in {
+.lgWidget{
+  margin-top:20px!important;
+}
 
+.smWidget{
+  margin-top:20px!important;
+}
+
+#okta-sign-in {
     margin: 0px !important;
-    margin-top: 20px !important;
+    // margin-top: 50px !important;
     border-width: 1px!important;
     border-style: solid!important;
     // border-color: #FFFFFF!important;

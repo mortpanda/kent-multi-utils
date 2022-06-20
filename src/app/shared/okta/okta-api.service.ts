@@ -45,35 +45,38 @@ export class OktaApiService {
     return responseJson
   }
 
-  // async processApiResponse(arrRes) {
-  //   var ResStatus;
-  //   switch (arrRes.length > 0) {
-  //     case true: {
-  //       ResStatus = "SUCCESS"
-  //       break;
-  //     }
+  async processApiResponse(arrRes) {
+    var ResStatus;
+    switch (arrRes.length > 0) {
+      case true: {
+        ResStatus = "SUCCESS"
+        break;
+      }
 
-  //     case false: {
-  //       ResStatus = "FAILURE"
-  //       break;
-  //     }
+      case false: {
+        ResStatus = "FAILURE"
+        break;
+      }
+
+    }
+    return ResStatus;
+  }
+
+
+
+  // CatTabLabel = {};
+  // async processArrayRes(arrCat) {
+  //   let arrCategories;
+  //   for (var i = 0; i < arrCat.length; i++) {
+  //     this.CatTabLabel[i] = {
+  //       label: arrCat[i].categories
+  //     };
+      
 
   //   }
-  //   return ResStatus;
+  //   console.log(this.CatTabLabel)
+  //   //return
   // }
-
-
-
-
-  async processArrayRes(arrCat){
-    let arrCategories;
-    for (let i = 0; i < arrCat.length; i++){
-      console.log(arrCat[i].categories);
-      arrCategories[i] = {label :  arrCat[i].categories};
-    }
-return
-
-  }
 
 
 }

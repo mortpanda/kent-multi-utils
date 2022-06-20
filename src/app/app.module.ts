@@ -21,7 +21,8 @@ import { PanelModule } from 'primeng/panel';
 import { CardModule } from 'primeng/card';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-import {TabMenuModule} from 'primeng/tabmenu';
+import {TabViewModule} from 'primeng/tabview';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,7 @@ import {TabMenuModule} from 'primeng/tabmenu';
     PanelModule,
     CardModule,
     ToastModule,
-    TabMenuModule,
+    TabViewModule,
     
   ],
   providers: [HttpClientModule,MessageService],

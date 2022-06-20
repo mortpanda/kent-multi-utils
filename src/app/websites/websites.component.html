@@ -15,7 +15,41 @@
 
         <div class="websitesMainDiv">
             <p-card id="websitesCard">
-                <p-tabMenu [model]="myCategories"></p-tabMenu>
+                <!-- <p-tabView [model]="myCategories" id="mySiteTab"></p-tabView> -->
+                <p-tabView id="mySiteTab">
+                    <p-tabPanel header="Daily Websites" leftIcon="pi pi-bookmark-fill">
+
+                        <div fxLayout="columns wrap" fxLayoutAlign="center">
+
+                            <div class="sitesDiv" *ngFor="let dailyURL of dailySites">
+                                <p-button id="sitesBtn" (onClick)="OpenWebsite(dailyURL.strUri)">
+                                    <div class="btnDiv"fxLayout="columns wrap" fxLayoutAlign="center">
+                                        <div class="leftBtn">
+                                            <img src="assets/img/panda-logo.png" class="btnImage">
+                                        </div>
+                                        <div class="rightBtn">right</div>
+                                    </div>
+                                </p-button>
+                            </div>
+
+                        </div>
+                    </p-tabPanel>
+
+                    <p-tabPanel header="Admin Dashboard" leftIcon="pi pi-spin pi-cog">
+                        <!-- <div class="sitesDiv" *ngFor="let dailyURL of dailySites">test</div> -->
+                    </p-tabPanel>
+
+                    <p-tabPanel header="User Dashboard" leftIcon="pi pi-users"></p-tabPanel>
+                    <p-tabPanel header="Okta Sites" leftIcon="pi pi-cloud"></p-tabPanel>
+                    <p-tabPanel header="K-Lab Apps" leftIcon="pi pi-box"></p-tabPanel>
+                    <p-tabPanel header="Dev Info" leftIcon="pi pi-code"></p-tabPanel>
+                    <p-tabPanel header="My OIE Projects" leftIcon="pi pi-microsoft"></p-tabPanel>
+                    <p-tabPanel header="Dashmachine" leftIcon="pi pi-table"></p-tabPanel>
+
+
+
+                </p-tabView>
+
             </p-card>
         </div>
     </div>
