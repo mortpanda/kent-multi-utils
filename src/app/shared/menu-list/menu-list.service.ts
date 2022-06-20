@@ -37,6 +37,20 @@ export class MenuListService {
       }
     },
 
+
+    {
+      tooltipOptions: {
+        tooltipLabel: "Bookmarks",
+        tooltipPosition: "top",
+      },
+      icon: "pi pi-box",
+      style: 'font-size: 2rem;',
+      command: () => {
+        this.GoHome();
+      }
+    },
+
+
     {
       tooltipOptions: {
         tooltipLabel: "World Clock",

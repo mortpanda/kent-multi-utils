@@ -27,6 +27,7 @@ import { UtilModalComponent } from './shared/util-modal/util-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
+import { BookmarksComponent } from './bookmarks/bookmarks.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { InputTextModule } from 'primeng/inputtext';
     StartComponent,
     WebsitesComponent,
     AddAppDialComponent,
-    UtilModalComponent
+    UtilModalComponent,
+    BookmarksComponent
   ],
   imports: [
     BrowserModule,
