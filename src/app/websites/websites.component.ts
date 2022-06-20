@@ -42,6 +42,19 @@ export class WebsitesComponent implements OnInit {
   GetWebsiteStatus;
   toastMsg;
 
+  myOieuApps = [];
+  DevInfo = [];
+  Klab = [];
+  websiteOkta = [];
+  userDashboard = [];
+  adminDashboard = [];
+  dailySites = [];
+  personalApps = [];
+
+  myApps;
+  myProcessedApps = [];
+
+
   constructor(
     private OktaGetTokenService: OktaGetTokenService,
     private OktaSDKAuthService: OktaSDKAuthService,
@@ -89,13 +102,16 @@ export class WebsitesComponent implements OnInit {
         this.myKey = await this.myAccessToken.claims.myKey;
         this.myEmail = await this.myAccessToken.claims.sub;
         this.myWebsites = await this.GetMyWebsites(this.OktaConfigService.strMyWebsiteURL, this.myKey, this.myEmail)
-        console.log(this.myWebsites);
+        // console.log(this.myWebsites);
         this.GetWebsiteStatus = await this.OktaApiService.processApiResponse(this.myWebsites);
-        await console.log(this.GetWebsiteStatus);
+        // await console.log(this.GetWebsiteStatus);
 
+        this.myApps = await this.GetMyWebsites(this.OktaConfigService.strMyApps, this.myKey, this.myEmail)
+        console.log(this.myApps);
         switch (this.GetWebsiteStatus) {
           case "SUCCESS": {
             this.toastMsg = "Websites Downloaded";
+            this.processApps(this.myApps);
             this.showSuccess();
             //here
             await this.processWebSites(this.myWebsites);
@@ -111,21 +127,14 @@ export class WebsitesComponent implements OnInit {
 
 
         this.mySites = true;
+        console.log(this.myApps)
         break;
 
     }
-    console.log(this.strThisUser);
-    console.log(this.myKey);
+    // console.log(this.strThisUser);
+    // console.log(this.myKey);
 
   }
-
-  myOieuApps = [];
-  DevInfo = [];
-  Klab = [];
-  websiteOkta = [];
-  userDashboard = [];
-  adminDashboard = [];
-  dailySites = [];
 
   async processWebSites(arrWebsites) {
     var intOIE = 0;
@@ -135,9 +144,20 @@ export class WebsitesComponent implements OnInit {
     var intUserDash = 0;
     var intAdminDash = 0;
     var intDaly = 0;
+    var intPersonalApp = 0;
     for (var i = 0; i < arrWebsites.length; i++) {
 
       switch (arrWebsites[i].websiteCategory) {
+        case "My Personal Apps":{
+          this.personalApps[intPersonalApp] = ({
+            name: arrWebsites[i].websiteName,
+            strUri: arrWebsites[i].websiteURL,
+            strCat: arrWebsites[i].websiteCategory,
+          })
+          intPersonalApp++
+          break;
+        }
+
         case "My OIE Project Apps": {
           //myOiuApps
 
@@ -215,12 +235,52 @@ export class WebsitesComponent implements OnInit {
 
     }
     console.log(this.myOieuApps)
-    console.log(this.DevInfo)
-    console.log(this.Klab)
-    console.log(this.websiteOkta)
-    console.log(this.userDashboard)
-    console.log(this.adminDashboard)
-    console.log(this.dailySites)
+    // console.log(this.DevInfo)
+    // console.log(this.Klab)
+    // console.log(this.websiteOkta)
+    // console.log(this.userDashboard)
+    // console.log(this.adminDashboard)
+    // console.log(this.dailySites)
+    console.log(this.personalApps)
+  }
+
+
+
+
+  ghURL = "https://mortpanda.github.io/";
+  bolGHURL: boolean;
+  async processApps(arrApps) {
+    for (var i = 0; i < arrApps.length; i++) {
+      switch (arrApps[i].Label) {
+        case "Okta Workflows": {
+          break;
+        }
+        case "Okta Workflows OAuth": {
+          break;
+        }
+        default: {
+          for (var n = 0; n < arrApps[i]["Settings.oauthClient.post_logout_redirect_uris"].length; n++) {
+            this.bolGHURL = arrApps[i]["Settings.oauthClient.post_logout_redirect_uris"][n].includes(this.ghURL);
+            switch (this.bolGHURL) {
+              case true: {
+                this.myProcessedApps.push({
+                  label: arrApps[i].Label,
+                  logoURI: arrApps[i]["Links.logo.0.href"],
+                  struri: arrApps[i]["Settings.oauthClient.post_logout_redirect_uris"][n],
+                });
+                break;
+              }
+              default: {
+                break;
+              }
+            }
+          }
+          break;
+        }
+      }
+
+    }
+    console.log(this.myProcessedApps)
   }
 
   async GetMyWebsites(url, mykey, email) {
@@ -231,17 +291,14 @@ export class WebsitesComponent implements OnInit {
     requestBody = {
       mykey: mykey,
       email: email,
-
     }
     var strWebsites;
     strWebsites = await this.OktaApiService.InvokeFlow(requestURI, requestBody);
     return strWebsites;
-
   }
 
   async OpenWebsite(url) {
     await window.open(url, '_blank');
-
   }
 
 
@@ -255,6 +312,8 @@ export class WebsitesComponent implements OnInit {
   onReject() {
     this.messageService.clear('c');
   }
+
+
 
 
 }

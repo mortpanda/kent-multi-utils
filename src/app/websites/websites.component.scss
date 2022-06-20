@@ -180,6 +180,8 @@
 .rightBtn {
   width: 60% !important;
   font-size: 10px!important;
+  word-break: break-all!important;
+  padding:3px!important;
 }
 
 .btnImage {
@@ -190,4 +192,16 @@
   border-width: 1px!important;
   border-color: #6e6e78!important;
   border-style: solid!important;
+}
+
+
+.myOIEApps{
+  margin-top:10px!important;
+  width: 65px !important;
+  padding:5px!important;
+
+  border-radius: 5px!important;
+  border-width: 1px!important;
+  border-color: #6e6e78!important;
+  border-style: solid!important; 
 }
