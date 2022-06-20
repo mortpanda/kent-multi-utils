@@ -22,6 +22,7 @@ import { CardModule } from 'primeng/card';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import {TabViewModule} from 'primeng/tabview';
+import { AddAppDialComponent } from './shared/add-app-dial/add-app-dial.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {TabViewModule} from 'primeng/tabview';
     NavMainComponent,
     ToolbarComponent,
     StartComponent,
-    WebsitesComponent
+    WebsitesComponent,
+    AddAppDialComponent
   ],
   imports: [
     BrowserModule,
