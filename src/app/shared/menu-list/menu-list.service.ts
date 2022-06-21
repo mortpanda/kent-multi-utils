@@ -32,9 +32,7 @@ export class MenuListService {
       },
       icon: "pi pi-home",
       // style: 'font-size: 2rem;',
-      command: () => {
-        this.GoHome();
-      }
+      routerLink: '/todo'
     },
 
 
@@ -45,9 +43,7 @@ export class MenuListService {
       },
       icon: "pi pi-bookmark-fill",
       // style: 'font-size: 2rem;',
-      command: () => {
-        this.GoHome();
-      }
+      routerLink: '/bookmarks'
     },
 
 

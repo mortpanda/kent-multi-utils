@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './landing/landing.component';
 import { StartComponent } from './start/start.component';
 import { WebsitesComponent } from './websites/websites.component';
+import { BookmarksComponent } from './bookmarks/bookmarks.component';
+import { TodoComponent } from './todo/todo.component';
 
 
 const routes: Routes = [
@@ -10,7 +12,8 @@ const routes: Routes = [
   { path: 'home', component: LandingComponent },
   { path: 'start', component: StartComponent },
   { path: 'websites', component: WebsitesComponent },
-
+  { path: 'bookmarks', component: BookmarksComponent },
+  { path: 'todo', component: TodoComponent },
 
 ];
 
