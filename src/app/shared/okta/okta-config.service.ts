@@ -23,6 +23,8 @@ export class OktaConfigService {
   strLogo = "assets/img/gunmachan.jpg";
   strMeEP = '/api/v1/users/me';
 
+  strNewWebAppURL = 'https://kent-nagao-oie.workflows.oktapreview.com/api/flo/f066140d60dbfa706917bca22d356db5/invoke?clientToken=56a83d5219430fa4cc762f11cc707c562d130ca07da1adc2ef00ff9887e5d306';
+
   strMyApps = 'https://kent-nagao-oie.workflows.oktapreview.com/api/flo/1204b24b6ac85ad98634a2dc0f1b3a25/invoke?clientToken=09b91e7095e6b9c303f96f672c8d49f2c5ff723b0e91cf24be0081e8c87faf91';
 
   strMyWebsiteURL = 'https://kent-nagao-oie.workflows.oktapreview.com/api/flo/439a805c4248b81d24da704d697d13df/invoke?clientToken=8ac5ca94a0b9dd81258c4fbf45692836f53a88773b8ef464b8cc50ab22eadc6b';

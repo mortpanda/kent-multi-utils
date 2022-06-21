@@ -32,6 +32,7 @@ export class UtilModalComponent implements OnInit {
   webAppName;
   webAppURL;
   SelectedWebCat;
+  newWebAppRes;
 
   constructor(
     private DataService: DataService,
@@ -42,6 +43,12 @@ export class UtilModalComponent implements OnInit {
   ) {
     this.bolWebsite = false;
     this.bolBookmark = false;
+
+
+
+    // this.webAppName = 'Test';
+    // this.webAppURL = 'https://test.com';
+
   }
 
 
@@ -52,13 +59,13 @@ export class UtilModalComponent implements OnInit {
     this.myEmail = await this.myAccessToken.claims.sub;
     switch (this.selectedMessage) {
       case "addWebsites": {
+
         this.myWebAppCat = await this.GetWebAppCategories(this.OktaConfigService.strMyWebAppCategory, this.myKey, this.myEmail);
         console.log(this.myWebAppCat);
-
-
         this.bolWebsite = true;
         this.bolBookmark = false;
         break;
+
       }
       case "addBookmark": {
         this.bolBookmark = true;
@@ -68,9 +75,52 @@ export class UtilModalComponent implements OnInit {
     }
   }
 
-async SaveWebApp(){
-  
-}
+
+  async SaveWebApp() {
+    try{
+    this.myAccessToken = await this.OktaGetTokenService.GetAccessToken();
+    this.myKey = await this.myAccessToken.claims.myKey;
+    this.myEmail = await this.myAccessToken.claims.sub;
+
+    this.newWebAppRes = await this.uploadWebApp(this.OktaConfigService.strNewWebAppURL, this.myKey, this.myEmail, this.webAppName, this.SelectedWebCat.label, this.webAppURL);
+
+    switch (this.newWebAppRes.status) {
+      case "Web app uploaded": {
+        this.toastMsg = "Upload Complete";
+        this.showSuccess();
+        break;
+      }
+      default: {
+        this.showError()
+        break;
+      }
+    }
+  }
+  catch(error) {
+    this.showError()
+  }
+
+  }
+
+  async uploadWebApp(url, mykey, email, appName, appCategory, appUri) {
+    let requestURI;
+    requestURI = url;
+
+    let requestBody;
+    requestBody = {
+      mykey: mykey,
+      email: email,
+      category: appCategory,
+      appname: appName,
+      appUri: appUri,
+
+    }
+
+    let newWebApp;
+    newWebApp = await this.OktaApiService.InvokeFlow(requestURI, requestBody);
+    console.log(newWebApp.status);
+    return newWebApp;
+  }
 
   async GetWebAppCategories(url, mykey, email) {
     let requestURI;
