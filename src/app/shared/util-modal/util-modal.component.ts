@@ -3,8 +3,6 @@ import { ViewEncapsulation } from '@angular/core';
 import { DataService } from '../data-service/data.service';
 import { Subject, BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 import { MessageService } from 'primeng/api';
-// import { OktaSDKAuthService } from '../../shared/okta/okta-auth.service';
-// import { OktaAuth } from '@okta/okta-auth-js'
 import { OktaConfigService } from "../../shared/okta/okta-config.service";
 import { OktaApiService } from "../../shared/okta/okta-api.service";
 import { OktaGetTokenService } from '../../shared/okta/okta-get-token.service';
@@ -28,11 +26,19 @@ export class UtilModalComponent implements OnInit {
   myAccessToken;
   myEmail;
 
-  myWebAppCat: myWebAppCat[];
+  myCat: myWebAppCat[];
   webAppName;
   webAppURL;
   SelectedWebCat;
   newWebAppRes;
+
+  SelectedBookmarkCat;
+  bookmarkName;
+  bookmarkURL;
+  newBookmarkRes;
+
+bolProgressWeb
+bolProgressBookmark
 
   constructor(
     private DataService: DataService,
@@ -43,12 +49,6 @@ export class UtilModalComponent implements OnInit {
   ) {
     this.bolWebsite = false;
     this.bolBookmark = false;
-
-
-
-    // this.webAppName = 'Test';
-    // this.webAppURL = 'https://test.com';
-
   }
 
 
@@ -59,22 +59,43 @@ export class UtilModalComponent implements OnInit {
     this.myEmail = await this.myAccessToken.claims.sub;
     switch (this.selectedMessage) {
       case "addWebsites": {
-
-        this.myWebAppCat = await this.GetWebAppCategories(this.OktaConfigService.strMyWebAppCategory, this.myKey, this.myEmail);
-        console.log(this.myWebAppCat);
+        this.bolProgressWeb=true;
+        this.bolProgressBookmark=false;
+        this.myCat = await this.GetWebAppCategories(this.OktaConfigService.strMyWebAppCategory, this.myKey, this.myEmail);
+        console.log(this.myCat);
         this.bolWebsite = true;
         this.bolBookmark = false;
+        
         break;
 
       }
       case "addBookmark": {
+        this.bolProgressWeb=false;
+        this.bolProgressBookmark=true;
+        this.myCat = await this.GetWebAppCategories(this.OktaConfigService.strMyBookmarkCategory, this.myKey, this.myEmail);
+        console.log(this.myCat);
         this.bolBookmark = true;
         this.bolWebsite = false;
+        
         break;
       }
     }
   }
 
+async SaveBookmkark(){
+  try{
+    this.myAccessToken = await this.OktaGetTokenService.GetAccessToken();
+    this.myKey = await this.myAccessToken.claims.myKey;
+    this.myEmail = await this.myAccessToken.claims.sub;
+
+    //create flow and change url
+    this.newBookmarkRes = await this.uploadWebApp(this.OktaConfigService.strNewWebAppURL, this.myKey, this.myEmail, this.webAppName, this.SelectedWebCat.label, this.webAppURL);
+
+  }catch{
+    this.showError()
+  }
+
+}
 
   async SaveWebApp() {
     try{

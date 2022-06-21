@@ -7,14 +7,14 @@
     <div class="modalBannerDiv">
         <img src="assets/img/lion-logo-long.png" class="modalBanner">
     </div>
-    
+
     <div>
         <h2>Add Web App</h2>
     </div>
 
     <div class="addWebAppSpacer">
-        <p-dropdown [options]="myWebAppCat" [(ngModel)]="SelectedWebCat" placeholder="Select a Category" optionLabel="label"
-        [showClear]="true" id="webAppCat"></p-dropdown>
+        <p-dropdown [options]="myCat" [(ngModel)]="SelectedWebCat" placeholder="Select a Category" optionLabel="label"
+            [showClear]="true" id="webAppCat"></p-dropdown>
     </div>
 
     <div class="addWebAppSpacer p-inputgroup">
@@ -26,17 +26,20 @@
         <span class="p-inputgroup-addon"><i class="pi pi-bookmark"></i></span>
         <input type="text" pInputText placeholder="Web App URL" [(ngModel)]="webAppURL" />
     </div>
-    
-   
+
+
 
     <div class="addWebAppSpacer">
-        <p-button label="Submit"  (onClick)="SaveWebApp()"></p-button>
+        <p-button label="Submit" (onClick)="SaveWebApp()"></p-button>
     </div>
 
 </div>
 <ng-template #notShow1>
-    <h2>Downloading Web App Categories</h2>
-    <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+    <div *ngIf="bolProgressWeb; else webNotShow">
+        <h2>Downloading Web App Categories</h2>
+        <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+        <ng-template #webNotShow> </ng-template>
+    </div>
 </ng-template>
 
 
@@ -47,15 +50,43 @@
 <!-- ///////////////////////////////////////// -->
 
 
-<div *ngIf="bolBookmark; else notShow">
+<div *ngIf="bolBookmark; else notShow" fxLayout="row wrap" fxLayoutAlign="center center">
     <div class="modalBannerDiv">
         <img src="assets/img/logo-full.png" class="modalBanner">
     </div>
-    <div>
 
+    <div>
+        <h2>Add Bookmark</h2>
+    </div>
+
+    <div class="addWebAppSpacer">
+        <p-dropdown [options]="myCat" [(ngModel)]="SelectedBookmarkCat" placeholder="Select a Category"
+            optionLabel="label" [showClear]="true" id="webAppCat"></p-dropdown>
+    </div>
+
+    <div class="addWebAppSpacer p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-box"></i></span>
+        <input type="text" pInputText placeholder="Web App Namwe" [(ngModel)]="bookmarkName" />
+    </div>
+
+    <div class="addWebAppSpacer p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-bookmark"></i></span>
+        <input type="text" pInputText placeholder="Web App URL" [(ngModel)]="bookmarkURL" />
+    </div>
+
+
+
+    <div class="addWebAppSpacer">
+        <p-button label="Submit" (onClick)="SaveBookmkark()"></p-button>
     </div>
 </div>
-<ng-template #notShow></ng-template>
+<ng-template #notShow>
+    <div *ngIf="bolProgressBookmark; else bookmarkNotShow">
+        <h2>Downloading Bookmark Categories</h2>
+        <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+        <ng-template #bookmarkNotShow></ng-template>
+    </div>
+</ng-template>
 
 
 

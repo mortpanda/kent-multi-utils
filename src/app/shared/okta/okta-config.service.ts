@@ -31,6 +31,8 @@ export class OktaConfigService {
 
   strMyWebAppCategory = 'https://kent-nagao-oie.workflows.oktapreview.com/api/flo/91e7db2628468a341efeede851d3da27/invoke?clientToken=0aeeb0d6bbda8f086311c8c42b6fef57d5201acb63d8ddca655611a8e18eea02';
 
+  strMyBookmarkCategory='https://kent-nagao-oie.workflows.oktapreview.com/api/flo/216b19754e9042bd3f4ffdf444612696/invoke?clientToken=5229e72c1c7cf051a3d0f3aaaac282dbc830d7b037cb8e2c709c34c6d13f490e';
+
 
   strGitHubRepo = "https://github.com/mortpanda/my-apps-launcher-v2";
 
