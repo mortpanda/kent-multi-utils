@@ -31,6 +31,7 @@ import { BookmarksComponent } from './bookmarks/bookmarks.component';
 import {DividerModule} from 'primeng/divider';
 import {ProgressBarModule} from 'primeng/progressbar';
 import {DropdownModule} from 'primeng/dropdown';
+import { TodoComponent } from './todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {DropdownModule} from 'primeng/dropdown';
     WebsitesComponent,
     AddAppDialComponent,
     UtilModalComponent,
-    BookmarksComponent
+    BookmarksComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
