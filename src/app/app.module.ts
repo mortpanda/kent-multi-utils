@@ -28,6 +28,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { BookmarksComponent } from './bookmarks/bookmarks.component';
+import {DividerModule} from 'primeng/divider';
+import {ProgressBarModule} from 'primeng/progressbar';
+import {DropdownModule} from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -60,6 +63,9 @@ import { BookmarksComponent } from './bookmarks/bookmarks.component';
     MatDialogModule,
     FormsModule,
     InputTextModule,
+    DividerModule,
+    ProgressBarModule,
+    DropdownModule,
 
   ],
   providers: [HttpClientModule,

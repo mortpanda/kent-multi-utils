@@ -19,8 +19,8 @@ export class MenuListService {
         tooltipLabel: "Websites",
         tooltipPosition: "top",
       },
-      icon: "pi pi-bookmark-fill",
-      style: 'font-size: 2rem;',
+      icon: "pi pi-box",
+      // style: 'font-size: 2rem;',
       routerLink: '/websites'
     },
     
@@ -31,7 +31,7 @@ export class MenuListService {
         tooltipPosition: "top",
       },
       icon: "pi pi-home",
-      style: 'font-size: 2rem;',
+      // style: 'font-size: 2rem;',
       command: () => {
         this.GoHome();
       }
@@ -43,8 +43,8 @@ export class MenuListService {
         tooltipLabel: "Bookmarks",
         tooltipPosition: "top",
       },
-      icon: "pi pi-box",
-      style: 'font-size: 2rem;',
+      icon: "pi pi-bookmark-fill",
+      // style: 'font-size: 2rem;',
       command: () => {
         this.GoHome();
       }
@@ -57,7 +57,7 @@ export class MenuListService {
         tooltipPosition: "top",
       },
       icon: "pi pi-clock",
-      style: 'font-size: 2rem;',
+      // style: 'font-size: 2rem;',
       routerLink: '/'
     },
 

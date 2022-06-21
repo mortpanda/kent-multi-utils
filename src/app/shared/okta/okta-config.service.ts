@@ -23,11 +23,11 @@ export class OktaConfigService {
   strLogo = "assets/img/gunmachan.jpg";
   strMeEP = '/api/v1/users/me';
 
-strMyApps='https://kent-nagao-oie.workflows.oktapreview.com/api/flo/1204b24b6ac85ad98634a2dc0f1b3a25/invoke?clientToken=09b91e7095e6b9c303f96f672c8d49f2c5ff723b0e91cf24be0081e8c87faf91'  ;
+  strMyApps = 'https://kent-nagao-oie.workflows.oktapreview.com/api/flo/1204b24b6ac85ad98634a2dc0f1b3a25/invoke?clientToken=09b91e7095e6b9c303f96f672c8d49f2c5ff723b0e91cf24be0081e8c87faf91';
 
   strMyWebsiteURL = 'https://kent-nagao-oie.workflows.oktapreview.com/api/flo/439a805c4248b81d24da704d697d13df/invoke?clientToken=8ac5ca94a0b9dd81258c4fbf45692836f53a88773b8ef464b8cc50ab22eadc6b';
 
-  strMyCaterigory = 'https://kent-nagao-oie.workflows.oktapreview.com/api/flo/91e7db2628468a341efeede851d3da27/invoke?clientToken=0aeeb0d6bbda8f086311c8c42b6fef57d5201acb63d8ddca655611a8e18eea02';
+  strMyWebAppCategory = 'https://kent-nagao-oie.workflows.oktapreview.com/api/flo/91e7db2628468a341efeede851d3da27/invoke?clientToken=0aeeb0d6bbda8f086311c8c42b6fef57d5201acb63d8ddca655611a8e18eea02';
 
 
   strGitHubRepo = "https://github.com/mortpanda/my-apps-launcher-v2";
