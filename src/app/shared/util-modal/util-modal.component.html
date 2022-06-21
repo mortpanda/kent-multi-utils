@@ -66,18 +66,18 @@
 
     <div class="addWebAppSpacer p-inputgroup">
         <span class="p-inputgroup-addon"><i class="pi pi-box"></i></span>
-        <input type="text" pInputText placeholder="Web App Namwe" [(ngModel)]="bookmarkName" />
+        <input type="text" pInputText placeholder="Bookmark Description" [(ngModel)]="bookmarkName" />
     </div>
 
     <div class="addWebAppSpacer p-inputgroup">
         <span class="p-inputgroup-addon"><i class="pi pi-bookmark"></i></span>
-        <input type="text" pInputText placeholder="Web App URL" [(ngModel)]="bookmarkURL" />
+        <input type="text" pInputText placeholder="Bookmark URL" [(ngModel)]="bookmarkURL" />
     </div>
 
 
 
     <div class="addWebAppSpacer">
-        <p-button label="Submit" (onClick)="SaveBookmkark()"></p-button>
+        <p-button label="Submit" (onClick)="SaveBookmark()"></p-button>
     </div>
 </div>
 <ng-template #notShow>

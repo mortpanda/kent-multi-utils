@@ -82,14 +82,27 @@ bolProgressBookmark
     }
   }
 
-async SaveBookmkark(){
+async SaveBookmark(){
   try{
     this.myAccessToken = await this.OktaGetTokenService.GetAccessToken();
     this.myKey = await this.myAccessToken.claims.myKey;
     this.myEmail = await this.myAccessToken.claims.sub;
 
-    //create flow and change url
-    this.newBookmarkRes = await this.uploadWebApp(this.OktaConfigService.strNewWebAppURL, this.myKey, this.myEmail, this.webAppName, this.SelectedWebCat.label, this.webAppURL);
+    
+    this.newBookmarkRes = await this.uploadWebApp(this.OktaConfigService.strAddBookmarkURL, this.myKey, this.myEmail, this.bookmarkName, this.SelectedBookmarkCat.label, this.bookmarkURL);
+    console.log(this.newBookmarkRes)
+
+    switch (this.newBookmarkRes.status) {
+      case "Bookmark uploaded": {
+        this.toastMsg = "Upload Complete";
+        this.showSuccess();
+        break;
+      }
+      default: {
+        this.showError()
+        break;
+      }
+    }
 
   }catch{
     this.showError()
@@ -139,7 +152,7 @@ async SaveBookmkark(){
 
     let newWebApp;
     newWebApp = await this.OktaApiService.InvokeFlow(requestURI, requestBody);
-    console.log(newWebApp.status);
+    // console.log(newWebApp.status);
     return newWebApp;
   }
 
