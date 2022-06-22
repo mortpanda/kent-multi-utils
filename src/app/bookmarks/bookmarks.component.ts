@@ -12,6 +12,9 @@ import { GetWeatherService } from '../shared/weather/get-weather.service';
 import { DataService } from '../shared/data-service/data.service';
 import { OktaApiService } from '../shared/okta/okta-api.service';
 import { MessageService } from 'primeng/api';
+import { MatTableDataSource } from '@angular/material/table';
+
+
 
 @Component({
   selector: 'app-bookmarks',
@@ -29,8 +32,10 @@ export class BookmarksComponent implements OnInit {
   myAccessToken;
   myEmail;
 
-  myBookmarks:boolean;
+  myBookmarks: boolean;
   myBookmarkRes;
+  myBookmarkCols: string[] = ['description', 'category', 'siteURL'];
+  myTableSource;
 
   constructor(
     private OktaGetTokenService: OktaGetTokenService,
@@ -53,7 +58,7 @@ export class BookmarksComponent implements OnInit {
     });
     // this.mainAppMenu = this.MenuListService.mainAppMenu;
     // this.mySites = false;
-    this.myBookmarks=false;
+    this.myBookmarks = false;
   }
 
   async ngOnInit() {
@@ -77,8 +82,9 @@ export class BookmarksComponent implements OnInit {
         this.myAccessToken = await this.OktaGetTokenService.GetAccessToken()
         this.myKey = await this.myAccessToken.claims.myKey;
         this.myEmail = await this.myAccessToken.claims.sub;
-       this.myBookmarkRes =  await this.GetMyBookmarks(this.OktaConfigService.strMyBookmarkDownload, this.myKey, this.myEmail)
-       this.myBookmarks=true;
+        this.myBookmarkRes = await this.GetMyBookmarks(this.OktaConfigService.strMyBookmarkDownload, this.myKey, this.myEmail)
+        this.myBookmarks = true;
+        this.myTableSource = new MatTableDataSource(this.myBookmarkRes);
         break;
 
     }
@@ -113,4 +119,11 @@ export class BookmarksComponent implements OnInit {
     this.messageService.clear('c');
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.myTableSource.filter = filterValue.trim().toLowerCase();
+  }
+
 }
+
+

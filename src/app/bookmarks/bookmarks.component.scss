@@ -1,7 +1,83 @@
 .bookmarkDiv {
 
-    border-style: dotted;
+    // border-style: dotted;
 
     width: 80vw !important;
-    height: 75vh !important;
+    height: 70vh !important;
+}
+
+#mainContainerCard {
+    .p-card .p-card-content {
+        padding: 1rem 0;
+        overflow-y: auto !important;
+    }
+}
+
+// #bookmarkTable {
+table.mat-table {
+    min-width: 100% !important;
+    text-align: left !important;
+    margin-top: -20px !important;
+    background-color: #BDBDBD !important;
+    // white-space: nowrap!important;
+
+}
+
+
+
+.mat-form-field {
+    font-size: 12px !important;
+
+}
+
+.mat-cell {
+    font-size: 12px !important;
+    word-break: break-all !important;
+    padding-right: 10px !important;
+    padding-left: 15px !important;
+
+}
+
+.mat-header-cell {
+    //  width: 200px!important;
+    font-size: 14px !important;
+    color: #FFFFFF !important;
+    background-color: #424242 !important;
+    padding-right: 10px !important;
+
+}
+
+.mat-row {
+    height: 38px !important;
+}
+
+.mat-header-row {}
+
+a:link {
+    color: #424242;
+}
+
+a:visited {
+    color: #424242;
+}
+
+a:hover {
+    color: #424242;
+}
+
+a:active {
+    color: #424242;
+}
+
+.bookmarkfilterDiv {
+
+    border-style: dotted;
+    color: #FFFFFF !important;
+
+    width: 100% !important;
+    height: 150px !important;
+    font-size: 14px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+
 }

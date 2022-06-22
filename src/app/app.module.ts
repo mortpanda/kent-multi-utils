@@ -32,6 +32,7 @@ import {DividerModule} from 'primeng/divider';
 import {ProgressBarModule} from 'primeng/progressbar';
 import {DropdownModule} from 'primeng/dropdown';
 import { TodoComponent } from './todo/todo.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { TodoComponent } from './todo/todo.component';
     DividerModule,
     ProgressBarModule,
     DropdownModule,
+    MatTableModule,
 
   ],
   providers: [HttpClientModule,
