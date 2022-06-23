@@ -111,7 +111,7 @@
   // border-style: dotted;
 
   width: 85vw !important;
-
+height:auto!important;
 }
 
 .loader {
@@ -191,7 +191,7 @@
   .p-card {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    height: 75vh !important;
+    // height: 75vh !important;
     background-color: transparent !important;
     overflow-y: auto;
   }
