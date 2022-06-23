@@ -5,7 +5,7 @@ import { StartComponent } from './start/start.component';
 import { WebsitesComponent } from './websites/websites.component';
 import { BookmarksComponent } from './bookmarks/bookmarks.component';
 import { TodoComponent } from './todo/todo.component';
-
+import { WorldtimeComponent } from './worldtime/worldtime.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'websites', component: WebsitesComponent },
   { path: 'bookmarks', component: BookmarksComponent },
   { path: 'todo', component: TodoComponent },
+  { path: 'worldtime', component: WorldtimeComponent },
 
 ];
 

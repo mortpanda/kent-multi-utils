@@ -25,15 +25,15 @@ export class MenuListService {
     },
     
 
-    // {
-    //   tooltipOptions: {
-    //     tooltipLabel: "To Do",
-    //     tooltipPosition: "top",
-    //   },
-    //   icon: "pi pi-home",
-    //   // style: 'font-size: 2rem;',
-    //   routerLink: '/todo'
-    // },
+    {
+      tooltipOptions: {
+        tooltipLabel: "To Do",
+        tooltipPosition: "top",
+      },
+      icon: "pi pi-home",
+      // style: 'font-size: 2rem;',
+      routerLink: '/todo'
+    },
 
 
     {
@@ -47,15 +47,15 @@ export class MenuListService {
     },
 
 
-    // {
-    //   tooltipOptions: {
-    //     tooltipLabel: "World Clock",
-    //     tooltipPosition: "top",
-    //   },
-    //   icon: "pi pi-clock",
-    //   // style: 'font-size: 2rem;',
-    //   routerLink: '/'
-    // },
+    {
+      tooltipOptions: {
+        tooltipLabel: "World Clock",
+        tooltipPosition: "top",
+      },
+      icon: "pi pi-clock",
+      // style: 'font-size: 2rem;',
+      routerLink: '/worldtime'
+    },
 
     
   ]

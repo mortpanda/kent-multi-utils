@@ -33,6 +33,8 @@ import {ProgressBarModule} from 'primeng/progressbar';
 import {DropdownModule} from 'primeng/dropdown';
 import { TodoComponent } from './todo/todo.component';
 import {MatTableModule} from '@angular/material/table';
+import { WorldtimeComponent } from './worldtime/worldtime.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import {MatTableModule} from '@angular/material/table';
     AddAppDialComponent,
     UtilModalComponent,
     BookmarksComponent,
-    TodoComponent
+    TodoComponent,
+    WorldtimeComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +78,7 @@ import {MatTableModule} from '@angular/material/table';
   providers: [HttpClientModule,
     MessageService,
     UtilModalComponent,
+    DatePipe,
   ],
   bootstrap: [AppComponent]
 })

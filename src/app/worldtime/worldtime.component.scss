@@ -1,0 +1,145 @@
+.TimeMasterDiv {
+    // border-style: dotted;
+    padding-top: 120px !important;
+    width: 85vw;
+    text-align: center!important;
+  }
+  
+  .smTimeMasterDiv {
+    margin-top: 120px !important;
+  }
+  
+  .startMainDiv {
+    // border-style: dotted;
+    margin-top: 120px !important;
+    // width: 100%;
+    width: 85vw;
+  }
+  
+  .smstartMainDiv {
+    // border-style: dotted;
+    margin-top: 20px !important;
+    // width: 100%;
+    width: 85vw;
+  }
+  
+  .userName {
+    text-align: end !important;
+    color: #ffffff !important;
+    margin-right: 5% !important;
+    margin-top: 2% !important;
+    position: fixed !important;
+    top: 0 !important;
+    right: 0;
+    width: 90vw;
+  }
+  
+  .SMuserName {
+    color: #ffffff !important;
+    margin-top: 90px !important;
+    position: fixed !important;
+  }
+  
+  #appBtn {
+    .p-button {
+      width: 150px;
+      height: 100px;
+      // background-color: #ffffff !important;
+      background-color: #ffffff !important;
+      color: #00297a !important;
+      border-style: solid !important;
+      border-width: 1px !important;
+      border-color: #00297a !important;
+      box-shadow: 3px 9px 10px -2px black !important;
+      font-size: 12px !important;
+    }
+    .p-button:hover {
+      width: 150px;
+      height: 100px;
+      // background-color: #00297a !important;
+      // color: #ffffff !important;
+      color: #00297a !important;
+      border-style: solid !important;
+      border-width: 1px !important;
+      border-color: #00297a !important;
+      box-shadow: 3px 9px 10px -2px black !important;
+      opacity: 0.7;
+      font-size: 12px !important;
+    }
+    .pi {
+      // background-color: #ffffff !important;
+      color: #00297a !important;
+      margin-left: 15px !important;
+    }
+    .pi:hover {
+      // background-color: #00297a !important;
+      // color: #ffffff !important;
+      margin-left: 15px !important;
+    }
+  }
+  
+  .PanelDiv {
+    width: 150px;
+    height: 100px;
+    margin-top: 20px !important;
+    margin-left: 15px !important;
+  }
+  
+  .pageTitleDiv {
+    width: 100%;
+    text-align: center !important;
+    color: #ffffff !important;
+    font-size: 18px !important;
+    font-weight: 800 !important;
+  }
+  .smpageTitleDiv {
+    width: 100%;
+    text-align: center !important;
+    color: #ffffff !important;
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    margin-top: 20px !important;
+  }
+  
+  #fieldSet {
+    .p-fieldset {
+      width: 300px !important;
+    }
+  }
+  
+  .timeDiv {
+    margin-top: 20px !important;
+    text-align: center !important;
+    z-index: 8000!important;
+  }
+  
+  #lgDateTimePanel {
+    font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
+      "Cantarell", "Helvetica Neue", sans-serif !important;
+    width:150px!important;
+    box-shadow: 3px 9px 10px -2px black !important;
+    margin:10px!important;
+    .p-panel-header{
+      background-color: #41414B!important;
+      color: #ffffff!important;
+      font-size: 20px !important;
+    }
+    #p-panel-4-titlebar{
+      text-align: center !important;
+    }
+    .p-panel-content {
+      padding-top:5px!important;
+      padding-bottom: 5px !important;
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+      .pdate {
+        font-size: 18px !important;
+        font-weight: 700!important;
+      }
+      .ptime {
+        font-size: 18px !important;
+        font-weight: 700!important;
+      }
+    }
+  }
+  
