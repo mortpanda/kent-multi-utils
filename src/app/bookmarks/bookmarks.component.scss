@@ -8,20 +8,12 @@
 
 #mainContainerCard {
     .p-card .p-card-content {
-        padding: 1rem 0;
-        overflow-y: auto !important;
+        padding: 0px;
+        // overflow-y: auto !important;
     }
 }
 
-// #bookmarkTable {
-table.mat-table {
-    min-width: 100% !important;
-    text-align: left !important;
-    margin-top: -20px !important;
-    background-color: #BDBDBD !important;
-    // white-space: nowrap!important;
 
-}
 
 
 
@@ -32,10 +24,12 @@ table.mat-table {
 
 .mat-cell {
     font-size: 12px !important;
-    word-break: break-all !important;
-    padding-right: 10px !important;
+    // word-break: break-all !important;
+    // word-wrap: none!important;
+    padding-right: 15px !important;
     padding-left: 15px !important;
-
+// overflow-x: scroll!important;
+// white-space:nowrap;
 }
 
 .mat-header-cell {
@@ -43,7 +37,9 @@ table.mat-table {
     font-size: 14px !important;
     color: #FFFFFF !important;
     background-color: #424242 !important;
-    padding-right: 10px !important;
+    // padding-right: 10px !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
 
 }
 
@@ -69,15 +65,56 @@ a:active {
     color: #424242;
 }
 
-.bookmarkfilterDiv {
 
-    border-style: dotted;
+
+.mat-row:hover {
+    // background-color: #424242!important;
+    background-color: lightgray !important;
+    color: #FFFFFF !important;
+
+}
+
+.bookmarkfilterDiv {
+    // border-style: dotted;
+    text-align: center !important;
+    padding-left: 20px !important;
+    font-size: 14px !important;
+    width: 85vw !important;
     color: #FFFFFF !important;
 
     width: 100% !important;
-    height: 70px !important;
-    font-size: 10px !important;
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
+    // height: 70px !important;
+    font-size: 12px !important;
+    // padding-top: 10px !important;
+    padding-bottom: 5px !important;
+}
 
+.filterLebel {
+    color: #FFFFFF !important;
+    padding-right: 20px !important;
+    font-size: 14px !important;
+}
+
+#filterTxt {
+    background-color: transparent !important;
+    color: #FFFFFF !important;
+    .p-inputtext {
+         font-size: 12px !important;
+    }
+}
+
+table.mat-table {
+    min-width: 100% !important;
+    text-align: left !important;
+    // margin-top: -20px !important;
+    background-color: #BDBDBD !important;
+    // white-space: nowrap!important;
+
+}
+
+.filterImg{
+    height:50px!important;
+    border-radius: 5px!important;
+    // padding-top:20px!important;
+    margin-right:15px!important;
 }

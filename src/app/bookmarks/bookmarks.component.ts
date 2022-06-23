@@ -13,7 +13,7 @@ import { DataService } from '../shared/data-service/data.service';
 import { OktaApiService } from '../shared/okta/okta-api.service';
 import { MessageService } from 'primeng/api';
 import { MatTableDataSource } from '@angular/material/table';
-
+import {MatSort} from '@angular/material/sort';
 
 
 @Component({
@@ -23,6 +23,7 @@ import { MatTableDataSource } from '@angular/material/table';
   encapsulation: ViewEncapsulation.None
 })
 export class BookmarksComponent implements OnInit {
+  
   smallScreen: boolean;
   public authService = new OktaAuth(this.OktaSDKAuthService.config);
   strUserSession;
@@ -124,6 +125,20 @@ export class BookmarksComponent implements OnInit {
     this.myTableSource.filter = filterValue.trim().toLowerCase();
   }
 
+  itemRow;
+  openProduct(row): void {
+    // let dialogRef = this.dialog.open(OrderDetailsComponent, {
+    //   // width: '800px', height: 'auto',
+    //   data: { row },
+    // });
+
+    // dialogRef.afterClosed().subscribe(result => { row = result; });
+    this.itemRow = row;
+    console.log(this.itemRow)
+    this.DataService.changeMessage(this.itemRow);
+  }
+
 }
+
 
 
