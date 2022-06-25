@@ -28,13 +28,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { BookmarksComponent } from './bookmarks/bookmarks.component';
-import {DividerModule} from 'primeng/divider';
-import {ProgressBarModule} from 'primeng/progressbar';
-import {DropdownModule} from 'primeng/dropdown';
+import { DividerModule } from 'primeng/divider';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { DropdownModule } from 'primeng/dropdown';
 import { TodoComponent } from './todo/todo.component';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { WorldtimeComponent } from './worldtime/worldtime.component';
 import { DatePipe } from '@angular/common';
+import {DragDropModule} from 'primeng/dragdrop';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { DatePipe } from '@angular/common';
     ProgressBarModule,
     DropdownModule,
     MatTableModule,
+    DragDropModule,
 
   ],
   providers: [HttpClientModule,

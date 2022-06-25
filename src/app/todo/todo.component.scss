@@ -1,0 +1,27 @@
+.toDoMainDiv {
+    // border-style: dotted;
+    // margin-top: 50px !important;
+
+    width: 80vw !important;
+    height: 75vh !important;
+}
+
+
+.itemDiv {
+    background-color: #FFFFFF !important;
+    color: gray !important;
+    border-style: solid !important;
+    border-width: 1px !important;
+    border-radius: 5px !important;
+
+    width: 200px !important;
+    height: 100px !important;
+    margin: 10px !important;
+}
+
+
+.droppable{
+    width:80vw!important;
+    height:10vh!important;
+    border-style: solid!important;
+}

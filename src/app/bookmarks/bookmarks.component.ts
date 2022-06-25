@@ -13,7 +13,7 @@ import { DataService } from '../shared/data-service/data.service';
 import { OktaApiService } from '../shared/okta/okta-api.service';
 import { MessageService } from 'primeng/api';
 import { MatTableDataSource } from '@angular/material/table';
-import {MatSort} from '@angular/material/sort';
+import { MatSort } from '@angular/material/sort';
 
 
 @Component({
@@ -23,7 +23,7 @@ import {MatSort} from '@angular/material/sort';
   encapsulation: ViewEncapsulation.None
 })
 export class BookmarksComponent implements OnInit {
-  
+
   smallScreen: boolean;
   public authService = new OktaAuth(this.OktaSDKAuthService.config);
   strUserSession;
@@ -86,6 +86,17 @@ export class BookmarksComponent implements OnInit {
         this.myBookmarkRes = await this.GetMyBookmarks(this.OktaConfigService.strMyBookmarkDownload, this.myKey, this.myEmail)
         this.myBookmarks = true;
         this.myTableSource = new MatTableDataSource(this.myBookmarkRes);
+        switch (this.myBookmarkRes.length > 0) {
+          case true: {
+            this.showSuccess()
+            break;
+          }
+          case false: {
+            this.showError()
+            break;
+          }
+        }
+
         break;
 
     }

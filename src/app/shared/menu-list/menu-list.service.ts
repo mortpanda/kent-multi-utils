@@ -30,7 +30,7 @@ export class MenuListService {
         tooltipLabel: "To Do",
         tooltipPosition: "top",
       },
-      icon: "pi pi-home",
+      icon: "pi pi-check",
       // style: 'font-size: 2rem;',
       routerLink: '/todo'
     },

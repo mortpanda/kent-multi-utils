@@ -128,6 +128,7 @@ export class WebsitesComponent implements OnInit {
 
         this.mySites = true;
         console.log(this.myApps)
+        
         break;
 
     }
