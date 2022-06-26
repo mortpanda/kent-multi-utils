@@ -28,7 +28,7 @@ export class TodoComponent implements OnInit {
   myKey;
   myAccessToken;
   myEmail;
-  
+
   constructor(
     private OktaGetTokenService: OktaGetTokenService,
     private OktaSDKAuthService: OktaSDKAuthService,
@@ -40,7 +40,7 @@ export class TodoComponent implements OnInit {
     private DataService: DataService,
     private OktaApiService: OktaApiService,
     private messageService: MessageService,
-  ) { 
+  ) {
     breakpointObserver.observe([
       Breakpoints.XSmall,
       Breakpoints.Small
@@ -51,39 +51,48 @@ export class TodoComponent implements OnInit {
 
   itemList = [
     {
-     category:'customer',
-     subject:'test',
-     description:'this is a test'
+      category: 'customer',
+      subject: 'test',
+      description: 'this is a test'
     },
     {
-      category:'customer 2',
-      subject:'test 2',
-      description:'this is a test 2'
-     },
+      category: 'customer 2',
+      subject: 'test 2',
+      description: 'this is a test 2'
+    },
   ]
 
-  // itemDropped=[]; 
-  // draggeditem=null;
+test(){
+  alert('test')
+}
 
-  
+  arrWIP = [];
+  arrCompleted = [];
+  dragedTask = null;
 
-  // colors = ['red', 'green', 'white'];
-
-  droped = [];
-
-  dragedColor = null;
-
-  dragStart(e, c) {
-    this.dragedColor = c;
+  dragStart(e, item) {
+    this.dragedTask = item;
   }
+
 
   dragEnd(e) {
   }
 
-  drop(e) {
-    if (this.dragedColor) {
-      this.droped.push(this.dragedColor);
-      this.dragedColor = null;
+  toWIP(e) {
+    if (this.dragedTask) {
+      console.log(this.dragedTask)
+      this.itemList.splice(this.itemList.indexOf(this.dragedTask), 1);
+      this.arrWIP.push(this.dragedTask);
+      this.dragedTask = null;
+    } 
+  }
+
+  toCompleted(e) {
+    if (this.dragedTask) {
+      console.log(this.dragedTask)
+      this.arrWIP.splice(this.arrWIP.indexOf(this.dragedTask), 1);
+      this.arrCompleted.push(this.dragedTask);
+      this.dragedTask = null;
     }
   }
 
@@ -108,7 +117,7 @@ export class TodoComponent implements OnInit {
         this.myAccessToken = await this.OktaGetTokenService.GetAccessToken()
         this.myKey = await this.myAccessToken.claims.myKey;
         this.myEmail = await this.myAccessToken.claims.sub;
-        
+
 
         break;
 
@@ -119,6 +128,6 @@ export class TodoComponent implements OnInit {
 
 
 
- 
+
 
 }

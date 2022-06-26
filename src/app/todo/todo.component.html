@@ -1,38 +1,45 @@
-<div class="MainDiv" fxLayout="row wrap" fxLayoutAlign="center center">
-    <div class="userName">
-        {{strFullName}}
-    </div>
-    <div class="locationInfo" fxLayout="row wrap" fxLayoutAlign="start center">
-        <div class="weatherInfo">{{GetWeatherService?.arrWeather?.name}}</div>
-        <div class="weatherInfo">{{GetWeatherService?.arrWeather?.main.temp}} ℃</div>
-        <div class="weatherInfo">
-            <img src="{{GetWeatherService?.myWeatherIcon}}" class="weatherIcon">
+<ng-template #bigScreen>
+    <div class="MainDiv" fxLayout="row wrap" fxLayoutAlign="center center">
+        <div class="userName">
+            {{strFullName}}
+        </div>
+        <div class="locationInfo" fxLayout="row wrap" fxLayoutAlign="start center">
+            <div class="weatherInfo">{{GetWeatherService?.arrWeather?.name}}</div>
+            <div class="weatherInfo">{{GetWeatherService?.arrWeather?.main.temp}} ℃</div>
+            <div class="weatherInfo">
+                <img src="{{GetWeatherService?.myWeatherIcon}}" class="weatherIcon">
+            </div>
+        </div>
+        <div class="toDoMainDiv" fxLayout="columns wrap" fxLayoutAlign="center center">
+            <div class="taskDiv">
+                <div *ngFor="let item of itemList" class="border" pDraggable="item"
+                    (onDragStart)="dragStart($event,item)" (onDragEnd)="dragEnd($event)">
+                    <p-card id="taskCard">{{item.subject}}</p-card>
+                </div>
+            </div>
+
+            <div class="taskDiv">
+                <div class="wipDIV" pDroppable="item" (onDrop)="toWIP($event)">
+                    <div *ngFor="let item of arrWIP" pDraggable="item" (onDragStart)="dragStart($event,item)"
+                        (onDragEnd)="dragEnd($event)">
+                        <p-card id="taskCard">{{item.subject}}</p-card>
+                    </div>
+                </div>
+            </div>
+
+            <div class="taskDiv">
+                <div class="completedDiv" pDroppable="item" (onDrop)="toCompleted($event)">
+                    <div *ngFor="let item of arrCompleted">
+                        <p-card id="taskCard">{{item.subject}}</p-card>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="toDoMainDiv" fxLayout="row wrap" fxLayoutAlign="center center">
-        <p-card id="mainContainerCard">
+</ng-template>
 
+<!-- ************************* SMALL SCREEN ************************* -->
+<!-- ************************* SMALL SCREEN ************************* -->
+<ng-template [ngIf]="smallScreen" [ngIfElse]="bigScreen">
 
-            <div *ngFor="let item of itemList" class="border" pDraggable="item" (onDragStart)="dragStart($event,item)"
-                (onDragEnd)="dragEnd($event)">
-                {{item.subject}}
-            </div>
-
-
-            <div class="droppable" pDroppable="item" (onDrop)="drop($event)">
-                <div *ngFor="let item of droped">{{item.subject}}</div>
-            </div>
-        </p-card>
-    </div>
-</div>
-
-
-<!-- <div *ngFor="let color of colors" class="border"  pDraggable="color"
-                (onDragStart)="dragStart($event,color)" (onDragEnd)="dragEnd($event)">
-	{{color}}
-</div>
-
-
-<div class="drop" pDroppable="color"  (onDrop)="drop($event)">
-  <div *ngFor="let c of droped">{{c}}</div>
-</div> -->
+</ng-template>

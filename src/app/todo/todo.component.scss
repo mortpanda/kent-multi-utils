@@ -7,21 +7,45 @@
 }
 
 
-.itemDiv {
-    background-color: #FFFFFF !important;
-    color: gray !important;
-    border-style: solid !important;
-    border-width: 1px !important;
-    border-radius: 5px !important;
+// .itemDiv {
+//     background-color: #FFFFFF !important;
+//     color: gray !important;
+//     border-style: solid !important;
+//     border-width: 1px !important;
+//     border-radius: 5px !important;
 
-    width: 200px !important;
-    height: 100px !important;
-    margin: 10px !important;
+//     width: 200px !important;
+//     height: 100px !important;
+//     margin: 10px !important;
+// }
+
+.taskDiv{
+    border-style: dotted!important;
+    
+    width: 25vw!important;
+    height: 75vh !important;
+
+    // padding-top:10px!important;
+}
+
+.wipDIV {
+    width: 25vw !important;
+    height: 100% !important;
+    // border-style: solid !important;
 }
 
 
-.droppable{
-    width:80vw!important;
-    height:10vh!important;
-    border-style: solid!important;
+
+.completedDiv{
+    width: 25vw !important;
+    height: 100% !important;
+    // border-style: solid !important;
+
 }
+
+#taskCard{
+    .p-card{
+        margin:10px!important;
+    // padding:10px!important;
+    // padding:10px!important;
+}}
