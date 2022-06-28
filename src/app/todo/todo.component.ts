@@ -183,6 +183,11 @@ export class TodoComponent implements OnInit {
     }
   }
 
+myTest(item){
+  console.log(item)
+
+}
+ 
 
 
   async ngOnInit() {
