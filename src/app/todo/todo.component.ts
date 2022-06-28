@@ -76,7 +76,28 @@ test(){
 
 
   dragEnd(e) {
+    this.dragedTask = null;
   }
+
+
+  // RetoWip(e) {
+  //   if (this.dragedTask) {
+  //     console.log(this.dragedTask)
+  //     this.arrCompleted.splice(this.arrCompleted.indexOf(this.dragedTask), 1);
+  //     this.arrWIP.push(this.dragedTask);
+  //     this.dragedTask = null;
+  //   } 
+  // }
+
+
+  // RetoItem(e) {
+  //   if (this.dragedTask) {
+  //     console.log(this.dragedTask)
+  //     this.arrWIP.splice(this.arrWIP.indexOf(this.dragedTask), 1);
+  //     this.itemList.push(this.dragedTask);
+  //     this.dragedTask = null;
+  //   } 
+  // }
 
   toWIP(e) {
     if (this.dragedTask) {
@@ -91,6 +112,7 @@ test(){
     if (this.dragedTask) {
       console.log(this.dragedTask)
       this.arrWIP.splice(this.arrWIP.indexOf(this.dragedTask), 1);
+      this.itemList.splice(this.itemList.indexOf(this.dragedTask), 1);
       this.arrCompleted.push(this.dragedTask);
       this.dragedTask = null;
     }

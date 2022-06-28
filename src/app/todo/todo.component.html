@@ -10,7 +10,9 @@
                 <img src="{{GetWeatherService?.myWeatherIcon}}" class="weatherIcon">
             </div>
         </div>
-        <div class="toDoMainDiv" fxLayout="columns wrap" fxLayoutAlign="center center">
+
+        <div class="toDoMainDiv" fxLayout="columns wrap" fxLayoutAlign="center center">            
+            
             <div class="taskDiv">
                 <div *ngFor="let item of itemList" class="border" pDraggable="item"
                     (onDragStart)="dragStart($event,item)" (onDragEnd)="dragEnd($event)">
@@ -34,6 +36,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </ng-template>
