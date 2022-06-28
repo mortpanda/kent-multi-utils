@@ -22,7 +22,6 @@
 
             <div class="taskDiv">
                 <div class="wipDIV" pDroppable="item" (onDrop)="toWIP($event)">
-                    <!-- <div *ngFor="let item of myToDoWIP"> -->
                     <div *ngFor="let item of myToDoWIP" pDraggable="item" (onDragStart)="dragStart($event,item)"
                         (onDragEnd)="dragEnd($event)">
                         <p-card id="taskCard">{{item.subject}}</p-card>

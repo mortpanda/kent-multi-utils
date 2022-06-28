@@ -119,26 +119,7 @@ export class TodoComponent implements OnInit {
   // }
 
   toWIP(e) {
-
-    //   switch (this.dragedTask){
-    //     case this.myToDoNew.includes(this.dragedTask):{
-    //       console.log(this.myToDoNew.includes(this.dragedTask))
-    //       this.myToDoNew.splice(this.myToDoNew.indexOf(this.dragedTask), 1);
-    //       this.arrWIP.push(this.dragedTask);
-    //       break;
-    //     }
-    //     case this.myToDoComplete.includes(this.dragedTask):{
-    //       console.log(this.myToDoComplete.includes(this.dragedTask))
-    //       this.myToDoComplete.splice(this.myToDoComplete.indexOf(this.dragedTask), 1);
-    //       this.arrWIP.push(this.dragedTask);
-    //       break;
-    //   }
-
-    // }
-
     if (this.dragedTask) {
-      // console.log(this.dragedTask)
-
       switch (this.myToDoNew.includes(this.dragedTask)) {
         case true: {
           this.myToDoNew.splice(this.myToDoNew.indexOf(this.dragedTask), 1);
@@ -152,18 +133,29 @@ export class TodoComponent implements OnInit {
           this.dragedTask = null;    
           break;
         }
-
-      };
-
-      
+      };     
     }
   }
 
   toCompleted(e) {
     if (this.dragedTask) {
-      console.log(this.dragedTask)
-      this.arrWIP.splice(this.arrWIP.indexOf(this.dragedTask), 1);
-      this.arrCompleted.push(this.dragedTask);
+      switch (this.myToDoWIP.includes(this.dragedTask)) {
+        case true: {
+          this.myToDoWIP.splice(this.myToDoWIP.indexOf(this.dragedTask), 1);
+          this.myToDoComplete.push(this.dragedTask);
+          this.dragedTask = null;    
+          break;
+        }
+        case false: {
+          this.myToDoNew.splice(this.myToDoNew.indexOf(this.dragedTask), 1);
+          this.myToDoComplete.push(this.dragedTask);
+          this.dragedTask = null;    
+          break;
+        }
+      };     
+      // console.log(this.dragedTask)
+      // this.arrWIP.splice(this.arrWIP.indexOf(this.dragedTask), 1);
+      // this.arrCompleted.push(this.dragedTask);
       this.dragedTask = null;
     }
   }
