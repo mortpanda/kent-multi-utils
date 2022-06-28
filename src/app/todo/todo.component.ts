@@ -28,6 +28,8 @@ export class TodoComponent implements OnInit {
   myKey;
   myAccessToken;
   myEmail;
+  myToDoList = [];
+
 
   constructor(
     private OktaGetTokenService: OktaGetTokenService,
@@ -49,22 +51,39 @@ export class TodoComponent implements OnInit {
     });
   }
 
-  itemList = [
-    {
-      category: 'customer',
-      subject: 'test',
-      description: 'this is a test'
-    },
-    {
-      category: 'customer 2',
-      subject: 'test 2',
-      description: 'this is a test 2'
-    },
-  ]
+  // itemList = [
+  //   {
+  //     category: 'customer',
+  //     subject: 'test',
+  //     description: 'this is a test'
+  //   },
+  //   {
+  //     category: 'customer 2',
+  //     subject: 'test 2',
+  //     description: 'this is a test 2'
+  //   },
+  // ]
 
-test(){
-  alert('test')
-}
+
+  async GetMyToDo(url, mykey, email) {
+    let requestURI;
+    requestURI = url;
+
+    let requestBody;
+    requestBody = {
+      mykey: mykey,
+      email: email,
+    }
+    var arrTodo;
+    arrTodo = await this.OktaApiService.InvokeFlow(requestURI, requestBody);
+    return arrTodo;
+  }
+
+
+
+  test() {
+    alert('test')
+  }
 
   arrWIP = [];
   arrCompleted = [];
@@ -100,23 +119,56 @@ test(){
   // }
 
   toWIP(e) {
+
+    //   switch (this.dragedTask){
+    //     case this.myToDoNew.includes(this.dragedTask):{
+    //       console.log(this.myToDoNew.includes(this.dragedTask))
+    //       this.myToDoNew.splice(this.myToDoNew.indexOf(this.dragedTask), 1);
+    //       this.arrWIP.push(this.dragedTask);
+    //       break;
+    //     }
+    //     case this.myToDoComplete.includes(this.dragedTask):{
+    //       console.log(this.myToDoComplete.includes(this.dragedTask))
+    //       this.myToDoComplete.splice(this.myToDoComplete.indexOf(this.dragedTask), 1);
+    //       this.arrWIP.push(this.dragedTask);
+    //       break;
+    //   }
+
+    // }
+
     if (this.dragedTask) {
-      console.log(this.dragedTask)
-      this.itemList.splice(this.itemList.indexOf(this.dragedTask), 1);
-      this.arrWIP.push(this.dragedTask);
-      this.dragedTask = null;
-    } 
+      // console.log(this.dragedTask)
+
+      switch (this.myToDoNew.includes(this.dragedTask)) {
+        case true: {
+          this.myToDoNew.splice(this.myToDoNew.indexOf(this.dragedTask), 1);
+          this.myToDoWIP.push(this.dragedTask);
+          this.dragedTask = null;    
+          break;
+        }
+        case false: {
+          this.myToDoComplete.splice(this.myToDoComplete.indexOf(this.dragedTask), 1);
+          this.myToDoWIP.push(this.dragedTask);
+          this.dragedTask = null;    
+          break;
+        }
+
+      };
+
+      
+    }
   }
 
   toCompleted(e) {
     if (this.dragedTask) {
       console.log(this.dragedTask)
       this.arrWIP.splice(this.arrWIP.indexOf(this.dragedTask), 1);
-      this.itemList.splice(this.itemList.indexOf(this.dragedTask), 1);
       this.arrCompleted.push(this.dragedTask);
       this.dragedTask = null;
     }
   }
+
+
 
   async ngOnInit() {
     await this.GetGeolocationService.GetGeo();
@@ -139,8 +191,9 @@ test(){
         this.myAccessToken = await this.OktaGetTokenService.GetAccessToken()
         this.myKey = await this.myAccessToken.claims.myKey;
         this.myEmail = await this.myAccessToken.claims.sub;
-
-
+        this.myToDoList = await this.GetMyToDo(this.OktaConfigService.strMyToDoDownload, this.myKey, this.myEmail)
+        await console.log(this.myToDoList)
+        await this.processToDo(this.myToDoList)
         break;
 
     }
@@ -150,6 +203,29 @@ test(){
 
 
 
+  myToDoNew = [];
+  myToDoWIP = [];
+  myToDoComplete = [];
+  async processToDo(arrList) {
+    for (var i = 0; i < arrList.length; i++) {
+      switch (arrList[i].status) {
+        case "new": {
+          this.myToDoNew.push(arrList[i]);
+          break;
+        }
+        case "wip": {
+          this.myToDoWIP.push(arrList[i]);
+          break;
+        }
+        case "complete": {
+          this.myToDoComplete.push(arrList[i])
+          break;
+        }
+
+      }
+    }
+    console.log(this.myToDoNew)
+  }
 
 
 }
