@@ -100,12 +100,9 @@ export class TodoComponent implements OnInit {
 
 
   toNew(e) {
-
     if (this.dragedTask) {
-
       switch (this.myToDoNew.includes(this.dragedTask)) {
         case true: {
-          // alert('already there');
           break;
         }
         case false: {
@@ -132,40 +129,57 @@ export class TodoComponent implements OnInit {
 
   toWIP(e) {
     if (this.dragedTask) {
-      switch (this.myToDoNew.includes(this.dragedTask)) {
+      switch (this.myToDoWIP.includes(this.dragedTask)) {
         case true: {
-          this.myToDoNew.splice(this.myToDoNew.indexOf(this.dragedTask), 1);
-          this.myToDoWIP.push(this.dragedTask);
-          this.dragedTask = null;
           break;
         }
         case false: {
-          this.myToDoComplete.splice(this.myToDoComplete.indexOf(this.dragedTask), 1);
-          this.myToDoWIP.push(this.dragedTask);
-          this.dragedTask = null;
+          switch (this.myToDoNew.includes(this.dragedTask)) {
+            case true: {
+              this.myToDoNew.splice(this.myToDoNew.indexOf(this.dragedTask), 1);
+              this.myToDoWIP.push(this.dragedTask);
+              this.dragedTask = null;
+              break;
+            }
+            case false: {
+              this.myToDoComplete.splice(this.myToDoComplete.indexOf(this.dragedTask), 1);
+              this.myToDoWIP.push(this.dragedTask);
+              this.dragedTask = null;
+              break;
+            }
+          };
           break;
         }
-      };
+      }
     }
   }
 
   toCompleted(e) {
     if (this.dragedTask) {
-      switch (this.myToDoWIP.includes(this.dragedTask)) {
+      switch (this.myToDoComplete.includes(this.dragedTask)) {
         case true: {
-          this.myToDoWIP.splice(this.myToDoWIP.indexOf(this.dragedTask), 1);
-          this.myToDoComplete.push(this.dragedTask);
-          this.dragedTask = null;
           break;
         }
         case false: {
-          this.myToDoNew.splice(this.myToDoNew.indexOf(this.dragedTask), 1);
-          this.myToDoComplete.push(this.dragedTask);
+          switch (this.myToDoWIP.includes(this.dragedTask)) {
+            case true: {
+              this.myToDoWIP.splice(this.myToDoWIP.indexOf(this.dragedTask), 1);
+              this.myToDoComplete.push(this.dragedTask);
+              this.dragedTask = null;
+              break;
+            }
+            case false: {
+              this.myToDoNew.splice(this.myToDoNew.indexOf(this.dragedTask), 1);
+              this.myToDoComplete.push(this.dragedTask);
+              this.dragedTask = null;
+              break;
+            }
+          };
           this.dragedTask = null;
           break;
         }
-      };
-      this.dragedTask = null;
+      }
+
     }
   }
 
