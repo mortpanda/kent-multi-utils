@@ -99,25 +99,25 @@ export class TodoComponent implements OnInit {
   }
 
 
-  // RetoWip(e) {
-  //   if (this.dragedTask) {
-  //     console.log(this.dragedTask)
-  //     this.arrCompleted.splice(this.arrCompleted.indexOf(this.dragedTask), 1);
-  //     this.arrWIP.push(this.dragedTask);
-  //     this.dragedTask = null;
-  //   } 
-  // }
-
-
-  // RetoItem(e) {
-  //   if (this.dragedTask) {
-  //     console.log(this.dragedTask)
-  //     this.arrWIP.splice(this.arrWIP.indexOf(this.dragedTask), 1);
-  //     this.itemList.push(this.dragedTask);
-  //     this.dragedTask = null;
-  //   } 
-  // }
-
+  toNew(e){
+    if (this.dragedTask) {
+      switch (this.myToDoWIP.includes(this.dragedTask)) {
+        case true: {
+          this.myToDoWIP.splice(this.myToDoWIP.indexOf(this.dragedTask), 1);
+          this.myToDoNew.push(this.dragedTask);
+          this.dragedTask = null;    
+          break;
+        }
+        case false: {
+          this.myToDoComplete.splice(this.myToDoComplete.indexOf(this.dragedTask), 1);
+          this.myToDoNew.push(this.dragedTask);
+          this.dragedTask = null;    
+          break;
+        }
+      };     
+    }
+  }
+   
   toWIP(e) {
     if (this.dragedTask) {
       switch (this.myToDoNew.includes(this.dragedTask)) {
@@ -153,9 +153,6 @@ export class TodoComponent implements OnInit {
           break;
         }
       };     
-      // console.log(this.dragedTask)
-      // this.arrWIP.splice(this.arrWIP.indexOf(this.dragedTask), 1);
-      // this.arrCompleted.push(this.dragedTask);
       this.dragedTask = null;
     }
   }

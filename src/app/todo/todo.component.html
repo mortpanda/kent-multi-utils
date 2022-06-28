@@ -11,12 +11,14 @@
             </div>
         </div>
 
-        <div class="toDoMainDiv" fxLayout="columns wrap" fxLayoutAlign="center center">            
-            
+        <div class="toDoMainDiv" fxLayout="columns wrap" fxLayoutAlign="center center">
+
             <div class="taskDiv">
-                <div *ngFor="let item of myToDoNew" class="border" pDraggable="item"
-                    (onDragStart)="dragStart($event,item)" (onDragEnd)="dragEnd($event)">
-                    <p-card id="taskCard">{{item.subject}}</p-card>
+                <div class="wipDIV" pDroppable="item" (onDrop)="toNew($event)">
+                    <div *ngFor="let item of myToDoNew" class="border" pDraggable="item"
+                        (onDragStart)="dragStart($event,item)" (onDragEnd)="dragEnd($event)">
+                        <p-card id="taskCard">{{item.subject}}</p-card>
+                    </div>
                 </div>
             </div>
 
@@ -32,7 +34,7 @@
             <div class="taskDiv">
                 <div class="completedDiv" pDroppable="item" (onDrop)="toCompleted($event)">
                     <div *ngFor="let item of myToDoComplete" pDraggable="item" (onDragStart)="dragStart($event,item)"
-                    (onDragEnd)="dragEnd($event)">
+                        (onDragEnd)="dragEnd($event)">
                         <p-card id="taskCard">{{item.subject}}</p-card>
                     </div>
                 </div>
