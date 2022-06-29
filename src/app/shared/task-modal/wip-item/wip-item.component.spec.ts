@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TaskModalComponent } from './task-modal.component';
+import { WipItemComponent } from './wip-item.component';
 
-describe('TaskModalComponent', () => {
-  let component: TaskModalComponent;
-  let fixture: ComponentFixture<TaskModalComponent>;
+describe('WipItemComponent', () => {
+  let component: WipItemComponent;
+  let fixture: ComponentFixture<WipItemComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TaskModalComponent ]
+      declarations: [ WipItemComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TaskModalComponent);
+    fixture = TestBed.createComponent(WipItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

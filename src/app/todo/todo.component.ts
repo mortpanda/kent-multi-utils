@@ -11,9 +11,10 @@ import { GetWeatherService } from '../shared/weather/get-weather.service';
 import { DataService } from '../shared/data-service/data.service';
 import { OktaApiService } from '../shared/okta/okta-api.service';
 import { MessageService } from 'primeng/api';
-import {TaskModalComponent} from '../shared/task-modal/task-modal.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-
+import {NewItemComponent} from '../shared/task-modal/new-item/new-item.component';
+import {WipItemComponent} from '../shared/task-modal/wip-item/wip-item.component';
+import {CompletItemComponent} from '../shared/task-modal/complet-item/complet-item.component';
 
 @Component({
   selector: 'app-todo',
@@ -44,9 +45,11 @@ export class TodoComponent implements OnInit {
     private DataService: DataService,
     private OktaApiService: OktaApiService,
     private messageService: MessageService,
-    private TaskModalComponent:TaskModalComponent,
     private _matdialog: MatDialog,
-    
+    private NewItemComponent:NewItemComponent,
+    private WipItemComponent:WipItemComponent,
+    private CompletItemComponent:CompletItemComponent,
+
   ) {
     breakpointObserver.observe([
       Breakpoints.XSmall,
@@ -56,19 +59,16 @@ export class TodoComponent implements OnInit {
     });
   }
 
-  // itemList = [
-  //   {
-  //     category: 'customer',
-  //     subject: 'test',
-  //     description: 'this is a test'
-  //   },
-  //   {
-  //     category: 'customer 2',
-  //     subject: 'test 2',
-  //     description: 'this is a test 2'
-  //   },
-  // ]
-
+  myNewItems(item) {
+    console.log(item)
+    this.DataService.changeMessage(item);
+    const DialogConfig = new MatDialogConfig();
+    DialogConfig.disableClose = false;
+    DialogConfig.id = "modal-component";
+    DialogConfig.height = "auto";
+    DialogConfig.width = "400px";
+    const modalDialog = this._matdialog.open(NewItemComponent, DialogConfig);
+  }
 
   async GetMyToDo(url, mykey, email) {
     let requestURI;
@@ -82,12 +82,6 @@ export class TodoComponent implements OnInit {
     var arrTodo;
     arrTodo = await this.OktaApiService.InvokeFlow(requestURI, requestBody);
     return arrTodo;
-  }
-
-
-
-  test() {
-    alert('test')
   }
 
   arrWIP = [];
@@ -188,11 +182,8 @@ export class TodoComponent implements OnInit {
     }
   }
 
-myTest(item){
-  console.log(item)
-
-}
  
+
 
 
   async ngOnInit() {

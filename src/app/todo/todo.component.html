@@ -14,17 +14,23 @@
         <div class="toDoMainDiv" fxLayout="columns wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
 
             <div class="taskDiv">
-                <div class="taskDivTitleDiv"><h2>Not Started</h2></div>
+                <div class="taskDivTitleDiv">
+                    <h2>Not Started</h2>
+                </div>
+                <div class="controlDiv" ></div>
                 <div class="taskItemDIV" pDroppable="item" (onDrop)="toNew($event)">
-                    <div *ngFor="let item of myToDoNew" class="border" pDraggable="item"
+                    <div *ngFor="let item of myToDoNew" pDraggable="item"
                         (onDragStart)="dragStart($event,item)" (onDragEnd)="dragEnd($event)" fxLayoutAlign="center">
-                        <div class="taskCard"><a (click)="myTest(item)">{{item.subject}}</a></div>
+                        <div class="taskCard"><a (click)="myNewItems(item)">{{item.subject}}</a></div>
                     </div>
                 </div>
             </div>
 
-            <div class="taskDiv" >
-                <div class="taskDivTitleDiv"><h2>In Progress</h2></div>
+            <div class="taskDiv">
+                <div class="taskDivTitleDiv">
+                    <h2>In Progress</h2>
+                </div>
+                <div class="controlDiv"></div>
                 <div class="taskItemDIV" pDroppable="item" (onDrop)="toWIP($event)">
                     <div *ngFor="let item of myToDoWIP" pDraggable="item" (onDragStart)="dragStart($event,item)"
                         (onDragEnd)="dragEnd($event)" fxLayoutAlign="center">
@@ -33,9 +39,12 @@
                 </div>
             </div>
 
-            <div class="taskDiv" >
-                <div class="taskDivTitleDiv"><h2>Completed</h2></div>
-                <div class="taskItemDIV" pDroppable="item" (onDrop)="toCompleted($event)" >
+            <div class="taskDiv">
+                <div class="taskDivTitleDiv">
+                    <h2>Completed</h2>
+                </div>
+                <div class="controlDiv"></div>
+                <div class="taskItemDIV" pDroppable="item" (onDrop)="toCompleted($event)">
                     <div *ngFor="let item of myToDoComplete" pDraggable="item" (onDragStart)="dragStart($event,item)"
                         (onDragEnd)="dragEnd($event)" fxLayoutAlign="center">
                         <div class="taskCard">{{item.subject}}</div>
