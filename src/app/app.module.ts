@@ -36,6 +36,7 @@ import { MatTableModule } from '@angular/material/table';
 import { WorldtimeComponent } from './worldtime/worldtime.component';
 import { DatePipe } from '@angular/common';
 import {DragDropModule} from 'primeng/dragdrop';
+import { TaskModalComponent } from './shared/task-modal/task-modal.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {DragDropModule} from 'primeng/dragdrop';
     UtilModalComponent,
     BookmarksComponent,
     TodoComponent,
-    WorldtimeComponent
+    WorldtimeComponent,
+    TaskModalComponent
   ],
   imports: [
     BrowserModule,
@@ -81,6 +83,7 @@ import {DragDropModule} from 'primeng/dragdrop';
     MessageService,
     UtilModalComponent,
     DatePipe,
+    TaskModalComponent,
   ],
   bootstrap: [AppComponent]
 })

@@ -25,6 +25,7 @@
 
 .taskDivTitleDiv {
     width: 100% !important;
+    
     //     -webkit-backdrop-filter: blur(70px) !important;
     // backdrop-filter: blur(70px) !important;
     // background: transparent !important;
@@ -46,20 +47,23 @@
 // }
 
 .taskDiv {
+    
     border-style: solid !important;
-    border-width: 1px!important;
-    border-radius: 5px!important;
+    border-width: 1px !important;
+    border-radius: 5px !important;
     width: 25vw !important;
     height: 75vh !important;
-
+    
 
     // padding-top:10px!important;
 }
 
-.wipDIV {
-    width: 25vw !important;
+.taskItemDIV {
+    // padding-left: auto!important;
+    // padding-right: auto!important;
+    width: 100% !important;
     height: 100% !important;
-    // border-style: solid !important;
+    border-style: dotted !important;
 }
 
 
@@ -70,18 +74,40 @@
 
 }
 
-#taskCard {
-    .p-card {
-        margin: 5px !important;  
-        height: 50px !important;
-        box-shadow: 0px 5px 12px 0px #6e6e78 !important;
+// #taskCard {
+//     .p-card {
+//         margin: 5px !important;
+//         height: 50px !important;
+//         box-shadow: 0px 5px 12px 0px #6e6e78 !important;
 
-        .p-card-content {
-            padding: 5px !important;
-        }
+//         .p-card-content {
+//             padding: 5px !important;
+//         }
+//         .p-card-body {
+//             padding: 0px !important;
+//         }
+//     }
+// }
 
-        .p-card-body {
-            padding: 0px !important;
-        }
-    }
-}
+
+ .taskCard {
+    margin-top: 5px!important;
+    padding-top:10px!important;
+    padding-bottom:10px!important;
+    background-color: #FFFFFF!important;
+    color: gray!important;
+    border-radius: 5px!important;
+    box-shadow: 0px 5px 12px 0px #6e6e78 !important;
+    width:95%!important
+ }
+
+ .taskCard:hover {
+    margin-top: 5px!important;
+    padding-top:10px!important;
+    padding-bottom:10px!important;
+    background-color: gray!important;
+    color: #FFFFFF!important;
+    border-radius: 5px!important;
+    box-shadow: 0px 5px 12px 0px #6e6e78 !important;
+    cursor: pointer !important;
+ }
