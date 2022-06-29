@@ -38,6 +38,7 @@ import { DatePipe } from '@angular/common';
 import {DragDropModule} from 'primeng/dragdrop';
 import { TaskModalComponent } from './shared/task-modal/task-modal.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

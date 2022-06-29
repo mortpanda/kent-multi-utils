@@ -12,6 +12,7 @@ import { DataService } from '../shared/data-service/data.service';
 import { OktaApiService } from '../shared/okta/okta-api.service';
 import { MessageService } from 'primeng/api';
 import {TaskModalComponent} from '../shared/task-modal/task-modal.component';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 
 @Component({
@@ -44,6 +45,8 @@ export class TodoComponent implements OnInit {
     private OktaApiService: OktaApiService,
     private messageService: MessageService,
     private TaskModalComponent:TaskModalComponent,
+    private _matdialog: MatDialog,
+    
   ) {
     breakpointObserver.observe([
       Breakpoints.XSmall,
