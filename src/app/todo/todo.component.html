@@ -21,7 +21,7 @@
                 <div class="taskItemDIV" pDroppable="item" (onDrop)="toNew($event)">
                     <div *ngFor="let item of myToDoNew" pDraggable="item"
                         (onDragStart)="dragStart($event,item)" (onDragEnd)="dragEnd($event)" fxLayoutAlign="center">
-                        <div class="taskCard"  (click)="myNewItems(item)">{{item.subject}}</div>
+                        <div class="taskCard" >{{item.subject}}</div>
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                 <div class="taskItemDIV" pDroppable="item" (onDrop)="toWIP($event)">
                     <div *ngFor="let item of myToDoWIP" pDraggable="item" (onDragStart)="dragStart($event,item)"
                         (onDragEnd)="dragEnd($event)" fxLayoutAlign="center">
-                        <div class="taskCard">{{item.subject}}</div>
+                        <div class="taskCard"  (click)="myNewItems(item)">{{item.subject}}</div>
                     </div>
                 </div>
             </div>

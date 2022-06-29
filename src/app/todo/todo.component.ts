@@ -12,9 +12,9 @@ import { DataService } from '../shared/data-service/data.service';
 import { OktaApiService } from '../shared/okta/okta-api.service';
 import { MessageService } from 'primeng/api';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import {NewItemComponent} from '../shared/task-modal/new-item/new-item.component';
-import {WipItemComponent} from '../shared/task-modal/wip-item/wip-item.component';
-import {CompletItemComponent} from '../shared/task-modal/complet-item/complet-item.component';
+import { NewItemComponent } from '../shared/task-modal/new-item/new-item.component';
+import { WipItemComponent } from '../shared/task-modal/wip-item/wip-item.component';
+import { CompletItemComponent } from '../shared/task-modal/complet-item/complet-item.component';
 
 @Component({
   selector: 'app-todo',
@@ -46,9 +46,9 @@ export class TodoComponent implements OnInit {
     private OktaApiService: OktaApiService,
     private messageService: MessageService,
     private _matdialog: MatDialog,
-    private NewItemComponent:NewItemComponent,
-    private WipItemComponent:WipItemComponent,
-    private CompletItemComponent:CompletItemComponent,
+    private NewItemComponent: NewItemComponent,
+    private WipItemComponent: WipItemComponent,
+    private CompletItemComponent: CompletItemComponent,
 
   ) {
     breakpointObserver.observe([
@@ -68,6 +68,19 @@ export class TodoComponent implements OnInit {
     DialogConfig.height = "auto";
     DialogConfig.width = "400px";
     const modalDialog = this._matdialog.open(NewItemComponent, DialogConfig);
+  }
+
+  myWipItems(item) {
+    console.log(item)
+    this.DataService.changeMessage(item);
+    const DialogConfig = new MatDialogConfig();
+    DialogConfig.disableClose = false;
+    DialogConfig.id = "modal-component";
+    DialogConfig.height = "auto";
+    DialogConfig.width = "400px";
+    const modalDialog = this._matdialog.open(WipItemComponent, DialogConfig); {
+
+    }
   }
 
   async GetMyToDo(url, mykey, email) {
@@ -182,7 +195,7 @@ export class TodoComponent implements OnInit {
     }
   }
 
- 
+
 
 
 
