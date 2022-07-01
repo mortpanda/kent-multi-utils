@@ -17,11 +17,16 @@
                 <div class="taskDivTitleDiv">
                     <h2>Not Started</h2>
                 </div>
-                <div class="controlDiv" ></div>
+                <div class="controlDiv" fxLayoutAlign="center center" (click)="addTask('addNew')"><i class="pi pi-plus"></i></div>
                 <div class="taskItemDIV" pDroppable="item" (onDrop)="toNew($event)">
-                    <div *ngFor="let item of myToDoNew" pDraggable="item"
-                        (onDragStart)="dragStart($event,item)" (onDragEnd)="dragEnd($event)" fxLayoutAlign="center">
-                        <div class="taskCard" >{{item.subject}}</div>
+                    <div *ngFor="let item of myToDoNew" pDraggable="item" (onDragStart)="dragStart($event,item)"
+                        (onDragEnd)="dragEnd($event)" fxLayoutAlign="center">
+
+                        <div class="taskCard" (click)="myNewItems(item)" fxLayout="columns wrap"
+                            fxLayoutAlign="start center">
+                            <div class="taskImgDiv" fxLayoutAlign="center center"><img src="assets/img/lion-logo.png" class="taskImg"></div>
+                            <div> {{item.subject}}</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -30,11 +35,17 @@
                 <div class="taskDivTitleDiv">
                     <h2>In Progress</h2>
                 </div>
-                <div class="controlDiv"></div>
+                <div class="controlDiv"fxLayoutAlign="center center" (click)="addTask('addWIP')"><i class="pi pi-plus"></i></div>
                 <div class="taskItemDIV" pDroppable="item" (onDrop)="toWIP($event)">
                     <div *ngFor="let item of myToDoWIP" pDraggable="item" (onDragStart)="dragStart($event,item)"
                         (onDragEnd)="dragEnd($event)" fxLayoutAlign="center">
-                        <div class="taskCard"  (click)="myNewItems(item)">{{item.subject}}</div>
+
+                        <div class="taskCard" (click)="myWipItems(item)" fxLayout="columns wrap"
+                            fxLayoutAlign="start center">
+                            <div class="taskImgDiv" fxLayoutAlign="center center"><img src="assets/img/lion-logo.png" class="taskImg"></div>
+                            <div> {{item.subject}}</div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -43,11 +54,16 @@
                 <div class="taskDivTitleDiv">
                     <h2>Completed</h2>
                 </div>
-                <div class="controlDiv"></div>
+                <div class="controlDiv"fxLayoutAlign="center center" (click)="addTask('addComplete')"><i class="pi pi-plus"></i></div>
                 <div class="taskItemDIV" pDroppable="item" (onDrop)="toCompleted($event)">
                     <div *ngFor="let item of myToDoComplete" pDraggable="item" (onDragStart)="dragStart($event,item)"
                         (onDragEnd)="dragEnd($event)" fxLayoutAlign="center">
-                        <div class="taskCard">{{item.subject}}</div>
+
+                        <div class="taskCard" (click)="myCompleteItems(item)" fxLayout="columns wrap"
+                            fxLayoutAlign="start center">
+                            <div class="taskImgDiv" fxLayoutAlign="center center"><img src="assets/img/panda-logo.png" class="taskImg"></div>
+                            <div> {{item.subject}}</div>
+                        </div>
                     </div>
                 </div>
             </div>

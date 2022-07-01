@@ -38,7 +38,8 @@ import { DatePipe } from '@angular/common';
 import {DragDropModule} from 'primeng/dragdrop';
 import { NewItemComponent } from './shared/task-modal/new-item/new-item.component';
 import { WipItemComponent } from './shared/task-modal/wip-item/wip-item.component';
-import { CompletItemComponent } from './shared/task-modal/complet-item/complet-item.component';
+import { CompleteItemComponent } from './shared/task-modal/complete-item/complete-item.component';
+import { AddTaskComponent } from './shared/task-modal/add-task/add-task.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { CompletItemComponent } from './shared/task-modal/complet-item/complet-i
     WorldtimeComponent,
     NewItemComponent,
     WipItemComponent,
-    CompletItemComponent,
+    CompleteItemComponent,
+    AddTaskComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,7 +92,8 @@ import { CompletItemComponent } from './shared/task-modal/complet-item/complet-i
     DatePipe,
     NewItemComponent,
     WipItemComponent,
-    CompletItemComponent,
+    CompleteItemComponent,
+    AddTaskComponent,
   ],
   bootstrap: [AppComponent]
 })

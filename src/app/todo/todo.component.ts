@@ -14,7 +14,8 @@ import { MessageService } from 'primeng/api';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { NewItemComponent } from '../shared/task-modal/new-item/new-item.component';
 import { WipItemComponent } from '../shared/task-modal/wip-item/wip-item.component';
-import { CompletItemComponent } from '../shared/task-modal/complet-item/complet-item.component';
+import { CompleteItemComponent } from '../shared/task-modal/complete-item/complete-item.component';
+import { AddTaskComponent } from '../shared/task-modal/add-task/add-task.component';
 
 @Component({
   selector: 'app-todo',
@@ -48,7 +49,8 @@ export class TodoComponent implements OnInit {
     private _matdialog: MatDialog,
     private NewItemComponent: NewItemComponent,
     private WipItemComponent: WipItemComponent,
-    private CompletItemComponent: CompletItemComponent,
+    private CompleteItemComponent: CompleteItemComponent,
+    private AddTaskComponent:AddTaskComponent,
 
   ) {
     breakpointObserver.observe([
@@ -57,6 +59,28 @@ export class TodoComponent implements OnInit {
     ]).subscribe(result => {
       this.smallScreen = result.matches;
     });
+  }
+
+  async addTask(taskType) {
+    this.DataService.changeMessage(taskType);
+    const DialogConfig = new MatDialogConfig();
+    DialogConfig.disableClose = false;
+    DialogConfig.id = "modal-component";
+    DialogConfig.height = "auto";
+    DialogConfig.width = "400px";
+    const modalDialog = this._matdialog.open(AddTaskComponent, DialogConfig);
+      }
+
+
+  myCompleteItems(item) {
+    console.log(item)
+    this.DataService.changeMessage(item);
+    const DialogConfig = new MatDialogConfig();
+    DialogConfig.disableClose = false;
+    DialogConfig.id = "modal-component";
+    DialogConfig.height = "auto";
+    DialogConfig.width = "400px";
+    const modalDialog = this._matdialog.open(CompleteItemComponent, DialogConfig);
   }
 
   myNewItems(item) {
@@ -194,9 +218,6 @@ export class TodoComponent implements OnInit {
 
     }
   }
-
-
-
 
 
   async ngOnInit() {
