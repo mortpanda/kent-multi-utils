@@ -3,6 +3,11 @@ import { DataService } from '../../data-service/data.service';
 import { Subject, BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 import { MessageService } from 'primeng/api';
 import { ViewEncapsulation } from '@angular/core';
+import { OktaConfigService } from "../../okta/okta-config.service";
+import { OktaApiService } from "../../okta/okta-api.service";
+import { OktaGetTokenService } from '../../okta/okta-get-token.service';
+
+
 
 
 @Component({
@@ -13,30 +18,93 @@ import { ViewEncapsulation } from '@angular/core';
 })
 export class AddTaskComponent implements OnInit {
   selectedMessage: any;
-  strTaskType;
+  // strTaskType;
+
+  myKey;
+  myAccessToken;
+  myEmail;
+
+  myTaskType;
+  arrDownloadedTaskCat;
+
+  bolNew: boolean;
+  bolWip: boolean;
+  bolComp: boolean;
+
+  addTaskSelectedCat;
+
   constructor(
     private DataService: DataService,
     private messageService: MessageService,
-  ) { }
+    private OktaApiService: OktaApiService,
+    public OktaConfigService: OktaConfigService,
+    private OktaGetTokenService: OktaGetTokenService,
+  ) {
+    this.bolNew = false;
+    this.bolWip = false;
+    this.bolComp = false;
+  }
 
-  ngOnInit() {
+
+  async ngOnInit() {
     this.DataService.currentMessage.subscribe(message => (this.selectedMessage = message));
-    this.strTaskType = this.selectedMessage;
+    this.myTaskType = this.selectedMessage;
 
-    switch (this.strTaskType) {
+    this.myAccessToken = await this.OktaGetTokenService.GetAccessToken();
+    this.myKey = await this.myAccessToken.claims.myKey;
+    this.myEmail = await this.myAccessToken.claims.sub;
+    this.arrDownloadedTaskCat = await this.GetTaskCat(this.OktaConfigService.strMyToDoCatDownload, this.myKey, this.myEmail);
+    console.log(this.arrDownloadedTaskCat);
+
+
+
+    switch (this.myTaskType) {
       case 'addNew': {
-        alert('new')
+        this.bolNew = true;
+        this.bolWip = false;
+        this.bolComp = false;
         break;
       }
       case 'addWIP': {
-        alert('addWIP')
+        this.bolNew = false;
+        this.bolWip = true;
+        this.bolComp = false;
         break;
       }
       case 'addComplete': {
-        alert('addComplete')
+        this.bolNew = false;
+        this.bolWip = false;
+        this.bolComp = true;
         break;
       }
     }
+  }
+
+
+  async GetTaskCat(url, mykey, email) {
+    let requestURI;
+    requestURI = url;
+
+    let requestBody;
+    requestBody = {
+      mykey: mykey,
+      email: email,
+    }
+    let toDoCat;
+    toDoCat = await this.OktaApiService.InvokeFlow(requestURI, requestBody);
+    return toDoCat;
+  }
+
+  toastMsg;
+  showSuccess() {
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: this.toastMsg });
+  }
+
+  showError() {
+    this.messageService.add({ severity: 'error', summary: 'Error', detail: this.toastMsg });
+  }
+  onReject() {
+    this.messageService.clear('c');
   }
 
 }

@@ -37,8 +37,8 @@ export class UtilModalComponent implements OnInit {
   bookmarkURL;
   newBookmarkRes;
 
-bolProgressWeb
-bolProgressBookmark
+  bolProgressWeb
+  bolProgressBookmark
 
   constructor(
     private DataService: DataService,
@@ -59,80 +59,80 @@ bolProgressBookmark
     this.myEmail = await this.myAccessToken.claims.sub;
     switch (this.selectedMessage) {
       case "addWebsites": {
-        this.bolProgressWeb=true;
-        this.bolProgressBookmark=false;
+        this.bolProgressWeb = true;
+        this.bolProgressBookmark = false;
         this.myCat = await this.GetWebAppCategories(this.OktaConfigService.strMyWebAppCategory, this.myKey, this.myEmail);
         console.log(this.myCat);
         this.bolWebsite = true;
         this.bolBookmark = false;
-        
+
         break;
 
       }
       case "addBookmark": {
-        this.bolProgressWeb=false;
-        this.bolProgressBookmark=true;
+        this.bolProgressWeb = false;
+        this.bolProgressBookmark = true;
         this.myCat = await this.GetWebAppCategories(this.OktaConfigService.strMyBookmarkCategory, this.myKey, this.myEmail);
         console.log(this.myCat);
         this.bolBookmark = true;
         this.bolWebsite = false;
-        
+
         break;
       }
     }
   }
 
-async SaveBookmark(){
-  try{
-    this.myAccessToken = await this.OktaGetTokenService.GetAccessToken();
-    this.myKey = await this.myAccessToken.claims.myKey;
-    this.myEmail = await this.myAccessToken.claims.sub;
+  async SaveBookmark() {
+    try {
+      this.myAccessToken = await this.OktaGetTokenService.GetAccessToken();
+      this.myKey = await this.myAccessToken.claims.myKey;
+      this.myEmail = await this.myAccessToken.claims.sub;
 
-    
-    this.newBookmarkRes = await this.uploadWebApp(this.OktaConfigService.strAddBookmarkURL, this.myKey, this.myEmail, this.bookmarkName, this.SelectedBookmarkCat.label, this.bookmarkURL);
-    console.log(this.newBookmarkRes)
 
-    switch (this.newBookmarkRes.status) {
-      case "Bookmark uploaded": {
-        this.toastMsg = "Upload Complete";
-        this.showSuccess();
-        break;
+      this.newBookmarkRes = await this.uploadWebApp(this.OktaConfigService.strAddBookmarkURL, this.myKey, this.myEmail, this.bookmarkName, this.SelectedBookmarkCat.label, this.bookmarkURL);
+      console.log(this.newBookmarkRes)
+
+      switch (this.newBookmarkRes.status) {
+        case "Bookmark uploaded": {
+          this.toastMsg = "Upload Complete";
+          this.showSuccess();
+          break;
+        }
+        default: {
+          this.showError()
+          break;
+        }
       }
-      default: {
-        this.showError()
-        break;
-      }
+
+    } catch {
+      this.showError()
     }
 
-  }catch{
-    this.showError()
   }
-
-}
 
   async SaveWebApp() {
-    try{
-    this.myAccessToken = await this.OktaGetTokenService.GetAccessToken();
-    this.myKey = await this.myAccessToken.claims.myKey;
-    this.myEmail = await this.myAccessToken.claims.sub;
+    try {
+      this.myAccessToken = await this.OktaGetTokenService.GetAccessToken();
+      this.myKey = await this.myAccessToken.claims.myKey;
+      this.myEmail = await this.myAccessToken.claims.sub;
 
-    this.newWebAppRes = await this.uploadWebApp(this.OktaConfigService.strNewWebAppURL, this.myKey, this.myEmail, this.webAppName, this.SelectedWebCat.label, this.webAppURL);
+      this.newWebAppRes = await this.uploadWebApp(this.OktaConfigService.strNewWebAppURL, this.myKey, this.myEmail, this.webAppName, this.SelectedWebCat.label, this.webAppURL);
 
-    switch (this.newWebAppRes.status) {
-      case "Web app uploaded": {
-        this.toastMsg = "Upload Complete";
-        this.showSuccess();
-        break;
-      }
-      default: {
-        this.showError()
-        break;
+      switch (this.newWebAppRes.status) {
+        case "Web app uploaded": {
+          this.toastMsg = "Upload Complete";
+          this.showSuccess();
+          break;
+        }
+        default: {
+          this.showError()
+          break;
+        }
       }
     }
-  }
-  catch(error) {
-    this.showError()
-  }
+    catch (error) {
+      this.showError()
+    }
 
   }
 

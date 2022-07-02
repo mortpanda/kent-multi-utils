@@ -1,1 +1,35 @@
-<p>add-task works!</p>
+<div class="addTaskMainDiv"  fxLayout="columns wrap" fxLayoutAlign="center start">
+    <div class="addTaskBannerDiv">
+        <img src="assets/img/logo-full.png" class="addTaskBanner">
+    </div>
+    <!-- ///////////////////////////////////////// -->
+    <!-- Add New -->
+    <!-- ///////////////////////////////////////// -->
+    <div *ngIf="bolNew; else notShow1" fxLayout="columns wrap" sfxLayoutAlign="center start">
+        <div class="addTaskDiv">
+            Add New
+        </div>
+        <div class="addTaskDiv">
+            <p-dropdown [options]="arrDownloadedTaskCat" [(ngModel)]="addTaskSelectedCat"
+                placeholder="Select a category"  [showClear]="false"></p-dropdown>
+        </div>
+    </div>
+    <ng-template #notShow1></ng-template>
+
+    <!-- ///////////////////////////////////////// -->
+    <!-- Add WIP -->
+    <!-- ///////////////////////////////////////// -->
+    <div *ngIf="bolWip; else notShow2">
+        Add WIP
+    </div>
+    <ng-template #notShow2></ng-template>
+
+    <!-- ///////////////////////////////////////// -->
+    <!-- Add Completed -->
+    <!-- ///////////////////////////////////////// -->
+    <div *ngIf="bolComp; else notShow3">
+        Add Completed
+    </div>
+    <ng-template #notShow3></ng-template>
+
+</div>
