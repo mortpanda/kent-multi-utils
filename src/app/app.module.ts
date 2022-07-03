@@ -40,6 +40,8 @@ import { NewItemComponent } from './shared/task-modal/new-item/new-item.componen
 import { WipItemComponent } from './shared/task-modal/wip-item/wip-item.component';
 import { CompleteItemComponent } from './shared/task-modal/complete-item/complete-item.component';
 import { AddTaskComponent } from './shared/task-modal/add-task/add-task.component';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+
 
 
 @NgModule({
@@ -84,6 +86,8 @@ import { AddTaskComponent } from './shared/task-modal/add-task/add-task.componen
     DropdownModule,
     MatTableModule,
     DragDropModule,
+    InputTextareaModule,
+    
 
   ],
   providers: [HttpClientModule,

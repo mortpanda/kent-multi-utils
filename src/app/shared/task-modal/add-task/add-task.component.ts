@@ -7,7 +7,9 @@ import { OktaConfigService } from "../../okta/okta-config.service";
 import { OktaApiService } from "../../okta/okta-api.service";
 import { OktaGetTokenService } from '../../okta/okta-get-token.service';
 
-
+interface myTaskCat {
+  toDoCategories: string,
+}
 
 
 @Component({
@@ -31,7 +33,10 @@ export class AddTaskComponent implements OnInit {
   bolWip: boolean;
   bolComp: boolean;
 
-  addTaskSelectedCat;
+  addTaskSelectedCat: myTaskCat[];
+
+  taskTitle;
+  taskNotes;
 
   constructor(
     private DataService: DataService,
@@ -45,6 +50,10 @@ export class AddTaskComponent implements OnInit {
     this.bolComp = false;
   }
 
+
+  async saveTask(taskType) {
+    alert(taskType)
+  }
 
   async ngOnInit() {
     this.DataService.currentMessage.subscribe(message => (this.selectedMessage = message));

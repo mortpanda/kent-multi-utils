@@ -1,5 +1,5 @@
 .addTaskMainDiv {
-
+    color: #6E6E78;
 
     text-align: center !important;
     height: 600px !important;
@@ -16,7 +16,27 @@
 }
 
 .addTaskDiv {
-    border-style: dotted;
-    color: black;
+    // border-style: dotted;
+
+    width: 100% !important;
+
+    margin-top: 5px!important;
+    margin-bottom: 5px!important;
+}
+
+.dividerDiv {
     width: 100% !important;
 }
+
+#taskCatDropdown {
+    width: 250px !important;
+}
+
+#taskTitleInput {
+    width: 350px !important;
+}
+
+#taskNotesInput{
+    width: 350px !important;
+}
+
