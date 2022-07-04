@@ -37,6 +37,7 @@ export class AddTaskComponent implements OnInit {
 
   taskTitle;
   taskNotes;
+  selectedCategory;
 
   constructor(
     private DataService: DataService,
@@ -50,10 +51,42 @@ export class AddTaskComponent implements OnInit {
     this.bolComp = false;
   }
 
+  async SaveTaskToOkta(url, mykey, email, taskType, taskTitle, taskNotes) {
+    let requestURI;
+    requestURI = url;
 
+    let requestBody;
+    requestBody = {
+      mykey: mykey,
+      email: email,
+      taskType: taskType,
+      taskTitle: taskTitle,
+      taskNotes: taskNotes,
+      strCategory: this.selectedCategory.toDoCategories,
+    }
+    var adddTaskRes;
+    adddTaskRes = await this.OktaApiService.InvokeFlow(requestURI, requestBody);
+    return adddTaskRes;
+  }
+
+  myActionType;
+  myAddTaskRes;
   async saveTask(taskType) {
-    alert(taskType);
-    alert(JSON.stringify(this.selectedCategory.toDoCategories));
+    this.myActionType = await taskType.replace(/['"]+/g, '');
+    console.log(this.myActionType)
+    this.myAddTaskRes = await this.SaveTaskToOkta(this.OktaConfigService.strMyTaskAddURL, this.myKey, this.myEmail, taskType, this.taskTitle, this.taskNotes);
+    await console.log(this.myAddTaskRes.status);
+    switch (this.myAddTaskRes.status) {
+      case "Task created": {
+        this.toastMsg = "Task Created"
+        this.showSuccess();
+        break;
+      }
+      default: {
+        this.showError()
+        break;
+      }
+    }
   }
 
   async ngOnInit() {
@@ -66,14 +99,14 @@ export class AddTaskComponent implements OnInit {
     this.arrDownloadedTaskCat = await this.GetTaskCat(this.OktaConfigService.strMyToDoCatDownload, this.myKey, this.myEmail);
     console.log(this.arrDownloadedTaskCat);
 
-    switch (this.arrDownloadedTaskCat.length > 0){
-      case true:{
-        this.toastMsg="Downloaded Categories"
+    switch (this.arrDownloadedTaskCat.length > 0) {
+      case true: {
+        this.toastMsg = "Downloaded Categories"
         this.showSuccess();
         break;
       }
-      case false:{
-        this.toastMsg="Failed to download Category data"
+      case false: {
+        this.toastMsg = "Failed to download Category data"
         this.showError()
         break;
       }
@@ -101,7 +134,7 @@ export class AddTaskComponent implements OnInit {
     }
   }
 
-  selectedCategory;
+
   async GetTaskCat(url, mykey, email) {
     let requestURI;
     requestURI = url;
@@ -116,9 +149,8 @@ export class AddTaskComponent implements OnInit {
     return toDoCat;
   }
 
-async SaveTask(url, mykey, email,taskType, taskTitle, taskNotes ){
-  // this.taskTitle, this.taskNotes
-}
+
+
 
 
   toastMsg;
