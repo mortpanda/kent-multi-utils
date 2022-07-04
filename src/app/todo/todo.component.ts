@@ -71,6 +71,10 @@ export class TodoComponent implements OnInit {
     const modalDialog = this._matdialog.open(AddTaskComponent, DialogConfig);
       }
 
+test(){
+  alert('test')
+}
+
 
   myCompleteItems(item) {
     console.log(item)

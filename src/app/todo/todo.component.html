@@ -20,20 +20,25 @@
                 <div class="controlDiv" fxLayoutAlign="center center" (click)="addTask('addNew')"><i
                         class="pi pi-plus"></i></div>
                 <div class="taskItemDIV" pDroppable="item" (onDrop)="toNew($event)">
+
                     <div *ngFor="let item of myToDoNew" pDraggable="item" (onDragStart)="dragStart($event,item)"
                         (onDragEnd)="dragEnd($event)" fxLayoutAlign="center">
 
-                        <div class="taskCard" (click)="myNewItems(item)" fxLayout="columns wrap"
-                            fxLayoutAlign="start center">
-                            <div class="taskImgDiv" fxLayoutAlign="center center"><img src="assets/img/lion-logo.png"
-                                    class="taskImg"></div>
+                        <div class="taskCard" fxLayout="columns wrap" fxLayoutAlign="start center">
 
-                            <div class="cardDiv" fxLayout="columns wrap" fxLayoutAlign="start center">
-                                <div class="taskSubject"> {{item.subject}}</div>
-                                <div class="taskCategory"> {{item.category}}</div>
-                                
+                            <div class="taskImgDiv" (click)="myNewItems(item)" fxLayoutAlign="center center"><img
+                                    src="assets/img/lion-logo.png" class="taskImg"></div>
+
+                            <div class="cardDiv" (click)="myNewItems(item)" fxLayout="columns wrap"
+                                fxLayoutAlign="start center">
+                                <div class="taskSubject"> {{item.subject}} </div>
+                                <div class="CatTag">
+                                    <div class="taskCategory"> {{item.category}}</div>
+                                </div>
+
                             </div>
-                            <div class="taskDelBtn" fxLayoutAlign="center center"> <i class="pi pi-times"></i></div>
+                            <div class="taskDelBtn" fxLayoutAlign="center center" (click)="test()"> <i
+                                    class="pi pi-times"></i></div>
                         </div>
 
 
@@ -44,7 +49,7 @@
 
             <div class="taskDiv">
                 <div class="taskDivTitleDiv">
-                    <h2>In Progress</h2>  
+                    <h2>In Progress</h2>
                 </div>
                 <div class="controlDiv" fxLayoutAlign="center center" (click)="addTask('addWIP')"><i
                         class="pi pi-plus"></i></div>
@@ -54,8 +59,8 @@
 
                         <div class="taskCard" (click)="myWipItems(item)" fxLayout="columns wrap"
                             fxLayoutAlign="start center">
-                            <div class="taskImgDiv" fxLayoutAlign="center center"><img src="assets/img/squirrel-logo-small.png"
-                                    class="taskImg"></div>
+                            <div class="taskImgDiv" fxLayoutAlign="center center"><img
+                                    src="assets/img/squirrel-logo-small.png" class="taskImg"></div>
                             <div> {{item.subject}}</div>
                         </div>
 

@@ -118,7 +118,8 @@
 }
 
 .taskSubject {
-    // border-style: dotted;
+    // border-style: solid!important;
+    // border-right: #6E6E78!important;
 
     width: 180px !important;
     margin-left: 5px !important;
@@ -129,36 +130,44 @@
 }
 
 .taskCategory {
-    // border-style: dotted;
-
-    width: 100px !important;
+    border-style: solid !important;
+    border-radius: 5px !important;
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+    width: auto !important;
     margin-left: 10px !important;
-    text-align: left !important;
+    margin-right: 5px !important;
+    text-align: center !important;
     font-size: 12px !important;
+    border-color: #6E6E78!important;
 }
 
 .taskDelBtn {
     // border-style: dotted;
 
     width: 30px !important;
-    margin-left: 10px !important;
+    margin-left: 5px !important;
     text-align: center !important;
     font-size: 12px !important;
 }
 
 .cardDiv {
-    border-style: dotted;
+    // border-style: dotted;
 }
 
 
-.taskDelBtn{
-    padding:5px!important;
-    border-radius: 5px!important;
+.taskDelBtn {
+    padding: 5px !important;
+    border-radius: 5px !important;
 }
 
 .taskDelBtn:hover {
-    padding:5px!important;
-    border-radius: 5px!important;
+    padding: 5px !important;
+    border-radius: 5px !important;
     background: black !important;
     color: #FFFFFF !important;
+}
+
+.CatTag{
+    width:100px!important;
 }
