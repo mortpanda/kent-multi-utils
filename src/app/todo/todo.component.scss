@@ -1,19 +1,14 @@
 .toDoMainDiv {
     // border-style: dotted;
-    // margin-top: 50px !important;
-
-    width: 80vw !important;
+    width: 90vw !important;
     height: 75vh !important;
     overflow-y: auto !important;
 }
-
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .toDoMainDiv::-webkit-scrollbar {
     display: none;
 }
-
-
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .toDoMainDiv {
@@ -25,46 +20,21 @@
 
 .taskDivTitleDiv {
     width: 100% !important;
-
-    //     -webkit-backdrop-filter: blur(70px) !important;
-    // backdrop-filter: blur(70px) !important;
-    // background: transparent !important;
-    // border-top: 2px solid rgba(225, 225, 225, 0.3);
-    // border-left: 2px solid rgba(225, 225, 225, 0.1);
-    // border-right: 1px solid rgba(225, 225, 225, 0.2);
 }
 
-// .itemDiv {
-//     background-color: #FFFFFF !important;
-//     color: gray !important;
-//     border-style: solid !important;
-//     border-width: 1px !important;
-//     border-radius: 5px !important;
-
-//     width: 200px !important;
-//     height: 100px !important;
-//     margin: 10px !important;
-// }
-
 .taskDiv {
-
     border-style: solid !important;
     border-width: 1px !important;
     border-radius: 5px !important;
-    width: 25vw !important;
+    width: 27vw !important;
     height: 75vh !important;
-    overflow-y: auto!important;
-
-
-    // padding-top:10px!important;
+    overflow-y: auto !important;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .taskDiv::-webkit-scrollbar {
     display: none;
 }
-
-
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .taskDiv {
@@ -75,36 +45,15 @@
 }
 
 .taskItemDIV {
-    // padding-left: auto!important;
-    // padding-right: auto!important;
     width: 100% !important;
     height: 100% !important;
-    // border-style: dotted !important;
 }
 
 
 .completedDiv {
     width: 25vw !important;
     height: 100% !important;
-    // border-style: solid !important;
-
 }
-
-// #taskCard {
-//     .p-card {
-//         margin: 5px !important;
-//         height: 50px !important;
-//         box-shadow: 0px 5px 12px 0px #6e6e78 !important;
-
-//         .p-card-content {
-//             padding: 5px !important;
-//         }
-//         .p-card-body {
-//             padding: 0px !important;
-//         }
-//     }
-// }
-
 
 .taskCard {
     margin-top: 5px !important;
@@ -156,11 +105,7 @@
 }
 
 .taskImgDiv {
-    // color:black!important;
-    // border-style: dotted;
-
-    height: 40px !important;
-
+    height: 35px !important;
 }
 
 .taskImg {
@@ -168,6 +113,52 @@
     height: 35px !important;
     width: auto !important;
     padding: 2px !important;
-    padding-right: 10px !important;
+    padding-right: 5px !important;
     padding-left: 10px !important;
+}
+
+.taskSubject {
+    // border-style: dotted;
+
+    width: 180px !important;
+    margin-left: 5px !important;
+    text-align: left !important;
+    font-size: 12px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+}
+
+.taskCategory {
+    // border-style: dotted;
+
+    width: 100px !important;
+    margin-left: 10px !important;
+    text-align: left !important;
+    font-size: 12px !important;
+}
+
+.taskDelBtn {
+    // border-style: dotted;
+
+    width: 30px !important;
+    margin-left: 10px !important;
+    text-align: center !important;
+    font-size: 12px !important;
+}
+
+.cardDiv {
+    border-style: dotted;
+}
+
+
+.taskDelBtn{
+    padding:5px!important;
+    border-radius: 5px!important;
+}
+
+.taskDelBtn:hover {
+    padding:5px!important;
+    border-radius: 5px!important;
+    background: black !important;
+    color: #FFFFFF !important;
 }
