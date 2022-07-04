@@ -52,7 +52,8 @@ export class AddTaskComponent implements OnInit {
 
 
   async saveTask(taskType) {
-    alert(taskType)
+    alert(taskType);
+    alert(JSON.stringify(this.selectedCategory.toDoCategories));
   }
 
   async ngOnInit() {
@@ -100,7 +101,7 @@ export class AddTaskComponent implements OnInit {
     }
   }
 
-
+  selectedCategory;
   async GetTaskCat(url, mykey, email) {
     let requestURI;
     requestURI = url;
@@ -114,6 +115,11 @@ export class AddTaskComponent implements OnInit {
     toDoCat = await this.OktaApiService.InvokeFlow(requestURI, requestBody);
     return toDoCat;
   }
+
+async SaveTask(url, mykey, email,taskType, taskTitle, taskNotes ){
+  // this.taskTitle, this.taskNotes
+}
+
 
   toastMsg;
   showSuccess() {
