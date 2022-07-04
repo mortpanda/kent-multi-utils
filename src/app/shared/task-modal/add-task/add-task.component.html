@@ -47,7 +47,7 @@
         </div>
         
         <div class="addTaskDiv">
-            <h2>Add Workin Progress Task</h2>
+            <h2>Add Work in Progress Task</h2>
         </div>
         <div class="dividerDiv">
             <p-divider></p-divider>
@@ -65,8 +65,6 @@
             <textarea rows="5" cols="30" pInputTextarea placeholder="Enter notes" [(ngModel)]="taskNotes"
                 autoResize="autoResize" id="taskNotesInput"></textarea>
         </div>
-
-
         <div class="dividerDiv">
             <p-divider></p-divider>
         </div>
@@ -80,8 +78,58 @@
     <!-- Add Completed -->
     <!-- ///////////////////////////////////////// -->
     <div *ngIf="bolComp; else notShow3">
-        Add Completed
+        <div class="addTaskBannerDiv">
+            <img src="assets/img/squirrel-logo.png" class="addTaskBanner">
+        </div>
+        
+        <div class="addTaskDiv">
+            <h2>Add a Completed Task</h2>
+        </div>
+        <div class="dividerDiv">
+            <p-divider></p-divider>
+        </div>
+        <div class="addTaskDiv">
+            <p-dropdown [options]="arrDownloadedTaskCat" [(ngModel)]="addTaskSelectedCat"
+                placeholder="Select a category" optionLabel="toDoCategories" [showClear]="false" id="taskCatDropdown">
+            </p-dropdown>
+        </div>
+        <div class="addTaskDiv">
+            <input type="text" pInputText placeholder="Enter the task title" [(ngModel)]="taskTitle"
+                id="taskTitleInput">
+        </div>
+        <div class="addTaskDiv taskNotes">
+            <textarea rows="5" cols="30" pInputTextarea placeholder="Enter notes" [(ngModel)]="taskNotes"
+                autoResize="autoResize" id="taskNotesInput"></textarea>
+        </div>
+        <div class="dividerDiv">
+            <p-divider></p-divider>
+        </div>
+        <div class="addTaskDiv">
+            <p-button label="Save" (onClick)="saveTask('wipTask')" icon="pi pi-spin pi-cog" iconPos="right"></p-button>
+        </div>
     </div>
     <ng-template #notShow3></ng-template>
 
 </div>
+
+
+<!-- ///////////////////////////////////////// -->
+<!-- Toast content -->
+<!-- ///////////////////////////////////////// -->
+<p-toast position="top-right"></p-toast>
+<p-toast position="top-left" key="tl"></p-toast>
+<p-toast position="top-center" key="tc"></p-toast>
+<p-toast position="bottom-center" key="bc"></p-toast>
+
+<p-toast position="top-right" key="c" (onClose)="onReject()" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="p-flex p-flex-column" style="flex: 1">
+            <div class="p-text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+
+        </div>
+    </ng-template>
+</p-toast>

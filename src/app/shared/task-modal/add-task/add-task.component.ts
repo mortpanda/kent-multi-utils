@@ -65,7 +65,18 @@ export class AddTaskComponent implements OnInit {
     this.arrDownloadedTaskCat = await this.GetTaskCat(this.OktaConfigService.strMyToDoCatDownload, this.myKey, this.myEmail);
     console.log(this.arrDownloadedTaskCat);
 
-
+    switch (this.arrDownloadedTaskCat.length > 0){
+      case true:{
+        this.toastMsg="Downloaded Categories"
+        this.showSuccess();
+        break;
+      }
+      case false:{
+        this.toastMsg="Failed to download Category data"
+        this.showError()
+        break;
+      }
+    }
 
     switch (this.myTaskType) {
       case 'addNew': {

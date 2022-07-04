@@ -2,7 +2,7 @@
     color: #6E6E78;
 
     text-align: center !important;
-    height: 600px !important;
+    height: 100% !important;
     width: 100% !important;
 }
 
@@ -12,7 +12,8 @@
 }
 
 .addTaskBanner {
-    width: 250px !important;
+    // width: 250px !important;
+    height:75px!important;
 }
 
 .addTaskDiv {
@@ -21,7 +22,7 @@
     width: 100% !important;
 
     margin-top: 5px!important;
-    margin-bottom: 5px!important;
+    // margin-bottom: 5px!important;
 }
 
 .dividerDiv {
