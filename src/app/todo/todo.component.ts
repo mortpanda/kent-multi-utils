@@ -50,7 +50,7 @@ export class TodoComponent implements OnInit {
     private NewItemComponent: NewItemComponent,
     private WipItemComponent: WipItemComponent,
     private CompleteItemComponent: CompleteItemComponent,
-    private AddTaskComponent:AddTaskComponent,
+    private AddTaskComponent: AddTaskComponent,
 
   ) {
     breakpointObserver.observe([
@@ -59,6 +59,40 @@ export class TodoComponent implements OnInit {
     ]).subscribe(result => {
       this.smallScreen = result.matches;
     });
+  }
+  // this.dragedTask["Row ID"],this.dragedTask.status
+
+  updateTaskRes;
+  async updateTaskonOkta(rowId, status) {
+    try {
+      this.myAccessToken = await this.OktaGetTokenService.GetAccessToken();
+      this.myKey = await this.myAccessToken.claims.myKey;
+      this.myEmail = await this.myAccessToken.claims.sub;
+
+      this.updateTaskRes = await this.updateTask(this.OktaConfigService.strUpdateTaskURL, this.myKey, this.myEmail, rowId, status)
+
+    } catch (error) {
+      // this.showError();
+    }
+  }
+
+  async updateTask(url, mykey, email, rowId, status) {
+    let requestURI;
+    requestURI = url;
+
+    let requestBody;
+    requestBody = {
+      mykey: mykey,
+      email: email,
+      rowId: rowId,
+      status: status,
+
+    }
+
+    let updateTaskRes;
+    updateTaskRes = await this.OktaApiService.InvokeFlow(requestURI, requestBody);
+    // console.log(newWebApp.status);
+    return updateTaskRes;
   }
 
   async addTask(taskType) {
@@ -69,11 +103,11 @@ export class TodoComponent implements OnInit {
     DialogConfig.height = "auto";
     DialogConfig.width = "400px";
     const modalDialog = this._matdialog.open(AddTaskComponent, DialogConfig);
-      }
+  }
 
-test(){
-  alert('test')
-}
+  test() {
+    alert('test')
+  }
 
 
   myCompleteItems(item) {
@@ -139,7 +173,7 @@ test(){
   }
 
 
-  toNew(e) {
+  async toNew(e) {
     if (this.dragedTask) {
       switch (this.myToDoNew.includes(this.dragedTask)) {
         case true: {
@@ -149,14 +183,17 @@ test(){
           switch (this.myToDoWIP.includes(this.dragedTask)) {
             case true: {
               this.myToDoWIP.splice(this.myToDoWIP.indexOf(this.dragedTask), 1);
-
+              this.dragedTask.status = 'new';
               this.myToDoNew.push(this.dragedTask);
+              this.updateTaskRes = await this.updateTaskonOkta(this.dragedTask["Row ID"],this.dragedTask.status)
               this.dragedTask = null;
               break;
             }
             case false: {
               this.myToDoComplete.splice(this.myToDoComplete.indexOf(this.dragedTask), 1);
+              this.dragedTask.status = 'new';
               this.myToDoNew.push(this.dragedTask);
+              this.updateTaskRes = await this.updateTaskonOkta(this.dragedTask["Row ID"],this.dragedTask.status)
               this.dragedTask = null;
               break;
             }
@@ -167,7 +204,7 @@ test(){
     }
   }
 
-  toWIP(e) {
+  async toWIP(e) {
     if (this.dragedTask) {
       switch (this.myToDoWIP.includes(this.dragedTask)) {
         case true: {
@@ -177,13 +214,17 @@ test(){
           switch (this.myToDoNew.includes(this.dragedTask)) {
             case true: {
               this.myToDoNew.splice(this.myToDoNew.indexOf(this.dragedTask), 1);
+              this.dragedTask.status = 'wip';
               this.myToDoWIP.push(this.dragedTask);
+              this.updateTaskRes = await this.updateTaskonOkta(this.dragedTask["Row ID"],this.dragedTask.status)
               this.dragedTask = null;
               break;
             }
             case false: {
               this.myToDoComplete.splice(this.myToDoComplete.indexOf(this.dragedTask), 1);
+              this.dragedTask.status = 'wip';
               this.myToDoWIP.push(this.dragedTask);
+              this.updateTaskRes = await this.updateTaskonOkta(this.dragedTask["Row ID"],this.dragedTask.status)
               this.dragedTask = null;
               break;
             }
@@ -194,7 +235,7 @@ test(){
     }
   }
 
-  toCompleted(e) {
+  async toCompleted(e) {
     if (this.dragedTask) {
       switch (this.myToDoComplete.includes(this.dragedTask)) {
         case true: {
@@ -204,13 +245,17 @@ test(){
           switch (this.myToDoWIP.includes(this.dragedTask)) {
             case true: {
               this.myToDoWIP.splice(this.myToDoWIP.indexOf(this.dragedTask), 1);
+              this.dragedTask.status = 'complete';
               this.myToDoComplete.push(this.dragedTask);
+              this.updateTaskRes = await this.updateTaskonOkta(this.dragedTask["Row ID"],this.dragedTask.status)
               this.dragedTask = null;
               break;
             }
             case false: {
               this.myToDoNew.splice(this.myToDoNew.indexOf(this.dragedTask), 1);
+              this.dragedTask.status = 'complete';
               this.myToDoComplete.push(this.dragedTask);
+              this.updateTaskRes = await this.updateTaskonOkta(this.dragedTask["Row ID"],this.dragedTask.status)
               this.dragedTask = null;
               break;
             }

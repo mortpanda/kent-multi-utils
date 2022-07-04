@@ -52,6 +52,8 @@ export class UtilModalComponent implements OnInit {
   }
 
 
+
+
   async ngOnInit() {
     this.DataService.currentMessage.subscribe(message => (this.selectedMessage = message));
     this.myAccessToken = await this.OktaGetTokenService.GetAccessToken();
@@ -135,6 +137,8 @@ export class UtilModalComponent implements OnInit {
     }
 
   }
+
+  
 
   async uploadWebApp(url, mykey, email, appName, appCategory, appUri) {
     let requestURI;
