@@ -94,7 +94,7 @@ test(){
     DialogConfig.disableClose = false;
     DialogConfig.id = "modal-component";
     DialogConfig.height = "auto";
-    DialogConfig.width = "400px";
+    DialogConfig.width = "450px";
     const modalDialog = this._matdialog.open(NewItemComponent, DialogConfig);
   }
 
