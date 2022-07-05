@@ -62,14 +62,14 @@ export class TodoComponent implements OnInit {
   }
   // this.dragedTask["Row ID"],this.dragedTask.status
 
-  updateTaskRes;
+
   async updateTaskonOkta(rowId, status) {
     try {
       this.myAccessToken = await this.OktaGetTokenService.GetAccessToken();
       this.myKey = await this.myAccessToken.claims.myKey;
       this.myEmail = await this.myAccessToken.claims.sub;
 
-      this.updateTaskRes = await this.updateTask(this.OktaConfigService.strUpdateTaskURL, this.myKey, this.myEmail, rowId, status)
+      await this.updateTask(this.OktaConfigService.strUpdateTaskURL, this.myKey, this.myEmail, rowId, status)
 
     } catch (error) {
       // this.showError();
@@ -91,7 +91,18 @@ export class TodoComponent implements OnInit {
 
     let updateTaskRes;
     updateTaskRes = await this.OktaApiService.InvokeFlow(requestURI, requestBody);
-    // console.log(newWebApp.status);
+    console.log(updateTaskRes);
+
+    switch (updateTaskRes.status) {
+      case "Task Updated": {
+        break;
+      }
+      default: {
+        this.toastMsg = "Error occurred during task status update"
+        this.showError();
+        break;
+      }
+    }
     return updateTaskRes;
   }
 
@@ -117,7 +128,7 @@ export class TodoComponent implements OnInit {
     DialogConfig.disableClose = false;
     DialogConfig.id = "modal-component";
     DialogConfig.height = "auto";
-    DialogConfig.width = "400px";
+    DialogConfig.width = "450px";
     const modalDialog = this._matdialog.open(CompleteItemComponent, DialogConfig);
   }
 
@@ -139,7 +150,7 @@ export class TodoComponent implements OnInit {
     DialogConfig.disableClose = false;
     DialogConfig.id = "modal-component";
     DialogConfig.height = "auto";
-    DialogConfig.width = "400px";
+    DialogConfig.width = "450px";
     const modalDialog = this._matdialog.open(WipItemComponent, DialogConfig); {
 
     }
@@ -185,7 +196,7 @@ export class TodoComponent implements OnInit {
               this.myToDoWIP.splice(this.myToDoWIP.indexOf(this.dragedTask), 1);
               this.dragedTask.status = 'new';
               this.myToDoNew.push(this.dragedTask);
-              this.updateTaskRes = await this.updateTaskonOkta(this.dragedTask["Row ID"],this.dragedTask.status)
+              await this.updateTaskonOkta(this.dragedTask["Row ID"], this.dragedTask.status)
               this.dragedTask = null;
               break;
             }
@@ -193,7 +204,7 @@ export class TodoComponent implements OnInit {
               this.myToDoComplete.splice(this.myToDoComplete.indexOf(this.dragedTask), 1);
               this.dragedTask.status = 'new';
               this.myToDoNew.push(this.dragedTask);
-              this.updateTaskRes = await this.updateTaskonOkta(this.dragedTask["Row ID"],this.dragedTask.status)
+              await this.updateTaskonOkta(this.dragedTask["Row ID"], this.dragedTask.status)
               this.dragedTask = null;
               break;
             }
@@ -216,7 +227,7 @@ export class TodoComponent implements OnInit {
               this.myToDoNew.splice(this.myToDoNew.indexOf(this.dragedTask), 1);
               this.dragedTask.status = 'wip';
               this.myToDoWIP.push(this.dragedTask);
-              this.updateTaskRes = await this.updateTaskonOkta(this.dragedTask["Row ID"],this.dragedTask.status)
+              await this.updateTaskonOkta(this.dragedTask["Row ID"], this.dragedTask.status)
               this.dragedTask = null;
               break;
             }
@@ -224,7 +235,7 @@ export class TodoComponent implements OnInit {
               this.myToDoComplete.splice(this.myToDoComplete.indexOf(this.dragedTask), 1);
               this.dragedTask.status = 'wip';
               this.myToDoWIP.push(this.dragedTask);
-              this.updateTaskRes = await this.updateTaskonOkta(this.dragedTask["Row ID"],this.dragedTask.status)
+              await this.updateTaskonOkta(this.dragedTask["Row ID"], this.dragedTask.status)
               this.dragedTask = null;
               break;
             }
@@ -247,7 +258,7 @@ export class TodoComponent implements OnInit {
               this.myToDoWIP.splice(this.myToDoWIP.indexOf(this.dragedTask), 1);
               this.dragedTask.status = 'complete';
               this.myToDoComplete.push(this.dragedTask);
-              this.updateTaskRes = await this.updateTaskonOkta(this.dragedTask["Row ID"],this.dragedTask.status)
+              await this.updateTaskonOkta(this.dragedTask["Row ID"], this.dragedTask.status)
               this.dragedTask = null;
               break;
             }
@@ -255,7 +266,7 @@ export class TodoComponent implements OnInit {
               this.myToDoNew.splice(this.myToDoNew.indexOf(this.dragedTask), 1);
               this.dragedTask.status = 'complete';
               this.myToDoComplete.push(this.dragedTask);
-              this.updateTaskRes = await this.updateTaskonOkta(this.dragedTask["Row ID"],this.dragedTask.status)
+              await this.updateTaskonOkta(this.dragedTask["Row ID"], this.dragedTask.status)
               this.dragedTask = null;
               break;
             }
@@ -326,5 +337,16 @@ export class TodoComponent implements OnInit {
     console.log(this.myToDoNew)
   }
 
+  toastMsg;
+  showSuccess() {
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: this.toastMsg });
+  }
+
+  showError() {
+    this.messageService.add({ severity: 'error', summary: 'Error', detail: this.toastMsg });
+  }
+  onReject() {
+    this.messageService.clear('c');
+  }
 
 }
