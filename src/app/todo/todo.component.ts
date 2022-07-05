@@ -116,8 +116,61 @@ export class TodoComponent implements OnInit {
     const modalDialog = this._matdialog.open(AddTaskComponent, DialogConfig);
   }
 
-  test() {
-    alert('test')
+
+  async DeleteTask(url, mykey, email, rowId, cat, desc, status, subj) {
+    let requestURI;
+    requestURI = url;
+
+    let requestBody;
+    requestBody = {
+      mykey: mykey,
+      email: email,
+      rowId: rowId,
+      cat: cat,
+      desc: desc,
+      status: status,
+      subj: subj,
+    }
+    var arrDelTask;
+    arrDelTask = await this.OktaApiService.InvokeFlow(requestURI, requestBody);
+    return arrDelTask;
+  }
+
+  deleteTaskRes;
+  async deleteTask(item) {
+    console.log(item)
+    
+    switch (item.status) {
+      case "new": {
+        this.myToDoNew.splice(this.myToDoNew.indexOf(item), 1);
+        break;
+      }
+      case "wip": {
+        this.myToDoWIP.splice(this.myToDoWIP.indexOf(item), 1);
+        break;
+      }
+      case "complete": {
+        this.myToDoComplete.splice(this.myToDoComplete.indexOf(item), 1);
+        break;
+      }
+    }
+
+    this.deleteTaskRes = await this.DeleteTask(this.OktaConfigService.strDelTaskURL, this.myKey, this.myEmail, item["Row ID"], item.category, item.description, item.status, item.subject)
+    await console.log(this.deleteTaskRes);
+    switch (this.deleteTaskRes.status) {
+      case "Task Deleted": {
+        this.toastMsg = "Task deleted"
+        this.showSuccess()
+        break;
+      }
+      default: {
+        this.toastMsg = "Error deleting task"
+        this.showError()
+        break;
+
+      }
+    }
+    // await this.ngOnInit();
   }
 
 

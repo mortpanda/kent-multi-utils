@@ -79,7 +79,8 @@ export class AddTaskComponent implements OnInit {
     switch (this.myAddTaskRes.status) {
       case "Task created": {
         this.toastMsg = "Task Created"
-        this.showSuccess();
+        await this.showSuccess();
+        await window.location.replace('/todo')
         break;
       }
       default: {
@@ -113,19 +114,19 @@ export class AddTaskComponent implements OnInit {
     }
 
     switch (this.myTaskType) {
-      case 'addNew': {
+      case 'new': {
         this.bolNew = true;
         this.bolWip = false;
         this.bolComp = false;
         break;
       }
-      case 'addWIP': {
+      case 'wip': {
         this.bolNew = false;
         this.bolWip = true;
         this.bolComp = false;
         break;
       }
-      case 'addComplete': {
+      case 'complete': {
         this.bolNew = false;
         this.bolWip = false;
         this.bolComp = true;
