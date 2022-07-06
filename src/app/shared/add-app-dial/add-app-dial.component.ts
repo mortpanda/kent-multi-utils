@@ -41,6 +41,16 @@ export class AddAppDialComponent implements OnInit {
         this.openModal("addBookmark");
       }
     },
+    {
+      tooltipOptions: {
+        tooltipLabel: "Add Task Category",
+        tooltipPosition: "left",
+      },
+      icon: "pi pi-list",
+      command: () => {
+        this.openModal("addTaskCategory");
+      }
+    },
   ]
 
   openModal(action) {

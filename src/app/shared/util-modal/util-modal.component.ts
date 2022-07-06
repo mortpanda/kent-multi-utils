@@ -21,6 +21,7 @@ export class UtilModalComponent implements OnInit {
   selectedMessage: any;
   bolWebsite: boolean;
   bolBookmark: boolean;
+  bolTaskCategory: boolean;
   SelectedAction;
   myKey;
   myAccessToken;
@@ -37,8 +38,12 @@ export class UtilModalComponent implements OnInit {
   bookmarkURL;
   newBookmarkRes;
 
-  bolProgressWeb
-  bolProgressBookmark
+  bolProgressWeb: boolean;
+  bolProgressBookmark: boolean;
+  bolProgressTaskCat: boolean;
+
+  addCatRes;
+  taskCategory;
 
   constructor(
     private DataService: DataService,
@@ -49,6 +54,7 @@ export class UtilModalComponent implements OnInit {
   ) {
     this.bolWebsite = false;
     this.bolBookmark = false;
+    this.bolTaskCategory = false;
   }
 
 
@@ -63,10 +69,12 @@ export class UtilModalComponent implements OnInit {
       case "addWebsites": {
         this.bolProgressWeb = true;
         this.bolProgressBookmark = false;
+        this.bolProgressTaskCat = false;
         this.myCat = await this.GetWebAppCategories(this.OktaConfigService.strMyWebAppCategory, this.myKey, this.myEmail);
         console.log(this.myCat);
         this.bolWebsite = true;
         this.bolBookmark = false;
+        this.bolTaskCategory = false;
 
         break;
 
@@ -74,11 +82,23 @@ export class UtilModalComponent implements OnInit {
       case "addBookmark": {
         this.bolProgressWeb = false;
         this.bolProgressBookmark = true;
+        this.bolProgressTaskCat = false;
         this.myCat = await this.GetWebAppCategories(this.OktaConfigService.strMyBookmarkCategory, this.myKey, this.myEmail);
         console.log(this.myCat);
         this.bolBookmark = true;
         this.bolWebsite = false;
+        this.bolTaskCategory = false;
+        break;
+      }
 
+      case "addTaskCategory": {
+        this.bolProgressTaskCat = true;
+        this.bolProgressWeb = false;
+        this.bolProgressBookmark = false;
+        
+        this.bolBookmark = false;
+        this.bolWebsite = false;
+        this.bolTaskCategory = true;
         break;
       }
     }
@@ -138,7 +158,39 @@ export class UtilModalComponent implements OnInit {
 
   }
 
-  
+async AddTaskCat(){
+  this.addCatRes = await this.SaveTaskCategory(this.OktaConfigService.strAddCategoryURL, this.myKey, this.myEmail, this.taskCategory)
+  console.log(this.addCatRes.status)
+  switch (this.addCatRes.status){
+    case "Category added":{
+      this.toastMsg = "Task category added";
+          this.showSuccess();
+      break;
+    }
+    default:{
+      this.toastMsg = "Error adding task category";
+      this.showError()
+      break;
+    }
+  }
+}
+
+  async SaveTaskCategory(url, mykey, email, taskCat) {
+    let requestURI;
+    requestURI = url;
+
+    let requestBody;
+    requestBody = {
+      mykey: mykey,
+      email: email,
+      taskCat: taskCat,
+
+    }
+    let newCat;
+    newCat = await this.OktaApiService.InvokeFlow(requestURI, requestBody);
+    // console.log(newWebApp.status);
+    return newCat;
+  }
 
   async uploadWebApp(url, mykey, email, appName, appCategory, appUri) {
     let requestURI;

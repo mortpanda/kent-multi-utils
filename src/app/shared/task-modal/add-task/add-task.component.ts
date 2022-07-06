@@ -6,6 +6,7 @@ import { ViewEncapsulation } from '@angular/core';
 import { OktaConfigService } from "../../okta/okta-config.service";
 import { OktaApiService } from "../../okta/okta-api.service";
 import { OktaGetTokenService } from '../../okta/okta-get-token.service';
+import {TodoComponent} from '../../../todo/todo.component';
 
 interface myTaskCat {
   toDoCategories: string,
@@ -71,16 +72,20 @@ export class AddTaskComponent implements OnInit {
 
   myActionType;
   myAddTaskRes;
+  newTask=[];
   async saveTask(taskType) {
     this.myActionType = await taskType.replace(/['"]+/g, '');
     console.log(this.myActionType)
     this.myAddTaskRes = await this.SaveTaskToOkta(this.OktaConfigService.strMyTaskAddURL, this.myKey, this.myEmail, taskType, this.taskTitle, this.taskNotes);
     await console.log(this.myAddTaskRes.status);
+
+
     switch (this.myAddTaskRes.status) {
       case "Task created": {
         this.toastMsg = "Task Created"
         await this.showSuccess();
         await window.location.replace('/todo')
+                
         break;
       }
       default: {

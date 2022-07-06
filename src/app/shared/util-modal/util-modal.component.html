@@ -88,6 +88,30 @@
     </div>
 </ng-template>
 
+<!-- ///////////////////////////////////////// -->
+<!-- Website Add -->
+<!-- ///////////////////////////////////////// -->
+<div *ngIf="bolTaskCategory; else notShow2" fxLayout="row wrap" fxLayoutAlign="center center">
+    <div class="modalBannerDiv">
+        <img src="assets/img/squirrel-logo.png" class="modalBanner">
+    </div>
+
+    <div>
+        <h2>Add Task Category</h2>
+    </div>
+    <div class="addWebAppSpacer p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-list"></i></span>
+        <input type="text" pInputText placeholder="Enter category name" [(ngModel)]="taskCategory" />
+    </div>
+    <div class="addWebAppSpacer">
+        <p-button label="Submit" (onClick)="AddTaskCat()"></p-button>
+    </div>
+</div>
+<ng-template #notShow2>
+    <div *ngIf="bolProgressBookmark; else bookmarkNotShow">
+    </div>
+</ng-template>
+
 
 
 
