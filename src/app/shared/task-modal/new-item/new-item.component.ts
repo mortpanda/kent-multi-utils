@@ -9,7 +9,7 @@ import { OktaGetTokenService } from '../../okta/okta-get-token.service';
 
 interface myTaskCat {
   toDoCategories: string,
-  
+  selectedInt:number,
 }
 
 
@@ -40,8 +40,8 @@ export class NewItemComponent implements OnInit {
   arrDownloadedTaskCat;
   addTaskSelectedCat: myTaskCat[];
   selectedCategory;
-  
 
+  selectedInt
   async ngOnInit() {
     await this.DataService.currentMessage.subscribe(message => (this.selectedMessage = message));
     this.myAccessToken = await this.OktaGetTokenService.GetAccessToken();
@@ -55,22 +55,25 @@ export class NewItemComponent implements OnInit {
     this.strItem = await this.selectedMessage;
     this.strItemSubject = await this.strItem.subject;
     this.strItemDesc = await this.strItem.description;
-    
+
     // console.log(this.strItem.category)
     // this.selectedCategory = await this.strItem;
-     
+
 
     for (let i = 0; i < this.arrDownloadedTaskCat.length; i++) {
-      
+
       // console.log(this.arrDownloadedTaskCat[i].toDoCategories)
-      
-      switch (this.arrDownloadedTaskCat[i].toDoCategories){
-        case this.strItem.category :{
+
+      switch (this.arrDownloadedTaskCat[i].toDoCategories) {
+        case this.strItem.category: {
           // console.log(this.arrDownloadedTaskCat[i].toDoCategories)
-          this.selectedCategory = this.arrDownloadedTaskCat[i].toDoCategories;
+          // this.selectedCategory = this.arrDownloadedTaskCat[i].toDoCategories;
+          this.selectedInt = i;
+          // alert(this.selectedInt)
+
           break;
         }
-        default:{
+        default: {
           break;
         }
       }
@@ -78,11 +81,11 @@ export class NewItemComponent implements OnInit {
       // if (this.strItem.category ==this.arrDownloadedTaskCat[i].toDoCategories )
       // console.log(this.arrDownloadedTaskCat[i].toDoCategories)
       // this.selectedCategory = this.arrDownloadedTaskCat[i];
-      
+
     }
-    console.log(this.selectedCategory)  
+    console.log(this.selectedCategory)
     // this.selectedCategory={}
-    
+
   }
 
   itemUpdateRes

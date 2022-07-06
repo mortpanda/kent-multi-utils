@@ -11,7 +11,7 @@
     </div>
     <div class="itemSubDiv">
         <p-dropdown [options]="arrDownloadedTaskCat" 
-            optionLabel="toDoCategories" [showClear]="false" id="taskCatDropdown" [(ngModel)]="selectedCategory" >
+            optionLabel="toDoCategories" [showClear]="false" id="taskCatDropdown" [(ngModel)]="arrDownloadedTaskCat[selectedInt]?" >
         </p-dropdown>
     </div>
 
