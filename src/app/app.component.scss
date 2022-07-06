@@ -101,7 +101,7 @@
 .userName {
   position: fixed !important;
   right: 5% !important;
-  top:2%!important;
+  top: 2% !important;
   // -webkit-backdrop-filter: blur(70px) !important;
   // backdrop-filter: blur(70px) !important;
   // border-radius: 5px !important;
@@ -228,7 +228,32 @@
   }
 }
 
-.taskMainDiv{
-  border-style: dotted;
-  word-wrap: break-word;
+.taskMainDiv {
+  // border-style: dotted;
+  // word-wrap: break-word;
+  text-align: center!important;
+}
+
+.itemBannerDiv {
+  width:100%!important;
+  // text-align: center!important;
+}
+
+.itemBanner {
+  width: 150px !important;
+}
+
+.itemSubDiv{
+  width:100%!important;
+  margin-top: 10px!important;
+}
+
+.itemDivider{
+  width:100%!important;
+  // margin-top: 10px!important;
+  // margin-bottom: 10px!important;
+}
+
+.itemBtnDiv{
+  margin-top: 10px!important; 
 }

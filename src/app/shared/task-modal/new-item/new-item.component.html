@@ -1,6 +1,42 @@
-<div class="taskMainDiv">
+<div class="taskMainDiv" fxLayout="columns wrap" fxLayoutAlign="center center">
+    <div class="itemBannerDiv">
+        <img src="assets/img/lion-logo-long.png" class="itemBanner">
+    </div>
     <div class="taskHeadDiv">
         <h2>New Item</h2>
     </div>
-    {{strItem}}
+
+    <div class="itemDivider">
+        <p-divider></p-divider>
+    </div>
+    <div class="itemSubDiv">
+        <p-dropdown [options]="arrDownloadedTaskCat" [(ngModel)]="addTaskSelectedCat" placeholder="Select a category"
+            optionLabel="toDoCategories" [showClear]="false" id="taskCatDropdown" [(ngModel)]="selectedCategory" dataKey="strItem.category">
+        </p-dropdown>
+    </div>
+
+    <div class="itemSubDiv">
+        <!-- <input type="text" pInputText [(ngModel)]="strItemSubject"  /> -->
+        <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-paperclip"></i></span>
+            <input type="text" pInputText [(ngModel)]="strItemSubject">
+        </div>
+    </div>
+
+    <div class="itemSubDiv">
+        <!-- <input type="text" pInputText [(ngModel)]="strItemSubject"  /> -->
+        <div class="p-inputgroup">
+
+            <textarea pInputTextarea [(ngModel)]="strItemDesc"></textarea>
+        </div>
+    </div>
+    <div class="itemDivider">
+        <p-divider></p-divider>
+    </div>
+
+    <div class="itemBtnDiv">
+        <p-button label="Update Task" icon="pi pi-check" iconPos="left" (click)="updateTask()"></p-button>
+    </div>
+
+
 </div>
