@@ -9,7 +9,10 @@ import { OktaGetTokenService } from '../../okta/okta-get-token.service';
 
 interface myTaskCat {
   toDoCategories: string,
+  
 }
+
+
 
 @Component({
   selector: 'app-new-item',
@@ -37,7 +40,7 @@ export class NewItemComponent implements OnInit {
   arrDownloadedTaskCat;
   addTaskSelectedCat: myTaskCat[];
   selectedCategory;
-  // taskCategory;
+  
 
   async ngOnInit() {
     await this.DataService.currentMessage.subscribe(message => (this.selectedMessage = message));
@@ -54,16 +57,30 @@ export class NewItemComponent implements OnInit {
     this.strItemDesc = await this.strItem.description;
     
     // console.log(this.strItem.category)
-    // this.selectedCategory = await {this.strItem.category }
+    // this.selectedCategory = await this.strItem;
      
 
-    // for (let i = 0; i < this.arrDownloadedTaskCat.length; i++) {
-    //   if (
-    //   this.arrDownloadedTaskCat[i].toDoCategories == this.strItem.category)
-    //   console.log(this.arrDownloadedTaskCat[i].toDoCategories)
-    //   this.selectedCategory = await this.arrDownloadedTaskCat[i].toDoCategories;
-    // }
+    for (let i = 0; i < this.arrDownloadedTaskCat.length; i++) {
+      
+      // console.log(this.arrDownloadedTaskCat[i].toDoCategories)
+      
+      switch (this.arrDownloadedTaskCat[i].toDoCategories){
+        case this.strItem.category :{
+          // console.log(this.arrDownloadedTaskCat[i].toDoCategories)
+          this.selectedCategory = this.arrDownloadedTaskCat[i].toDoCategories;
+          break;
+        }
+        default:{
+          break;
+        }
+      }
 
+      // if (this.strItem.category ==this.arrDownloadedTaskCat[i].toDoCategories )
+      // console.log(this.arrDownloadedTaskCat[i].toDoCategories)
+      // this.selectedCategory = this.arrDownloadedTaskCat[i];
+      
+    }
+    console.log(this.selectedCategory)  
     // this.selectedCategory={}
     
   }
