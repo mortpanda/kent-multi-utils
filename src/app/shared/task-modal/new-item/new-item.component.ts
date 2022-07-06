@@ -37,6 +37,7 @@ export class NewItemComponent implements OnInit {
   arrDownloadedTaskCat;
   addTaskSelectedCat: myTaskCat[];
   selectedCategory;
+  // taskCategory;
 
   async ngOnInit() {
     await this.DataService.currentMessage.subscribe(message => (this.selectedMessage = message));
@@ -47,10 +48,24 @@ export class NewItemComponent implements OnInit {
     this.arrDownloadedTaskCat = await this.GetTaskCat(this.OktaConfigService.strMyToDoCatDownload, this.myKey, this.myEmail);
 
     console.log(this.arrDownloadedTaskCat)
-    
+
     this.strItem = await this.selectedMessage;
     this.strItemSubject = await this.strItem.subject;
     this.strItemDesc = await this.strItem.description;
+    
+    // console.log(this.strItem.category)
+    // this.selectedCategory = await {this.strItem.category }
+     
+
+    // for (let i = 0; i < this.arrDownloadedTaskCat.length; i++) {
+    //   if (
+    //   this.arrDownloadedTaskCat[i].toDoCategories == this.strItem.category)
+    //   console.log(this.arrDownloadedTaskCat[i].toDoCategories)
+    //   this.selectedCategory = await this.arrDownloadedTaskCat[i].toDoCategories;
+    // }
+
+    // this.selectedCategory={}
+    
   }
 
   itemUpdateRes
@@ -62,14 +77,14 @@ export class NewItemComponent implements OnInit {
     this.itemUpdateRes = await this.taskUpdate(this.OktaConfigService.strUpdateTaskContentURL, this.myKey, this.myEmail, this.strItem["Row ID"], this.strItem.subject, this.strItem.description, this.strItem.category),
       console.log(this.itemUpdateRes)
 
-    switch (this.itemUpdateRes.status){
-      case "Task Updated":{
-        this.toastMsg="Task updated"
+    switch (this.itemUpdateRes.status) {
+      case "Task Updated": {
+        this.toastMsg = "Task updated"
         this.showSuccess()
         break;
       }
-      default:{
-        this.toastMsg="Error updating task"
+      default: {
+        this.toastMsg = "Error updating task"
         this.showError()
         break;
       }
