@@ -1,4 +1,47 @@
-<div class="taskMainDiv">
-<p>wip-item works!</p>
-{{strItem}}
+<div class="taskMainDiv" fxLayout="columns wrap" fxLayoutAlign="center center">
+    
+    <div *ngIf="bolLoaded; else notShow">
+        <div class="itemBannerDiv">
+            <img src="assets/img/squirrel-logo.png" class="itemBanner">
+        </div>
+        <div class="taskHeadDiv">
+            <h2>In Progress Item</h2>
+        </div>
+
+        <div class="itemDivider">
+            <p-divider></p-divider>
+        </div>
+        <div class="itemSubDiv">
+            <p-dropdown [options]="arrDownloadedTaskCat" optionLabel="toDoCategories" [showClear]="false"
+                id="taskCatDropdown" [(ngModel)]="arrDownloadedTaskCat[selectedInt]" (onChange)="changeCat(selectedInt)">
+            </p-dropdown>
+        </div>
+
+        <div class="itemSubDiv">
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-paperclip"></i></span>
+                <input type="text" pInputText [(ngModel)]="strItemSubject" >
+            </div>
+        </div>
+
+        <div class="itemSubDiv">
+            <div class="p-inputgroup">
+
+                <textarea pInputTextarea [(ngModel)]="strItemDesc"></textarea>
+            </div>
+        </div>
+        <div class="itemDivider">
+            <p-divider></p-divider>
+        </div>
+
+        <div class="itemBtnDiv">
+            <p-button label="Update Task" icon="pi pi-check" iconPos="left" (click)="updateTask()"></p-button>
+        </div>
+
+    </div>
+    <ng-template #notShow>
+        
+            <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+        
+    </ng-template>
 </div>
