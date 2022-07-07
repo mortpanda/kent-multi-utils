@@ -78,11 +78,11 @@ export class NewItemComponent implements OnInit {
     //     }
     //   }
 
-      // if (this.strItem.category ==this.arrDownloadedTaskCat[i].toDoCategories )
-      // console.log(this.arrDownloadedTaskCat[i].toDoCategories)
-      // this.selectedCategory = this.arrDownloadedTaskCat[i];
+    //   // if (this.strItem.category ==this.arrDownloadedTaskCat[i].toDoCategories )
+    //   // console.log(this.arrDownloadedTaskCat[i].toDoCategories)
+    //   // this.selectedCategory = this.arrDownloadedTaskCat[i];
 
-    }
+    // }
     console.log(this.selectedCategory)
     // this.selectedCategory={}
 
