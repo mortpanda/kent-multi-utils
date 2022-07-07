@@ -17,7 +17,7 @@
                 <p-tabView id="mySiteTab">
                     <p-tabPanel header="Daily Websites" leftIcon="pi pi-bookmark-fill">
                         <h1 class="tabHead">Daily Websites</h1>
-                        <div fxLayout="columns wrap" fxLayoutAlign="center">
+                        <div fxLayout="columns wrap" class="panelDiv">
                             <div class="sitesDiv" *ngFor="let website of dailySites">
                                 <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)">
                                     <div class="btnDiv" fxLayout="columns wrap" fxLayoutAlign="center">
