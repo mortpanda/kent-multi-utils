@@ -2,13 +2,16 @@
   // border-style: dotted;
   // margin-top: 50px !important;
 
-  width: 85vw !important;
+  width: 90vw !important;
   height: 75vh !important;
+  text-align: center!important;
 }
 
 
 #websitesCard {
+   
   .p-card {
+    width: 100%!important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
     height: 75vh !important;
