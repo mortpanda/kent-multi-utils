@@ -83,7 +83,7 @@ export class NewItemComponent implements OnInit {
     //   // this.selectedCategory = this.arrDownloadedTaskCat[i];
 
     // }
-    console.log(this.selectedCategory)
+    // console.log(this.selectedCategory)
     // this.selectedCategory={}
 
   }
