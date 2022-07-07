@@ -60,23 +60,23 @@ export class NewItemComponent implements OnInit {
     // this.selectedCategory = await this.strItem;
 
 
-    for (let i = 0; i < this.arrDownloadedTaskCat.length; i++) {
+    // for (let i = 0; i < this.arrDownloadedTaskCat.length; i++) {
 
-      // console.log(this.arrDownloadedTaskCat[i].toDoCategories)
+    //   // console.log(this.arrDownloadedTaskCat[i].toDoCategories)
 
-      switch (this.arrDownloadedTaskCat[i].toDoCategories) {
-        case this.strItem.category: {
-          // console.log(this.arrDownloadedTaskCat[i].toDoCategories)
-          // this.selectedCategory = this.arrDownloadedTaskCat[i].toDoCategories;
-          this.selectedInt = i;
-          // alert(this.selectedInt)
+    //   switch (this.arrDownloadedTaskCat[i].toDoCategories) {
+    //     case this.strItem.category: {
+    //       // console.log(this.arrDownloadedTaskCat[i].toDoCategories)
+    //       // this.selectedCategory = this.arrDownloadedTaskCat[i].toDoCategories;
+    //       this.selectedInt = i;
+    //       // alert(this.selectedInt)
 
-          break;
-        }
-        default: {
-          break;
-        }
-      }
+    //       break;
+    //     }
+    //     default: {
+    //       break;
+    //     }
+    //   }
 
       // if (this.strItem.category ==this.arrDownloadedTaskCat[i].toDoCategories )
       // console.log(this.arrDownloadedTaskCat[i].toDoCategories)
