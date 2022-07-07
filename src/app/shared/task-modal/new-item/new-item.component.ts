@@ -9,7 +9,7 @@ import { OktaGetTokenService } from '../../okta/okta-get-token.service';
 
 interface myTaskCat {
   toDoCategories: string,
-  selectedInt:number,
+  selectedInt: number,
 }
 
 
@@ -22,13 +22,17 @@ interface myTaskCat {
 })
 export class NewItemComponent implements OnInit {
   selectedMessage: any;
+  bolLoaded: boolean;
   constructor(
     private DataService: DataService,
     private messageService: MessageService,
     private OktaApiService: OktaApiService,
     public OktaConfigService: OktaConfigService,
     private OktaGetTokenService: OktaGetTokenService,
-  ) { }
+  ) {
+    this.bolLoaded = false;
+  }
+
 
   strItem;
   strItemSubject;
@@ -40,8 +44,10 @@ export class NewItemComponent implements OnInit {
   arrDownloadedTaskCat;
   addTaskSelectedCat: myTaskCat[];
   selectedCategory;
+  newTaskCat;
+  itemUpdateRes;
+  selectedInt;
 
-  selectedInt
   async ngOnInit() {
     await this.DataService.currentMessage.subscribe(message => (this.selectedMessage = message));
     this.myAccessToken = await this.OktaGetTokenService.GetAccessToken();
@@ -56,45 +62,37 @@ export class NewItemComponent implements OnInit {
     this.strItemSubject = await this.strItem.subject;
     this.strItemDesc = await this.strItem.description;
 
-    // console.log(this.strItem.category)
-    // this.selectedCategory = await this.strItem;
+    
+    for (let i = 0; i < await this.arrDownloadedTaskCat.length; i++) {
+      switch (await this.arrDownloadedTaskCat[i].toDoCategories) {
+        case await this.strItem.category: {
+          this.selectedInt = await i;
+          this.newTaskCat = this.arrDownloadedTaskCat[i].toDoCategories;
+          this.bolLoaded = true;
+          break;
+        }
+        default: {
+          break;
+        }
+      }
 
-
-    // for (let i = 0; i < this.arrDownloadedTaskCat.length; i++) {
-
-    //   // console.log(this.arrDownloadedTaskCat[i].toDoCategories)
-
-    //   switch (this.arrDownloadedTaskCat[i].toDoCategories) {
-    //     case this.strItem.category: {
-    //       // console.log(this.arrDownloadedTaskCat[i].toDoCategories)
-    //       // this.selectedCategory = this.arrDownloadedTaskCat[i].toDoCategories;
-    //       this.selectedInt = i;
-    //       // alert(this.selectedInt)
-
-    //       break;
-    //     }
-    //     default: {
-    //       break;
-    //     }
-    //   }
-
-    //   // if (this.strItem.category ==this.arrDownloadedTaskCat[i].toDoCategories )
-    //   // console.log(this.arrDownloadedTaskCat[i].toDoCategories)
-    //   // this.selectedCategory = this.arrDownloadedTaskCat[i];
-
-    // }
-    // console.log(this.selectedCategory)
-    // this.selectedCategory={}
+    }
 
   }
 
-  itemUpdateRes
+  changeCat(index) {
+    console.log(this.arrDownloadedTaskCat[index])
+    this.newTaskCat = this.arrDownloadedTaskCat[index].toDoCategories
+  }
+
+
   async updateTask() {
     this.myAccessToken = await this.OktaGetTokenService.GetAccessToken();
     this.myKey = await this.myAccessToken.claims.myKey;
     this.myEmail = await this.myAccessToken.claims.sub;
 
-    this.itemUpdateRes = await this.taskUpdate(this.OktaConfigService.strUpdateTaskContentURL, this.myKey, this.myEmail, this.strItem["Row ID"], this.strItem.subject, this.strItem.description, this.strItem.category),
+
+    this.itemUpdateRes = await this.taskUpdate(this.OktaConfigService.strUpdateTaskContentURL, this.myKey, this.myEmail, this.strItem["Row ID"], this.strItemSubject, this.strItemDesc, this.newTaskCat),
       console.log(this.itemUpdateRes)
 
     switch (this.itemUpdateRes.status) {

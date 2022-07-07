@@ -204,7 +204,7 @@
   .p-card .p-card-content {
     padding: 0px;
     height: 60vh !important;
-    width: 85vw !important;
+    width: 90vw !important;
   }
 }
 
@@ -236,6 +236,8 @@
   // border-style: dotted;
   // word-wrap: break-word;
   text-align: center!important;
+  width:100%!important;
+  display:block!important;
 }
 
 .itemBannerDiv {
@@ -260,4 +262,10 @@
 
 .itemBtnDiv{
   margin-top: 10px!important; 
+}
+
+#taskCatDropdown{
+  .p-dropdown{
+    width:100%!important;
+  }
 }
