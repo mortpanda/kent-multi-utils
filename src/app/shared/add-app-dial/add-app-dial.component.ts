@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { ViewEncapsulation } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import {UtilModalComponent} from '../util-modal/util-modal.component';
+import { UtilModalComponent } from '../util-modal/util-modal.component';
 import { DataService } from '../data-service/data.service';
 import { Subject, BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 
@@ -16,7 +16,7 @@ export class AddAppDialComponent implements OnInit {
 
   constructor(
     private _matdialog: MatDialog,
-    private UtilModalComponent:UtilModalComponent,
+    private UtilModalComponent: UtilModalComponent,
     private DataService: DataService,
   ) { }
 
