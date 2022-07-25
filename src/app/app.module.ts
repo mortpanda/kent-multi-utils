@@ -35,12 +35,12 @@ import { TodoComponent } from './todo/todo.component';
 import { MatTableModule } from '@angular/material/table';
 import { WorldtimeComponent } from './worldtime/worldtime.component';
 import { DatePipe } from '@angular/common';
-import {DragDropModule} from 'primeng/dragdrop';
+import { DragDropModule } from 'primeng/dragdrop';
 import { NewItemComponent } from './shared/task-modal/new-item/new-item.component';
 import { WipItemComponent } from './shared/task-modal/wip-item/wip-item.component';
 import { CompleteItemComponent } from './shared/task-modal/complete-item/complete-item.component';
 import { AddTaskComponent } from './shared/task-modal/add-task/add-task.component';
-import {InputTextareaModule} from 'primeng/inputtextarea';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 
 
@@ -87,7 +87,7 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
     MatTableModule,
     DragDropModule,
     InputTextareaModule,
-    
+
 
   ],
   providers: [HttpClientModule,
