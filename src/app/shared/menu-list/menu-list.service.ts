@@ -23,7 +23,7 @@ export class MenuListService {
       // style: 'font-size: 2rem;',
       routerLink: '/websites'
     },
-    
+
 
     {
       tooltipOptions: {
@@ -57,20 +57,26 @@ export class MenuListService {
       routerLink: '/worldtime'
     },
 
-    
+
   ]
 
 
 
   smallToolbar = [
     {
-      label: "Main Menu",
+      tooltipOptions: {
+        tooltipLabel: "Main Menu",
+        tooltipPosition: "top",
+      },
       icon: "pi pi-bars",
       routerLink: '/start',
     },
 
     {
-      label: "Home",
+      tooltipOptions: {
+        tooltipLabel: "Home",
+        tooltipPosition: "top",
+      },
       icon: "pi pi-home",
       command: () => {
         this.GoHome();
@@ -78,7 +84,10 @@ export class MenuListService {
     },
 
     {
-      label: "Logout",
+      tooltipOptions: {
+        tooltipLabel: "Logout",
+        tooltipPosition: "top",
+      },
       icon: "pi pi-power-off",
       command: () => {
         this.Logout();

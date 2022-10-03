@@ -86,4 +86,10 @@ export class StartComponent implements OnInit {
 
   // }
 
+
+  
+  async OpenWebsite(url) {
+    await window.open(url, '_blank');
+  }
+
 }

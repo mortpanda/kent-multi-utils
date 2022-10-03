@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 import { ViewEncapsulation } from '@angular/core';
-// import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-root',
@@ -10,17 +10,17 @@ import { ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  // smallScreen: boolean;
+  smallScreen: boolean;
   constructor(
     private primengConfig: PrimeNGConfig,
-    // private breakpointObserver: BreakpointObserver,
+    private breakpointObserver: BreakpointObserver,
   ) {
-    // breakpointObserver.observe([
-    //   Breakpoints.XSmall,
-    //   Breakpoints.Small
-    // ]).subscribe(result => {
-    //   this.smallScreen = result.matches;
-    // });
+    breakpointObserver.observe([
+      Breakpoints.XSmall,
+      Breakpoints.Small
+    ]).subscribe(result => {
+      this.smallScreen = result.matches;
+    });
   }
 
   ngOnInit() {

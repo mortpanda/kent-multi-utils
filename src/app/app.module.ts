@@ -11,7 +11,6 @@ import { ButtonModule } from 'primeng/button';
 import { SpeedDialModule } from 'primeng/speeddial';
 import { TooltipModule } from 'primeng/tooltip';
 import { ToolbarModule } from 'primeng/toolbar';
-import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { PrimeIcons } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
 import { StartComponent } from './start/start.component';
@@ -41,6 +40,7 @@ import { WipItemComponent } from './shared/task-modal/wip-item/wip-item.componen
 import { CompleteItemComponent } from './shared/task-modal/complete-item/complete-item.component';
 import { AddTaskComponent } from './shared/task-modal/add-task/add-task.component';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 
 
 
@@ -49,7 +49,6 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     AppComponent,
     LandingComponent,
     NavMainComponent,
-    ToolbarComponent,
     StartComponent,
     WebsitesComponent,
     AddAppDialComponent,
@@ -61,6 +60,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     WipItemComponent,
     CompleteItemComponent,
     AddTaskComponent,
+    ToolbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,7 +87,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     MatTableModule,
     DragDropModule,
     InputTextareaModule,
-
+    
 
   ],
   providers: [HttpClientModule,

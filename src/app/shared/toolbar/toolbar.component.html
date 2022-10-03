@@ -1,12 +1,12 @@
 <ng-template #bigScreen>
-    <p-toolbar id="mainToolbar">
-        <div class="p-toolbar-group-left">
-            <img src="assets/img/lion-logo-long.png" class="toolbarBanner">
-        </div>
-        <div class="p-toolbar-group-right">
+ 
+    
+    <p-dock [model]="toolbarItems" position="left" id="toolBar">
+        <ng-template pTemplate="item" let-item>
+            <i [class]="item.icon" [style]="item.style"></i>
+        </ng-template>
+    </p-dock>   
 
-        </div>
-    </p-toolbar>
 </ng-template>
 
 
@@ -14,10 +14,11 @@
 <!-- ************************* SMALL SCREEN ************************* -->
 <ng-template [ngIf]="smallScreen" [ngIfElse]="bigScreen">
 
+    <p-dock [model]="toolbarItems" position="top" id="smToolbar">
+        <ng-template pTemplate="item" let-item>
+            <i [class]="item.icon" [style]="item.style"></i>
+        </ng-template>
+    </p-dock>   
+        
     
-        <p-menubar [model]="toolbarItems" id="smToolbar">
-            <ng-template pTemplate="start"></ng-template>
-        </p-menubar>
-    
-
-</ng-template>
+    </ng-template>

@@ -1,27 +1,40 @@
-// #mainAppMenu {
-
-//     .p-speeddial-action-icon {
-//         .pi {
-//             .pi-clock {
-//                 text-decoration: none !important;
-//             }
-//         }
-//     }
-// }
-
-
-.mainMenuDiv {
-    color: #FFFFFF !important;
-    //  padding-top: 80px!important;
+.infoBar{
+    border-style: dotted;
+    width:100%!important;
+    height: 10vh!important;
+}
+.infoDiv{
+    border-style: dotted;
+    width:calc(100% / 3)!important;
+    height:100%!important;
+    
 }
 
-// .locationInfo{
-//     width:100vw!important;
+.startMenuDiv{
+    border-style: dotted;
+    width:95%!important;
+    height:60%!important;
+    
+}
 
 
+.smInfoBar{
+    border-style: dotted;
+    width:100%!important;
+    height: 10vh!important;
+    margin-top: 10px!important;
+}
 
-// }
+.smInfoDiv{
+    // border-style: dotted;
+    width:calc(100% / 3)!important;
+    height:100%!important;
+    // display: inline-flex;
+}
 
-a:link{
-    text-decoration: none!important;
+.smStartMenuDiv{
+    // border-style: dotted;
+    width:100%!important;
+    height:85%!important;
+    
 }

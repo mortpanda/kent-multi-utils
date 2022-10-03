@@ -1,4 +1,70 @@
-<div class="MainDiv" fxLayout="row wrap" fxLayoutAlign="center center">
+<ng-template #bigScreen>
+    <app-toolbar></app-toolbar>
+
+    <div class="mainDiv" fxLayout="row wrap" fxLayoutAlign="center start">
+        <div class="infoBar" fxLayout="columns" fxLayoutAlign="center center">
+            <div class="infoDiv" fxLayoutAlign="center center">{{GetWeatherService?.arrWeather?.name}}</div>
+            <div class="infoDiv" fxLayoutAlign="center center">{{GetWeatherService?.arrWeather?.main.temp}} ℃</div>
+
+            <div class="infoDiv" fxLayoutAlign="center center"><img src="{{GetWeatherService?.myWeatherIcon}}"
+                    class="weatherIcon">
+            </div>
+
+            <div class="startMenuDiv">
+
+                <div class="sitesDiv" *ngFor="let appItem of mainAppMenu">
+                    <p-button id="appBtn" label="{{appItem.tooltipOptions.tooltipLabel}}"></p-button>
+
+                </div>
+
+            </div>
+
+            <!-- routerLink="/{{appItem.url}} -->
+
+
+
+        </div>
+        <div class="userName">
+            {{strFullName}}
+        </div>
+    </div>
+
+</ng-template>
+
+<!-- ************************* SMALL SCREEN ************************* -->
+<!-- ************************* SMALL SCREEN ************************* -->
+<ng-template [ngIf]="smallScreen" [ngIfElse]="bigScreen">
+    <app-toolbar></app-toolbar>
+
+    <div class="smMainDiv" fxLayout="row wrap" fxLayoutAlign="center start">
+
+        <div class="smInfoBar" fxLayout="columns" fxLayoutAlign="center center">
+            <div class="smInfoDiv" fxLayoutAlign="center center">{{GetWeatherService?.arrWeather?.name}}</div>
+            <div class="smInfoDiv" fxLayoutAlign="center center">{{GetWeatherService?.arrWeather?.main.temp}} ℃</div>
+            <div class="smInfoDiv" fxLayoutAlign="center center"><img src="{{GetWeatherService?.myWeatherIcon}}"
+                    class="weatherIcon"></div>
+        </div>
+
+        <div class="smStartMenuDiv">
+
+            <div class="sitesDiv" *ngFor="let appItem of mainAppMenu">
+                <p-button id="appBtn" label="{{appItem.tooltipOptions.tooltipLabel}}"></p-button>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="userName">
+        {{strFullName}}
+    </div>
+
+</ng-template>
+
+
+
+<!-- <div class="MainDiv" fxLayout="row wrap" fxLayoutAlign="center center">
     <div class="userName">
         {{strFullName}}
     </div>
@@ -17,4 +83,20 @@
     <p-speedDial [model]="mainAppMenu" type="circle" radius="150" showIcon="pi pi-microsoft" hideIcon="pi pi-times"
         buttonClassName="p-button-outlined" id="mainAppMenu"></p-speedDial>
 </div>
-<app-add-app-dial></app-add-app-dial>
+<app-add-app-dial></app-add-app-dial> -->
+
+
+
+<!-- <div class="sitesDiv" *ngFor="let website of userDashboard">
+    <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)">
+        <div class="btnDiv" fxLayout="columns wrap" fxLayoutAlign="center">
+            <div class="leftBtn">
+                <img src="assets/img/panda-logo.png" class="btnImage">
+            </div>
+            <div class="rightBtn">
+                <h5>{{website.name}}</h5>
+                {{website.strUri}}
+            </div>
+        </div>
+    </p-button>
+</div> -->

@@ -3,7 +3,7 @@ import { MenuListService } from '../menu-list/menu-list.service';
 import { ViewEncapsulation } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import {MenuItem} from 'primeng/api';
-
+import { PrimeIcons } from 'primeng/api';
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
@@ -16,7 +16,7 @@ export class ToolbarComponent implements OnInit {
   constructor(
     private breakpointObserver: BreakpointObserver,
     private MenuListService: MenuListService,
-  ) {
+  ) { 
     breakpointObserver.observe([
       Breakpoints.XSmall,
       Breakpoints.Small
