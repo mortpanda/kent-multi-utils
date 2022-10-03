@@ -1,9 +1,9 @@
-<div class="MainDiv" fxLayout="row wrap" fxLayoutAlign="center center">
+<!-- <div class="MainDiv" fxLayout="row wrap" fxLayoutAlign="center center">
     <div *ngIf="mySites; else notShow">
         <div class="userName">
             {{strFullName}}
         </div>
-        <div class="locationInfo" fxLayout="row wrap" fxLayoutAlign="start center">
+        <div class="locationInfo" fxLayout="row wrap" fxLayoutAlign="center start">
             <div class="weatherInfo">{{GetWeatherService?.arrWeather?.name}}</div>
             <div class="weatherInfo">{{GetWeatherService?.arrWeather?.main.temp}} ℃</div>
             <div class="weatherInfo">
@@ -11,16 +11,15 @@
             </div>
         </div>
         
-        <div class="websitesMainDiv" fxLayout="row wrap" fxLayoutAlign="start center">
-            <p-card id="mainContainerCard">
-                <!-- <p-tabView [model]="myCategories" id="mySiteTab"></p-tabView> -->
+        <div class="websitesMainDiv" fxLayout="row wrap" fxLayoutAlign="start start">
+            
                 <p-tabView id="mySiteTab">
                     <p-tabPanel header="Daily Websites" leftIcon="pi pi-bookmark-fill">
                         <h1 class="tabHead">Daily Websites</h1>
-                        <div fxLayout="columns wrap" class="panelDiv">
+                        <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
                             <div class="sitesDiv" *ngFor="let website of dailySites">
                                 <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)">
-                                    <div class="btnDiv" fxLayout="columns wrap" fxLayoutAlign="center">
+                                    <div class="btnDiv" fxLayout="columns wrap" fxLayoutAlign="center center">
                                         <div class="leftBtn">
                                             <img src="assets/img/panda-logo.png" class="btnImage">
                                         </div>
@@ -36,7 +35,7 @@
 
                     <p-tabPanel header="Admin Dashboard" leftIcon="pi pi-spin pi-cog">
                         <h1 class="tabHead">Admin Dashboard</h1>
-                        <div fxLayout="columns wrap" fxLayoutAlign="center">
+                        <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
                             <div class="sitesDiv" *ngFor="let website of adminDashboard">
                                 <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)">
                                     <div class="btnDiv" fxLayout="columns wrap" fxLayoutAlign="center">
@@ -54,9 +53,9 @@
                         </div>
                     </p-tabPanel>
 
-                    <p-tabPanel header="User Dashboard" leftIcon="pi pi-users">
+                    <p-tabPanel header="User Dashboard" leftIcon="pi pi-spin pi-cog">
                         <h1 class="tabHead">User Dashboard</h1>
-                        <div fxLayout="columns wrap" fxLayoutAlign="center">
+                        <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
                             <div class="sitesDiv" *ngFor="let website of userDashboard">
                                 <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)">
                                     <div class="btnDiv" fxLayout="columns wrap" fxLayoutAlign="center">
@@ -70,13 +69,16 @@
                                     </div>
                                 </p-button>
                             </div>
+
                         </div>
                     </p-tabPanel>
+
+                   
 
 
                     <p-tabPanel header="Okta Sites" leftIcon="pi pi-cloud">
                         <h1 class="tabHead">Okta Sites</h1>
-                        <div fxLayout="columns wrap" fxLayoutAlign="center">
+                        <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
                             <div class="sitesDiv" *ngFor="let website of websiteOkta">
                                 <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)">
                                     <div class="btnDiv" fxLayout="columns wrap" fxLayoutAlign="center">
@@ -94,7 +96,7 @@
                     </p-tabPanel>
                     <p-tabPanel header="K-Lab Apps" leftIcon="pi pi-box">
                         <h1 class="tabHead">K-Lab Apps</h1>
-                        <div fxLayout="columns wrap" fxLayoutAlign="center">
+                        <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
                             <div class="sitesDiv" *ngFor="let website of Klab">
                                 <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)">
                                     <div class="btnDiv" fxLayout="columns wrap" fxLayoutAlign="center">
@@ -112,7 +114,7 @@
                     </p-tabPanel>
                     <p-tabPanel header="Dev Info" leftIcon="pi pi-code">
                         <h1 class="tabHead">Dev Info</h1>
-                        <div fxLayout="columns wrap" fxLayoutAlign="center">
+                        <div fxLayout="columns wrap" fxLayoutAlign="center" class="panelDiv">
                             <div class="sitesDiv" *ngFor="let website of DevInfo">
                                 <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)">
                                     <div class="btnDiv" fxLayout="columns wrap" fxLayoutAlign="center">
@@ -130,12 +132,12 @@
                     </p-tabPanel>
                     <p-tabPanel header="My OIE Projects" leftIcon="pi pi-microsoft">
                         <h1 class="tabHead">My OIE Projects</h1>
-                        <div fxLayout="columns wrap" fxLayoutAlign="center">
+                        <div fxLayout="columns wrap" fxLayoutAlign="center" class="panelDiv">
                             <div class="sitesDiv" *ngFor="let website of myProcessedApps">
                                 <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)">
                                     <div class="btnDiv" fxLayout="columns wrap" fxLayoutAlign="center">
                                         <div class="leftBtn">
-                                            <!-- <img src="assets/img/panda-logo.png" class="btnImage"> -->
+                                            
                                             <img src="{{website.logoURI}}" class="myOIEApps">
                                         </div>
                                         <div class="rightBtn">
@@ -149,7 +151,7 @@
                     </p-tabPanel>
                     <p-tabPanel header="Personal Apps" leftIcon="pi pi-table">
                         <h1 class="tabHead">My Personal Apps</h1>
-                        <div fxLayout="columns wrap" fxLayoutAlign="center">
+                        <div fxLayout="columns wrap" fxLayoutAlign="center" class="panelDiv">
                             <div class="sitesDiv" *ngFor="let website of personalApps">
                                 <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)">
                                     <div class="btnDiv" fxLayout="columns wrap" fxLayoutAlign="center">
@@ -170,7 +172,7 @@
 
                 </p-tabView>
                     
-            </p-card>
+            
             
         </div>
         <app-add-app-dial></app-add-app-dial>
@@ -179,7 +181,7 @@
         <div class="loader"></div>
     </ng-template>
     
-</div>
+</div> -->
 
 
 

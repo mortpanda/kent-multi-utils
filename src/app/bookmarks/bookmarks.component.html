@@ -1,4 +1,4 @@
-<div class="MainDiv" fxLayout="row wrap" fxLayoutAlign="center center">
+<!-- <div class="MainDiv" fxLayout="row wrap" fxLayoutAlign="center center">
     <div *ngIf="myBookmarks; else notShow">
         <div class="userName">
             {{strFullName}}
@@ -12,7 +12,7 @@
         </div>
         <div class="bookmarkfilterDiv" fxLayout="row wrap" fxLayoutAlign="start center">
             <div><img src="assets/img/panda-logo.png" class="filterImg"></div>
-            <!-- <a class="filterLebel">Filter </a> -->
+            
             <div>
                 <input type="text" pInputText (keyup)="applyFilter($event)" id="filterTxt"
                     style="width: 70vw;padding:5px;" />
@@ -24,19 +24,19 @@
                 <div class="bookmarkTableDiv">
                     <table mat-table [dataSource]="myTableSource" class="mat-elevation-z8" id="bookmarkTable">
 
-                        <!-- Description Column -->
+                        
                         <ng-container matColumnDef="description">
                             <th mat-header-cell *matHeaderCellDef style="width:auto;white-space:nowrap;" > Description </th>
                             <td mat-cell *matCellDef="let element" style="width:auto;white-space:nowrap;"> {{element.description}} </td>
                         </ng-container>
 
-                        <!-- Category Column -->
+                        
                         <ng-container matColumnDef="category">
                             <th mat-header-cell *matHeaderCellDef style="width:auto;white-space:nowrap;"> Category </th>
                             <td mat-cell *matCellDef="let element" style="width:auto;white-space:nowrap;"> {{element.category}} </td>
                         </ng-container>
 
-                        <!-- URL Column -->
+                        
                         <ng-container matColumnDef="siteURL">
                             <th mat-header-cell *matHeaderCellDef style="width:auto;white-space:nowrap;"> Site URL </th>
                             <td mat-cell *matCellDef="let element"> <a href="{{element.siteURL}}"
@@ -58,7 +58,7 @@
     </ng-template>
 </div>
 
-
+ -->
 
 <!-- ///////////////////////////////////////// -->
 <!-- Toast content -->
