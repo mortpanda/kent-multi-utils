@@ -82,7 +82,7 @@ body {
 }
 
 .infoBar {
-  border-style: dotted;
+  // border-style: dotted;
   width: 100% !important;
   height: 5vh !important;
 }
@@ -120,7 +120,7 @@ body {
   left:2vw!important;
 }
 .startMain {
-  border-style: dotted;
+  // border-style: dotted;
   // margin-top: 40px !important;
   width: 85vw !important;
   height: 80vh !important;
@@ -138,11 +138,17 @@ body {
 
 .smStartMain{
   position: fixed!important;
-  border-style: dotted;
+  // border-style: dotted;
   top:calc(100vh - (100vh - 15vh))!important;
   // padding:15px!important;
 }
 
 .loadingDiv{
   width:100%!important;
+}
+
+.speeddialTask{
+  position:fixed!important;
+  bottom:40vh!important;
+  right:2vw!important;
 }

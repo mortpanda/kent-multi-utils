@@ -70,7 +70,7 @@ export class BookmarksComponent implements OnInit {
     switch (this.strUserSession == true) {
       case false:
         window.location.replace(this.OktaConfigService.strPostLogoutURL);
-      case true:
+      case true:{
         this.strThisUser = await this.authService.token.getUserInfo()
           .then(function (user) {
             return user
@@ -84,7 +84,7 @@ export class BookmarksComponent implements OnInit {
         this.myKey = await this.myAccessToken.claims.myKey;
         this.myEmail = await this.myAccessToken.claims.sub;
         this.myBookmarkRes = await this.GetMyBookmarks(this.OktaConfigService.strMyBookmarkDownload, this.myKey, this.myEmail)
-        this.myBookmarks = true;
+        
         this.myTableSource = new MatTableDataSource(this.myBookmarkRes);
         switch (this.myBookmarkRes.length > 0) {
           case true: {
@@ -96,9 +96,9 @@ export class BookmarksComponent implements OnInit {
             break;
           }
         }
-
+        this.myBookmarks = true;
         break;
-
+      }
     }
     // console.log(this.strThisUser);
     console.log(this.myBookmarkRes);

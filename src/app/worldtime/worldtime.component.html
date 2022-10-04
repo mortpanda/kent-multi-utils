@@ -58,7 +58,7 @@
   <div id="userName">
     {{strFullName}}
   </div>
-
+  <app-add-app-dial></app-add-app-dial>
 </ng-template>
 
 <!-- ************************* SMALL SCREEN ************************* -->
@@ -120,114 +120,5 @@
   <div class="userName">
     {{strFullName}}
   </div>
-
+  <app-add-app-dial></app-add-app-dial>
 </ng-template>
-
-
-
-<!-- <div class="MainDiv" fxLayout="row wrap" fxLayoutAlign="center center">
-
-    <div class="userName">
-        {{strFullName}}
-    </div>
-    <div class="locationInfo" fxLayout="row wrap" fxLayoutAlign="start center">
-        <div class="weatherInfo">{{GetWeatherService?.arrWeather?.name}}</div>
-        <div class="weatherInfo">{{GetWeatherService?.arrWeather?.main.temp}} ℃</div>
-        <div class="weatherInfo">
-            <img src="{{GetWeatherService?.myWeatherIcon}}" class="weatherIcon">
-        </div>
-    </div>
-    <ng-template #bigScreen>
-        <div class="TimeMasterDiv" fxLayout="row wrap" fxLayoutAlign="center center" >
-
-            <div class="pageTitleDiv">
-              World Time
-            </div>
-        
-            <div class="timeDiv" fxLayout="row wrap" fxLayoutAlign="center center" >
-              
-              <p-panel header="California" id="lgDateTimePanel">
-                <p class="pdate">{{WorldClockService.strSanFranDate}}</p>
-                <p class="ptime">{{WorldClockService.strSanFranTime}}</p>
-              </p-panel>
-        
-              <p-panel header="New York" id="lgDateTimePanel">
-                <p class="pdate">{{WorldClockService.strNYDate}}</p>
-                <p class="ptime">{{WorldClockService.strNYTime}}</p>
-              </p-panel>
-        
-              <p-panel header="London" id="lgDateTimePanel">
-                <p class="pdate">{{WorldClockService.strLondonDate}}</p>
-                <p class="ptime">{{WorldClockService.strLondonTime}}</p>
-              </p-panel>
-        
-              <p-panel header="Singapore" id="lgDateTimePanel">
-                <p class="pdate">{{WorldClockService.strSingaporeDate}}</p>
-                <p class="ptime">{{WorldClockService.strSingaporeTime}}</p>
-              </p-panel>
-        
-              <p-panel header="Sydney" id="lgDateTimePanel">
-                <p class="pdate">{{WorldClockService.strSydneyDate}}</p>
-                <p class="ptime">{{WorldClockService.strSydneyTime}}</p>
-              </p-panel>
-        
-              <p-panel header="UTC" id="lgDateTimePanel">
-                <p class="pdate">{{WorldClockService.strUTCDate}}</p>
-                <p class="ptime">{{WorldClockService.strUTCTime}}</p>
-              </p-panel>
-
-              
-
-
-            </div>
-        
-          </div>
-    </ng-template> -->
-<!-- ************************* SMALL SCREEN ************************* -->
-<!-- ************************* SMALL SCREEN ************************* -->
-
-<!-- <ng-template [ngIf]="smallScreen" [ngIfElse]="bigScreen">
-        <div class="smTimeMasterDiv" fxLayout="row wrap" fxLayoutAlign="center center">
-
-            <div class="smpageTitleDiv">
-              World Time
-            </div>
-        
-            <div class="timeDiv" fxLayout="row wrap" fxLayoutAlign="center center">
-              
-              <p-panel header="California" id="lgDateTimePanel">
-                <p class="pdate">{{WorldClockService.strSanFranDate}}</p>
-                <p class="ptime">{{WorldClockService.strSanFranTime}}</p>
-              </p-panel>
-        
-              <p-panel header="New York" id="lgDateTimePanel">
-                <p class="pdate">{{WorldClockService.strNYDate}}</p>
-                <p class="ptime">{{WorldClockService.strNYTime}}</p>
-              </p-panel>
-        
-              <p-panel header="London" id="lgDateTimePanel">
-                <p class="pdate">{{WorldClockService.strLondonDate}}</p>
-                <p class="ptime">{{WorldClockService.strLondonTime}}</p>
-              </p-panel>
-        
-              <p-panel header="Singapore" id="lgDateTimePanel">
-                <p class="pdate">{{WorldClockService.strSingaporeDate}}</p>
-                <p class="ptime">{{WorldClockService.strSingaporeTime}}</p>
-              </p-panel>
-        
-              <p-panel header="Sydney" id="lgDateTimePanel">
-                <p class="pdate">{{WorldClockService.strSydneyDate}}</p>
-                <p class="ptime">{{WorldClockService.strSydneyTime}}</p>
-              </p-panel>
-        
-              <p-panel header="UTC" id="lgDateTimePanel">
-                <p class="pdate">{{WorldClockService.strUTCDate}}</p>
-                <p class="ptime">{{WorldClockService.strUTCTime}}</p>
-              </p-panel>
-            </div>
-        
-            
-          </div>
-    </ng-template>
-
-</div> -->
