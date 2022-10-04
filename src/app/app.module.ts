@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LandingComponent } from './landing/landing.component';
-import { NavMainComponent } from './shared/nav-main/nav-main.component';
 import { DockModule } from 'primeng/dock';
 import { ButtonModule } from 'primeng/button';
 import { SpeedDialModule } from 'primeng/speeddial';
@@ -48,7 +47,6 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
   declarations: [
     AppComponent,
     LandingComponent,
-    NavMainComponent,
     StartComponent,
     WebsitesComponent,
     AddAppDialComponent,
