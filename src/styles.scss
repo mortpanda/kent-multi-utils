@@ -67,13 +67,13 @@ body {
 }
 
 .mainDiv {
-  border-style: dotted;
+  // border-style: dotted;
   height: 85vh !important;
   width: 90vw !important;
 }
 
 .smMainDiv {
-  border-style: dotted;
+  // border-style: dotted;
   height: 90vh !important;
   width: 95vw !important;
   position:fixed!important;
@@ -94,7 +94,7 @@ body {
 }
 
 .smInfoBar {
-  border-style: dotted;
+  // border-style: dotted;
   width: 95% !important;
   height: 10vh !important;
   // margin-top: 10px !important;
@@ -120,10 +120,10 @@ body {
   left:2vw!important;
 }
 .startMain {
-  // border-style: solid;
+  border-style: dotted;
   // margin-top: 40px !important;
   width: 85vw !important;
-  height: 75vh !important;
+  height: 80vh !important;
   position:fixed!important;
   top: calc(100vh - (100vh - 10vh))!important;
 }
@@ -138,6 +138,7 @@ body {
 
 .smStartMain{
   position: fixed!important;
+  border-style: dotted;
   top:calc(100vh - (100vh - 15vh))!important;
   // padding:15px!important;
 }

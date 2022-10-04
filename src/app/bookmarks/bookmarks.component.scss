@@ -1,3 +1,38 @@
+.bookmarkTableDiv {
+    // border-style: dashed;
+    width: 85vw !important;
+    height: 68vh !important;
+    overflow: auto !important;
+       // /* Hide scrollbar for Chrome, Safari and Opera */
+
+ 
+         // /* Hide scrollbar for IE, Edge and Firefox */
+         -ms-overflow-style: none;
+         /* IE and Edge */
+         scrollbar-width: none;
+         /* Firefox */
+
+}
+
+.bookmarkTableDiv::-webkit-scrollbar {
+    display: none;
+}
+     
+
+
+.searchBox {
+    // border-style: dotted;
+    width: 100% !important;
+    padding: 5px !important;
+}
+
+
+
+// #bookmarkTable{
+//     width: 50vw !important;
+//     height: 75vh !important;
+// }
+
 // .bookmarkDiv {
 
 //     // border-style: dotted;
@@ -18,48 +53,48 @@
 
 // }
 
-// .mat-cell {
-//     font-size: 12px !important;
-//     padding-right: 15px !important;
-//     padding-left: 15px !important;
-// }
+.mat-cell {
+    font-size: 12px !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+}
 
-// .mat-header-cell {
-//     font-size: 14px !important;
-//     color: #FFFFFF !important;
-//     background-color: #424242 !important;
-//     padding-right: 15px !important;
-//     padding-left: 15px !important;
+.mat-header-cell {
+    font-size: 14px !important;
+    color: #FFFFFF !important;
+    background-color: #424242 !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
 
-// }
+}
 
-// .mat-row {
-//     height: 38px !important;
-//     overflow-x:visible!important;
-// }
+.mat-row {
+    height: 38px !important;
+    overflow-x: visible !important;
+}
 
-// .mat-header-row {}
+.mat-header-row {}
 
-// a:link {
-//     color: #424242;
-// }
+a:link {
+    color: #424242;
+}
 
-// a:visited {
-//     color: #424242;
-// }
+a:visited {
+    color: #424242;
+}
 
-// a:hover {
-//     color: #424242;
-// }
+a:hover {
+    color: #424242;
+}
 
-// a:active {
-//     color: #424242;
-// }
+a:active {
+    color: #424242;
+}
 
-// .mat-row:hover {
-//     background-color: lightgray !important;
-//     color: #FFFFFF !important;
-// }
+.mat-row:hover {
+    background-color: lightgray !important;
+    color: #FFFFFF !important;
+}
 
 // .bookmarkfilterDiv {
 //     text-align: center !important;
@@ -72,27 +107,30 @@
 //     padding-bottom: 5px !important;
 // }
 
-// .filterLebel {
-//     color: #FFFFFF !important;
-//     padding-right: 20px !important;
-//     font-size: 14px !important;
-// }
+.filterLebel {
+    color: #FFFFFF !important;
+    padding-right: 20px !important;
+    font-size: 14px !important;
+}
 
-// #filterTxt {
-//     background-color: transparent !important;
-//     color: #FFFFFF !important;
-//     .p-inputtext {
-//          font-size: 12px !important;
-//     }
-// }
+#filterTxt {
+    background-color: transparent !important;
+    color: #FFFFFF !important;
 
-// table.mat-table {
-//     min-width: 100% !important;
-//     text-align: left !important;
-//     background-color: #BDBDBD !important;
-//     // white-space: nowrap!important;
+    .p-inputtext {
+        font-size: 12px !important;
+    }
+}
 
-// }
+table.mat-table {
+    // min-width: 100% !important;
+    width: 85vw !important;
+    height: 68vh !important;
+    text-align: left !important;
+    background-color: #BDBDBD !important;
+    // white-space: nowrap!important;
+
+}
 
 // .filterImg{
 //     height:50px!important;
