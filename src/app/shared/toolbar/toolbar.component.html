@@ -1,6 +1,12 @@
 <ng-template #bigScreen>
  
-    
+    <p-toolbar id="topToolbar">
+        <div class="toolbarDannerDiv">
+            <img src="{{RandomNumberService.bannerPath}}" class="toolbarBanner">
+        </div>
+    </p-toolbar>
+
+
     <p-dock [model]="toolbarItems" position="left" id="toolBar">
         <ng-template pTemplate="item" let-item>
             <i [class]="item.icon" [style]="item.style"></i>

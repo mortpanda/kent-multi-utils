@@ -4,6 +4,7 @@ import { ViewEncapsulation } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import {MenuItem} from 'primeng/api';
 import { PrimeIcons } from 'primeng/api';
+import {RandomNumberService} from '../random-number/random-number.service';
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
@@ -16,6 +17,7 @@ export class ToolbarComponent implements OnInit {
   constructor(
     private breakpointObserver: BreakpointObserver,
     private MenuListService: MenuListService,
+    private RandomNumberService:RandomNumberService,
   ) { 
     breakpointObserver.observe([
       Breakpoints.XSmall,
@@ -24,6 +26,7 @@ export class ToolbarComponent implements OnInit {
       this.smallScreen = result.matches;
     });
     this.toolbarItems = this.MenuListService.smallToolbar;
+    this.RandomNumberService.generateRandomNo();
   }
 
   ngOnInit(): void {

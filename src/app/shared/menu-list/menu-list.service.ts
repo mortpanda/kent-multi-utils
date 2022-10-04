@@ -25,15 +25,15 @@ export class MenuListService {
     },
 
 
-    {
-      tooltipOptions: {
-        tooltipLabel: "To Do",
-        tooltipPosition: "top",
-      },
-      icon: "pi pi-check",
-      // style: 'font-size: 2rem;',
-      routerLink: '/todo'
-    },
+    // {
+    //   tooltipOptions: {
+    //     tooltipLabel: "To Do",
+    //     tooltipPosition: "top",
+    //   },
+    //   icon: "pi pi-check",
+    //   // style: 'font-size: 2rem;',
+    //   routerLink: '/todo'
+    // },
 
 
     {

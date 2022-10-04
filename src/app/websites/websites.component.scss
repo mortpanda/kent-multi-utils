@@ -1,153 +1,205 @@
-// .websitesMainDiv {
-//   // border-style: dotted;
-//   // margin-top: 50px !important;
+    .websiteMain {
+        border-style: dotted;
+        margin-top: 40px !important;
+        width: 85vw !important;
+        height: 78vh !important;
+    }
 
-//   width: 80vw !important;
-//   height: 75vh !important;
-//   text-align: center !important;
-//   // padding:15px!important;
-// }
+    .wedSiteTabDiv {
+        border-style: solid;
+        width: 85vw !important;
+        height: 75vh !important;
+        padding: 5px !important;
+    }
 
+    #mySiteTab {
+        width: 100% !important;
+        .p-tabview .p-tabview-nav {
+            background-color: transparent !important;
+            color: #FFFFFF !important;
+            text-align: center !important;
+        }
 
-// // #websitesCard {
+        .p-tabview .p-tabview-panels {
+            height: 65vh !important;
+            background-color: transparent !important;
+            color: #FFFFFF !important;
+            text-align: center !important;
+        }
 
-// //   .p-card {
-// //     width: 80vw!important;
-// //     -webkit-box-shadow: none !important;
-// //     box-shadow: none !important;
-// //     height: 75vh !important;
-// //     background-color: transparent !important;
-// //     overflow-y: auto;
-// //   }
-// // }
-
-// //   body {
-// //     margin:0;
-// //     min-height:100vh;
-// //     display:grid;
-// //     place-content:center;
-// //   }
-// #mySiteTab {
-//   // height: 20% !important;
-//   .p-tabview {
-//     background-color: transparent !important;
-//     width: 80vw !important;
-//     // border-style: dashed;
-//     // overflow: auto!important;
-//     // height: 20% !important;
-//     .p-tabview-nav {
-//       background-color: transparent !important;
-//     }
-//   }
-
-//   .p-tabview .p-tabview-nav li .p-tabview-nav-link {
-//     background-color: transparent !important;
-//     color: #FFFFFF;
-//   }
-
-//   .p-tabview-panels {
-//     background-color: transparent !important;
-//   }
-
-//   .p-tabview .p-tabview-nav li .p-tabview-nav-link {
-
-//     // padding: 1rem;
-//     font-weight: 300;
-
-//   }
-// }
-
-// /* Hide scrollbar for Chrome, Safari and Opera */
-// #websitesCard {
-//   .p-card::-webkit-scrollbar {
-//     display: none;
-//   }
-// }
+        .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+            background-color: transparent !important;
+            color: #FFFFFF !important;
+        }
+    }
 
 
-// /* Hide scrollbar for IE, Edge and Firefox */
-// #websitesCard {
-//   .p-card {
-//     -ms-overflow-style: none;
-//     /* IE and Edge */
-//     scrollbar-width: none;
-//     /* Firefox */
-//   }
-// }
+    .smWebSiteTabDiv {
+        border-style: solid;
+        width: 95vw !important;
+        height: 80vh !important;
 
-// .sitesDiv {
-//   // border-style: dotted;
-//   width: 270px !important;
-//   height: 100px !important;
-//   margin: 5px !important;
-// }
-
-// #sitesBtn {
-//   .p-button {
-//     width: 270px !important;
-//     height: 100px !important;
-//     background-color: #FFFFFF !important;
-//     color: gray !important;
-//     border-color: gray !important;
-//     padding-top: 5px !important;
-//     padding-bottom: 5px !important;
-//     padding-left: 5px !important;
-//     padding-right: 5px !important;
-//     -webkit-box-shadow: 0px 5px 12px 0px #6e6e78 !important;
-//     box-shadow: 0px 5px 12px 0px #6e6e78 !important;
-//   }
-
-//   .p-button:hover {
-//     opacity: 0.5 !important;
-//   }
-
-// }
-
-// .btnDiv {
-//   width: 100% !important;
-//   height: 100% !important;
-// }
-
-// .leftBtn {
-//   width: 30% !important;
-// }
-
-// .rightBtn {
-//   width: 60% !important;
-//   font-size: 10px !important;
-//   word-break: break-all !important;
-//   padding: 3px !important;
-// }
-
-// .btnImage {
-//   margin-top: 10px !important;
-//   width: 65px !important;
-
-//   border-radius: 5px !important;
-//   border-width: 1px !important;
-//   border-color: #6e6e78 !important;
-//   border-style: solid !important;
-// }
+    }
 
 
-// .myOIEApps {
-//   margin-top: 10px !important;
-//   width: 65px !important;
-//   padding: 5px !important;
 
-//   border-radius: 5px !important;
-//   border-width: 1px !important;
-//   border-color: #6e6e78 !important;
-//   border-style: solid !important;
-// }
+    // .smStartMain {
+    //     position: fixed !important;
+    //     top: calc(100vh - (100vh - 15vh)) !important;
+    //     padding: 15px !important;
+    // }
 
-// .tabHead {
-//   color: #FFFFFF !important;
-// }
+    // .websitesMainDiv {
+    //   // border-style: dotted;
+    //   // margin-top: 50px !important;
 
-// .panelDiv {
-//   // border-style: solid;
-//   height: 70vh !important;
-//   // width: auto !important;
-//   overflow: auto !important;
-// }
+    //   width: 80vw !important;
+    //   height: 75vh !important;
+    //   text-align: center !important;
+    //   // padding:15px!important;
+    // }
+
+
+    // // #websitesCard {
+
+    // //   .p-card {
+    // //     width: 80vw!important;
+    // //     -webkit-box-shadow: none !important;
+    // //     box-shadow: none !important;
+    // //     height: 75vh !important;
+    // //     background-color: transparent !important;
+    // //     overflow-y: auto;
+    // //   }
+    // // }
+
+    // //   body {
+    // //     margin:0;
+    // //     min-height:100vh;
+    // //     display:grid;
+    // //     place-content:center;
+    // //   }
+    // #mySiteTab {
+    //   // height: 20% !important;
+    //   .p-tabview {
+    //     background-color: transparent !important;
+    //     width: 80vw !important;
+    //     // border-style: dashed;
+    //     // overflow: auto!important;
+    //     // height: 20% !important;
+    //     .p-tabview-nav {
+    //       background-color: transparent !important;
+    //     }
+    //   }
+
+    //   .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+    //     background-color: transparent !important;
+    //     color: #FFFFFF;
+    //   }
+
+    //   .p-tabview-panels {
+    //     background-color: transparent !important;
+    //   }
+
+
+    //   .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+
+    //     // padding: 1rem;
+    //     font-weight: 300;
+
+    //   }
+    // }
+
+    // /* Hide scrollbar for Chrome, Safari and Opera */
+    // #websitesCard {
+    //   .p-card::-webkit-scrollbar {
+    //     display: none;
+    //   }
+    // }
+
+
+    // /* Hide scrollbar for IE, Edge and Firefox */
+    // #websitesCard {
+    //   .p-card {
+    //     -ms-overflow-style: none;
+    //     /* IE and Edge */
+    //     scrollbar-width: none;
+    //     /* Firefox */
+    //   }
+    // }
+
+    // .sitesDiv {
+    //   // border-style: dotted;
+    //   width: 270px !important;
+    //   height: 100px !important;
+    //   margin: 5px !important;
+    // }
+
+    // #sitesBtn {
+    //   .p-button {
+    //     width: 270px !important;
+    //     height: 100px !important;
+    //     background-color: #FFFFFF !important;
+    //     color: gray !important;
+    //     border-color: gray !important;
+    //     padding-top: 5px !important;
+    //     padding-bottom: 5px !important;
+    //     padding-left: 5px !important;
+    //     padding-right: 5px !important;
+    //     -webkit-box-shadow: 0px 5px 12px 0px #6e6e78 !important;
+    //     box-shadow: 0px 5px 12px 0px #6e6e78 !important;
+    //   }
+
+    //   .p-button:hover {
+    //     opacity: 0.5 !important;
+    //   }
+
+    // }
+
+    // .btnDiv {
+    //   width: 100% !important;
+    //   height: 100% !important;
+    // }
+
+    // .leftBtn {
+    //   width: 30% !important;
+    // }
+
+    // .rightBtn {
+    //   width: 60% !important;
+    //   font-size: 10px !important;
+    //   word-break: break-all !important;
+    //   padding: 3px !important;
+    // }
+
+    // .btnImage {
+    //   margin-top: 10px !important;
+    //   width: 65px !important;
+
+    //   border-radius: 5px !important;
+    //   border-width: 1px !important;
+    //   border-color: #6e6e78 !important;
+    //   border-style: solid !important;
+    // }
+
+
+    // .myOIEApps {
+    //   margin-top: 10px !important;
+    //   width: 65px !important;
+    //   padding: 5px !important;
+
+    //   border-radius: 5px !important;
+    //   border-width: 1px !important;
+    //   border-color: #6e6e78 !important;
+    //   border-style: solid !important;
+    // }
+
+    // .tabHead {
+    //   color: #FFFFFF !important;
+    // }
+
+    // .panelDiv {
+    //   // border-style: solid;
+    //   height: 70vh !important;
+    //   // width: auto !important;
+    //   overflow: auto !important;
+    // }
