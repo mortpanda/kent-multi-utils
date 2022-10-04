@@ -41,7 +41,7 @@ import { CompleteItemComponent } from './shared/task-modal/complete-item/complet
 import { AddTaskComponent } from './shared/task-modal/add-task/add-task.component';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
-
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 
 @NgModule({
@@ -87,7 +87,7 @@ import { ToolbarComponent } from './shared/toolbar/toolbar.component';
     MatTableModule,
     DragDropModule,
     InputTextareaModule,
-    
+    ProgressSpinnerModule,
 
   ],
   providers: [HttpClientModule,

@@ -54,7 +54,6 @@ export class WebsitesComponent implements OnInit {
   myApps;
   myProcessedApps = [];
 
-
   constructor(
     private OktaGetTokenService: OktaGetTokenService,
     private OktaSDKAuthService: OktaSDKAuthService,
