@@ -13,198 +13,198 @@
                 </div>
             </div>
             <div class="lgMain" fxLayout="row wrap" fxLayoutAlign="center start" *ngIf="mySites; else notShow">
-                
-                    <div class="wedSiteTabDiv" fxLayout="row wrap" fxLayoutAlign="center start">
 
-                        <p-tabView id="mySiteTab">
-                            <p-tabPanel header="Daily Websites" leftIcon="pi pi-bookmark-fill">
-                                <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
+                <div class="wedSiteTabDiv" fxLayout="row wrap" fxLayoutAlign="center start">
 
-                                    <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)"
-                                        *ngFor="let website of dailySites">
-                                        <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
-                                            <div class="leftBtn">
-                                                <img src="assets/img/panda-logo.png" class="btnImage">
+                    <p-tabView id="mySiteTab">
+                        <p-tabPanel header="Daily Websites" leftIcon="pi pi-bookmark-fill">
+                            <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
+
+                                <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)"
+                                    *ngFor="let website of dailySites">
+                                    <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
+                                        <div class="leftBtn">
+                                            <img src="assets/img/panda-logo.png" class="btnImage">
+                                        </div>
+                                        <div class="rightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
+                                            <div class="rightSub">
+                                                <h5>{{website.name}}</h5>
                                             </div>
-                                            <div class="rightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
-                                                <div class="rightSub">
-                                                    <h5>{{website.name}}</h5>
-                                                </div>
-                                                <div class="rightSub">
-                                                    <p class="urlTxt">{{website.strUri}}</p>
-                                                </div>
+                                            <div class="rightSub">
+                                                <p class="urlTxt">{{website.strUri}}</p>
                                             </div>
                                         </div>
-                                    </p-button>
+                                    </div>
+                                </p-button>
 
-                                </div>
-                            </p-tabPanel>
+                            </div>
+                        </p-tabPanel>
 
-                            <p-tabPanel header="Admin Dashboard" leftIcon="pi pi-spin pi-cog">
-                                <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
+                        <p-tabPanel header="Admin Dashboard" leftIcon="pi pi-spin pi-cog">
+                            <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
 
-                                    <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)"
-                                        *ngFor="let website of adminDashboard">
-                                        <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
-                                            <div class="leftBtn">
-                                                <img src="assets/img/lion-logo.png" class="btnImage">
+                                <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)"
+                                    *ngFor="let website of adminDashboard">
+                                    <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
+                                        <div class="leftBtn">
+                                            <img src="assets/img/lion-logo.png" class="btnImage">
+                                        </div>
+                                        <div class="rightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
+                                            <div class="rightSub">
+                                                <h5>{{website.name}}</h5>
                                             </div>
-                                            <div class="rightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
-                                                <div class="rightSub">
-                                                    <h5>{{website.name}}</h5>
-                                                </div>
-                                                <div class="rightSub">
-                                                    <p class="urlTxt">{{website.strUri}}</p>
-                                                </div>
+                                            <div class="rightSub">
+                                                <p class="urlTxt">{{website.strUri}}</p>
                                             </div>
                                         </div>
-                                    </p-button>
+                                    </div>
+                                </p-button>
 
-                                </div>
-                            </p-tabPanel>
+                            </div>
+                        </p-tabPanel>
 
 
-                            <p-tabPanel header="User Dashboard" leftIcon="pi pi-user">
-                                <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
+                        <p-tabPanel header="User Dashboard" leftIcon="pi pi-user">
+                            <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
 
-                                    <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)"
-                                        *ngFor="let website of userDashboard">
-                                        <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
-                                            <div class="leftBtn">
-                                                <img src="assets/img/panda-logo.png" class="btnImage">
+                                <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)"
+                                    *ngFor="let website of userDashboard">
+                                    <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
+                                        <div class="leftBtn">
+                                            <img src="assets/img/panda-logo.png" class="btnImage">
+                                        </div>
+                                        <div class="rightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
+                                            <div class="rightSub">
+                                                <h5>{{website.name}}</h5>
                                             </div>
-                                            <div class="rightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
-                                                <div class="rightSub">
-                                                    <h5>{{website.name}}</h5>
-                                                </div>
-                                                <div class="rightSub">
-                                                    <p class="urlTxt">{{website.strUri}}</p>
-                                                </div>
+                                            <div class="rightSub">
+                                                <p class="urlTxt">{{website.strUri}}</p>
                                             </div>
                                         </div>
-                                    </p-button>
+                                    </div>
+                                </p-button>
 
-                                </div>
-                            </p-tabPanel>
+                            </div>
+                        </p-tabPanel>
 
-                            <p-tabPanel header="Okta Sites" leftIcon="pi pi-cloud">
-                                <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
-                                    <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)"
-                                        *ngFor="let website of websiteOkta">
-                                        <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
-                                            <div class="leftBtn">
-                                                <img src="assets/img/lion-logo.png" class="btnImage">
+                        <p-tabPanel header="Okta Sites" leftIcon="pi pi-cloud">
+                            <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
+                                <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)"
+                                    *ngFor="let website of websiteOkta">
+                                    <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
+                                        <div class="leftBtn">
+                                            <img src="assets/img/lion-logo.png" class="btnImage">
+                                        </div>
+                                        <div class="rightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
+                                            <div class="rightSub">
+                                                <h5>{{website.name}}</h5>
                                             </div>
-                                            <div class="rightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
-                                                <div class="rightSub">
-                                                    <h5>{{website.name}}</h5>
-                                                </div>
-                                                <div class="rightSub">
-                                                    <p class="urlTxt">{{website.strUri}}</p>
-                                                </div>
+                                            <div class="rightSub">
+                                                <p class="urlTxt">{{website.strUri}}</p>
                                             </div>
                                         </div>
-                                    </p-button>
+                                    </div>
+                                </p-button>
 
-                                </div>
-                            </p-tabPanel>
+                            </div>
+                        </p-tabPanel>
 
-                            <p-tabPanel header="K-Lab Apps" leftIcon="pi pi-box">
-                                <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
-                                    <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)"
-                                        *ngFor="let website of Klab">
-                                        <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
-                                            <div class="leftBtn">
-                                                <img src="assets/img/panda-logo.png" class="btnImage">
+                        <p-tabPanel header="K-Lab Apps" leftIcon="pi pi-box">
+                            <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
+                                <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)"
+                                    *ngFor="let website of Klab">
+                                    <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
+                                        <div class="leftBtn">
+                                            <img src="assets/img/panda-logo.png" class="btnImage">
+                                        </div>
+                                        <div class="rightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
+                                            <div class="rightSub">
+                                                <h5>{{website.name}}</h5>
                                             </div>
-                                            <div class="rightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
-                                                <div class="rightSub">
-                                                    <h5>{{website.name}}</h5>
-                                                </div>
-                                                <div class="rightSub">
-                                                    <p class="urlTxt">{{website.strUri}}</p>
-                                                </div>
+                                            <div class="rightSub">
+                                                <p class="urlTxt">{{website.strUri}}</p>
                                             </div>
                                         </div>
-                                    </p-button>
+                                    </div>
+                                </p-button>
 
-                                </div>
-                            </p-tabPanel>
+                            </div>
+                        </p-tabPanel>
 
-                            <p-tabPanel header="Dev Info" leftIcon="pi pi-code">
-                                <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
-                                    <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)"
-                                        *ngFor="let website of DevInfo">
-                                        <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
-                                            <div class="leftBtn">
-                                                <img src="assets/img/lion-logo.png" class="btnImage">
+                        <p-tabPanel header="Dev Info" leftIcon="pi pi-code">
+                            <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
+                                <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)"
+                                    *ngFor="let website of DevInfo">
+                                    <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
+                                        <div class="leftBtn">
+                                            <img src="assets/img/lion-logo.png" class="btnImage">
+                                        </div>
+                                        <div class="rightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
+                                            <div class="rightSub">
+                                                <h5>{{website.name}}</h5>
                                             </div>
-                                            <div class="rightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
-                                                <div class="rightSub">
-                                                    <h5>{{website.name}}</h5>
-                                                </div>
-                                                <div class="rightSub">
-                                                    <p class="urlTxt">{{website.strUri}}</p>
-                                                </div>
+                                            <div class="rightSub">
+                                                <p class="urlTxt">{{website.strUri}}</p>
                                             </div>
                                         </div>
-                                    </p-button>
+                                    </div>
+                                </p-button>
 
-                                </div>
-                            </p-tabPanel>
+                            </div>
+                        </p-tabPanel>
 
-                            <p-tabPanel header="OIE Projects" leftIcon="pi pi-microsoft">
-                                <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
-                                    <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)"
-                                        *ngFor="let website of myProcessedApps">
-                                        <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
-                                            <div class="leftBtn">
-                                                <img src="{{website.logoURI}}"  class="oieBtnImage">
+                        <p-tabPanel header="OIE Projects" leftIcon="pi pi-microsoft">
+                            <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
+                                <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)"
+                                    *ngFor="let website of myProcessedApps">
+                                    <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
+                                        <div class="leftBtn">
+                                            <img src="{{website.logoURI}}" class="oieBtnImage">
+                                        </div>
+                                        <div class="rightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
+                                            <div class="rightSub">
+                                                <h5>{{website.label}}</h5>
                                             </div>
-                                            <div class="rightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
-                                                <div class="rightSub">
-                                                    <h5>{{website.label}}</h5>
-                                                </div>
-                                                <div class="rightSub">
-                                                    <p class="urlTxt">{{website.struri}}</p>
-                                                </div>
+                                            <div class="rightSub">
+                                                <p class="urlTxt">{{website.struri}}</p>
                                             </div>
                                         </div>
-                                    </p-button>
+                                    </div>
+                                </p-button>
 
-                                </div>
-                            </p-tabPanel>
+                            </div>
+                        </p-tabPanel>
 
-                            <p-tabPanel header="Personal Apps" leftIcon="pi pi-table">
-                                <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
-                                    <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)"
-                                        *ngFor="let website of personalApps">
-                                        <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
-                                            <div class="leftBtn">
-                                                <img src="assets/img/lion-logo.png" class="btnImage">
+                        <p-tabPanel header="Personal Apps" leftIcon="pi pi-table">
+                            <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
+                                <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)"
+                                    *ngFor="let website of personalApps">
+                                    <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
+                                        <div class="leftBtn">
+                                            <img src="assets/img/lion-logo.png" class="btnImage">
+                                        </div>
+                                        <div class="rightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
+                                            <div class="rightSub">
+                                                <h5>{{website.name}}</h5>
                                             </div>
-                                            <div class="rightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
-                                                <div class="rightSub">
-                                                    <h5>{{website.name}}</h5>
-                                                </div>
-                                                <div class="rightSub">
-                                                    <p class="urlTxt">{{website.strUri}}</p>
-                                                </div>
+                                            <div class="rightSub">
+                                                <p class="urlTxt">{{website.strUri}}</p>
                                             </div>
                                         </div>
-                                    </p-button>
+                                    </div>
+                                </p-button>
 
-                                </div>
-                            </p-tabPanel>
+                            </div>
+                        </p-tabPanel>
 
-                        </p-tabView>
+                    </p-tabView>
 
-                    </div>
-                
+                </div>
+
             </div>
         </div>
 
-       
+
 
 
     </div>
@@ -233,199 +233,168 @@
                 </div>
             </div>
 
-            <div class="smWebSiteTabDiv" fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="mySites; else notShow">
-                
-                    <p-tabView id="mySiteTab">
-                        <p-tabPanel header="Daily Websites" leftIcon="pi pi-bookmark-fill">
-                            <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
+            <div class="smWebSiteTabDiv" fxLayout="row wrap" fxLayoutAlign="center center"
+                *ngIf="mySites; else notShow">
 
-                                <p-button id="smSitesBtn" (onClick)="OpenWebsite(website.strUri)"
-                                    *ngFor="let website of dailySites">
-                                    <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
-                                        <div class="smLeftBtn">
-                                            <img src="assets/img/panda-logo.png" class="btnImage">
-                                        </div>
-                                        <div class="smRightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
-                                            <div class="smRightSub">
-                                                <h5>{{website.name}}</h5>
-                                            </div>
-                                            <!-- <div class="smRightSub">
-                                            <p class="urlTxt">{{website.strUri}}</p>
-                                        </div> -->
+                <p-tabView id="mySiteTab">
+                    <p-tabPanel header="Daily Websites" leftIcon="pi pi-bookmark-fill">
+                        <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
+
+                            <p-button id="smSitesBtn" (onClick)="OpenWebsite(website.strUri)"
+                                *ngFor="let website of dailySites">
+                                <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
+                                    <div class="smLeftBtn">
+                                        <img src="assets/img/panda-logo.png" class="btnImage">
+                                    </div>
+                                    <div class="smRightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
+                                        <div class="smRightSub">
+                                            <h5>{{website.name}}</h5>
                                         </div>
                                     </div>
-                                </p-button>
+                                </div>
+                            </p-button>
 
-                            </div>
-                        </p-tabPanel>
+                        </div>
+                    </p-tabPanel>
 
-                        <p-tabPanel header="Admin Dashboard" leftIcon="pi pi-spin pi-cog">
-                            <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
+                    <p-tabPanel header="Admin Dashboard" leftIcon="pi pi-spin pi-cog">
+                        <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
 
-                                <p-button id="smSitesBtn" (onClick)="OpenWebsite(website.strUri)"
-                                    *ngFor="let website of adminDashboard">
-                                    <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
-                                        <div class="smLeftBtn">
-                                            <img src="assets/img/lion-logo.png" class="btnImage">
-                                        </div>
-                                        <div class="smRightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
-                                            <div class="smRightSub">
-                                                <h5>{{website.name}}</h5>
-                                            </div>
-                                            <!-- <div class="smRightSub">
-                                            <p class="urlTxt">{{website.strUri}}</p>
-                                        </div> -->
+                            <p-button id="smSitesBtn" (onClick)="OpenWebsite(website.strUri)"
+                                *ngFor="let website of adminDashboard">
+                                <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
+                                    <div class="smLeftBtn">
+                                        <img src="assets/img/lion-logo.png" class="btnImage">
+                                    </div>
+                                    <div class="smRightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
+                                        <div class="smRightSub">
+                                            <h5>{{website.name}}</h5>
                                         </div>
                                     </div>
-                                </p-button>
+                                </div>
+                            </p-button>
 
-                            </div>
-                        </p-tabPanel>
+                        </div>
+                    </p-tabPanel>
 
 
-                        <p-tabPanel header="User Dashboard" leftIcon="pi pi-user">
-                            <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
+                    <p-tabPanel header="User Dashboard" leftIcon="pi pi-user">
+                        <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
 
-                                <p-button id="smSitesBtn" (onClick)="OpenWebsite(website.strUri)"
-                                    *ngFor="let website of userDashboard">
-                                    <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
-                                        <div class="smLeftBtn">
-                                            <img src="assets/img/panda-logo.png" class="btnImage">
-                                        </div>
-                                        <div class="smRightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
-                                            <div class="smRightSub">
-                                                <h5>{{website.name}}</h5>
-                                            </div>
-                                            <!-- <div class="smRightSub">
-                                            <p class="urlTxt">{{website.strUri}}</p>
-                                        </div> -->
+                            <p-button id="smSitesBtn" (onClick)="OpenWebsite(website.strUri)"
+                                *ngFor="let website of userDashboard">
+                                <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
+                                    <div class="smLeftBtn">
+                                        <img src="assets/img/panda-logo.png" class="btnImage">
+                                    </div>
+                                    <div class="smRightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
+                                        <div class="smRightSub">
+                                            <h5>{{website.name}}</h5>
                                         </div>
                                     </div>
-                                </p-button>
+                                </div>
+                            </p-button>
 
-                            </div>
-                        </p-tabPanel>
+                        </div>
+                    </p-tabPanel>
 
-                        <p-tabPanel header="Okta Sites" leftIcon="pi pi-cloud">
-                            <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
-                                <p-button id="smSitesBtn" (onClick)="OpenWebsite(website.strUri)"
-                                    *ngFor="let website of websiteOkta">
-                                    <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
-                                        <div class="smLeftBtn">
-                                            <img src="assets/img/lion-logo.png" class="btnImage">
-                                        </div>
-                                        <div class="smRightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
-                                            <div class="smRightSub">
-                                                <h5>{{website.name}}</h5>
-                                            </div>
-                                            <!-- <div class="smRightSub">
-                                            <p class="urlTxt">{{website.strUri}}</p>
-                                        </div> -->
+                    <p-tabPanel header="Okta Sites" leftIcon="pi pi-cloud">
+                        <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
+                            <p-button id="smSitesBtn" (onClick)="OpenWebsite(website.strUri)"
+                                *ngFor="let website of websiteOkta">
+                                <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
+                                    <div class="smLeftBtn">
+                                        <img src="assets/img/lion-logo.png" class="btnImage">
+                                    </div>
+                                    <div class="smRightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
+                                        <div class="smRightSub">
+                                            <h5>{{website.name}}</h5>
                                         </div>
                                     </div>
-                                </p-button>
+                                </div>
+                            </p-button>
 
-                            </div>
-                        </p-tabPanel>
+                        </div>
+                    </p-tabPanel>
 
-                        <p-tabPanel header="K-Lab Apps" leftIcon="pi pi-box">
-                            <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
-                                <p-button id="smSitesBtn" (onClick)="OpenWebsite(website.strUri)"
-                                    *ngFor="let website of Klab">
-                                    <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
-                                        <div class="smLeftBtn">
-                                            <img src="assets/img/panda-logo.png" class="btnImage">
-                                        </div>
-                                        <div class="smRightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
-                                            <div class="smRightSub">
-                                                <h5>{{website.name}}</h5>
-                                            </div>
-                                            <!-- <div class="smRightSub">
-                                            <p class="urlTxt">{{website.strUri}}</p>
-                                        </div> -->
+                    <p-tabPanel header="K-Lab Apps" leftIcon="pi pi-box">
+                        <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
+                            <p-button id="smSitesBtn" (onClick)="OpenWebsite(website.strUri)"
+                                *ngFor="let website of Klab">
+                                <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
+                                    <div class="smLeftBtn">
+                                        <img src="assets/img/panda-logo.png" class="btnImage">
+                                    </div>
+                                    <div class="smRightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
+                                        <div class="smRightSub">
+                                            <h5>{{website.name}}</h5>
                                         </div>
                                     </div>
-                                </p-button>
+                                </div>
+                            </p-button>
 
-                            </div>
-                        </p-tabPanel>
+                        </div>
+                    </p-tabPanel>
 
-                        <p-tabPanel header="Dev Info" leftIcon="pi pi-code">
-                            <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
-                                <p-button id="smSitesBtn" (onClick)="OpenWebsite(website.strUri)"
-                                    *ngFor="let website of DevInfo">
-                                    <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
-                                        <div class="smLeftBtn">
-                                            <img src="assets/img/lion-logo.png" class="btnImage">
-                                        </div>
-                                        <div class="smRightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
-                                            <div class="smRightSub">
-                                                <h5>{{website.name}}</h5>
-                                            </div>
-                                            <!-- <div class="smRightSub">
-                                            <p class="urlTxt">{{website.strUri}}</p>
-                                        </div> -->
+                    <p-tabPanel header="Dev Info" leftIcon="pi pi-code">
+                        <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
+                            <p-button id="smSitesBtn" (onClick)="OpenWebsite(website.strUri)"
+                                *ngFor="let website of DevInfo">
+                                <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
+                                    <div class="smLeftBtn">
+                                        <img src="assets/img/lion-logo.png" class="btnImage">
+                                    </div>
+                                    <div class="smRightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
+                                        <div class="smRightSub">
+                                            <h5>{{website.name}}</h5>
                                         </div>
                                     </div>
-                                </p-button>
+                                </div>
+                            </p-button>
 
-                            </div>
-                        </p-tabPanel>
+                        </div>
+                    </p-tabPanel>
 
-                        <p-tabPanel header="OIE Projects" leftIcon="pi pi-microsoft">
-                            <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
-                                <p-button id="smSitesBtn" (onClick)="OpenWebsite(website.strUri)"
-                                    *ngFor="let website of myProcessedApps">
-                                    <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
-                                        <div class="smLeftBtn">
-                                            <img src="{{website.logoURI}}" class="smOieBtnImage">
-                                        </div>
-                                        <div class="smRightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
-                                            <div class="smRightSub">
-                                                <h5>{{website.label}}</h5>
-                                            </div>
-                                            <!-- <div class="smRightSub">
-                                            <p class="urlTxt">{{website.strUri}}</p>
-                                        </div> 
-                                    
-                                          <img src="{{website.logoURI}}" class="myOIEApps">
-                                        </div>
-                                        <div class="rightBtn">
+                    <p-tabPanel header="OIE Projects" leftIcon="pi pi-microsoft">
+                        <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
+                            <p-button id="smSitesBtn" (onClick)="OpenWebsite(website.strUri)"
+                                *ngFor="let website of myProcessedApps">
+                                <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
+                                    <div class="smLeftBtn">
+                                        <img src="{{website.logoURI}}" class="smOieBtnImage">
+                                    </div>
+                                    <div class="smRightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
+                                        <div class="smRightSub">
                                             <h5>{{website.label}}</h5>
-                                            {{website.struri}}
-                                    
-                                    -->
                                         </div>
                                     </div>
-                                </p-button>
+                                </div>
+                            </p-button>
 
-                            </div>
-                        </p-tabPanel>
+                        </div>
+                    </p-tabPanel>
 
-                        <p-tabPanel header="Personal Apps" leftIcon="pi pi-table">
-                            <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
-                                <p-button id="smSitesBtn" (onClick)="OpenWebsite(website.strUri)"
-                                    *ngFor="let website of personalApps">
-                                    <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
-                                        <div class="smLeftBtn">
-                                            <img src="assets/img/lion-logo.png" class="btnImage">
-                                        </div>
-                                        <div class="smRightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
-                                            <div class="smRightSub">
-                                                <h5>{{website.name}}</h5>
-                                            </div>
-                                            <!-- <div class="smRightSub">
-                                            <p class="urlTxt">{{website.strUri}}</p>
-                                        </div> -->
+                    <p-tabPanel header="Personal Apps" leftIcon="pi pi-table">
+                        <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
+                            <p-button id="smSitesBtn" (onClick)="OpenWebsite(website.strUri)"
+                                *ngFor="let website of personalApps">
+                                <div class="btnDiv" fxLayout="columns" fxLayoutAlign="center center">
+                                    <div class="smLeftBtn">
+                                        <img src="assets/img/lion-logo.png" class="btnImage">
+                                    </div>
+                                    <div class="smRightBtn" fxLayout="rows wrap" fxLayoutAlign="center center">
+                                        <div class="smRightSub">
+                                            <h5>{{website.name}}</h5>
                                         </div>
                                     </div>
-                                </p-button>
+                                </div>
+                            </p-button>
 
-                            </div>
-                        </p-tabPanel>
+                        </div>
+                    </p-tabPanel>
 
-                    </p-tabView>
-                
+                </p-tabView>
+
             </div>
 
         </div>
@@ -448,202 +417,6 @@
     </div>
 
 </ng-template>
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="MainDiv" fxLayout="row wrap" fxLayoutAlign="center center">
-    <div *ngIf="mySites; else notShow">
-        <div class="userName">
-            {{strFullName}}
-        </div>
-        <div class="locationInfo" fxLayout="row wrap" fxLayoutAlign="center start">
-            <div class="weatherInfo">{{GetWeatherService?.arrWeather?.name}}</div>
-            <div class="weatherInfo">{{GetWeatherService?.arrWeather?.main.temp}} ℃</div>
-            <div class="weatherInfo">
-                <img src="{{GetWeatherService?.myWeatherIcon}}" class="weatherIcon">
-            </div>
-        </div>
-        
-        <div class="websitesMainDiv" fxLayout="row wrap" fxLayoutAlign="start start">
-            
-                <p-tabView id="mySiteTab">
-                    <p-tabPanel header="Daily Websites" leftIcon="pi pi-bookmark-fill">
-                        <h1 class="tabHead">Daily Websites</h1>
-                        <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
-                            <div class="sitesDiv" *ngFor="let website of dailySites">
-                                <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)">
-                                    <div class="btnDiv" fxLayout="columns wrap" fxLayoutAlign="center center">
-                                        <div class="leftBtn">
-                                            <img src="assets/img/panda-logo.png" class="btnImage">
-                                        </div>
-                                        <div class="rightBtn">
-                                            <h5>{{website.name}}</h5>
-                                            {{website.strUri}}
-                                        </div>
-                                    </div>
-                                </p-button>
-                            </div>
-                        </div>
-                    </p-tabPanel>
-
-                    <p-tabPanel header="Admin Dashboard" leftIcon="pi pi-spin pi-cog">
-                        <h1 class="tabHead">Admin Dashboard</h1>
-                        <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
-                            <div class="sitesDiv" *ngFor="let website of adminDashboard">
-                                <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)">
-                                    <div class="btnDiv" fxLayout="columns wrap" fxLayoutAlign="center">
-                                        <div class="leftBtn">
-                                            <img src="assets/img/lion-logo.png" class="btnImage">
-                                        </div>
-                                        <div class="rightBtn">
-                                            <h5>{{website.name}}</h5>
-                                            {{website.strUri}}
-                                        </div>
-                                    </div>
-                                </p-button>
-                            </div>
-
-                        </div>
-                    </p-tabPanel>
-
-                    <p-tabPanel header="User Dashboard" leftIcon="pi pi-spin pi-cog">
-                        <h1 class="tabHead">User Dashboard</h1>
-                        <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
-                            <div class="sitesDiv" *ngFor="let website of userDashboard">
-                                <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)">
-                                    <div class="btnDiv" fxLayout="columns wrap" fxLayoutAlign="center">
-                                        <div class="leftBtn">
-                                            <img src="assets/img/panda-logo.png" class="btnImage">
-                                        </div>
-                                        <div class="rightBtn">
-                                            <h5>{{website.name}}</h5>
-                                            {{website.strUri}}
-                                        </div>
-                                    </div>
-                                </p-button>
-                            </div>
-
-                        </div>
-                    </p-tabPanel>
-
-                   
-
-
-                    <p-tabPanel header="Okta Sites" leftIcon="pi pi-cloud">
-                        <h1 class="tabHead">Okta Sites</h1>
-                        <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
-                            <div class="sitesDiv" *ngFor="let website of websiteOkta">
-                                <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)">
-                                    <div class="btnDiv" fxLayout="columns wrap" fxLayoutAlign="center">
-                                        <div class="leftBtn">
-                                            <img src="assets/img/lion-logo.png" class="btnImage">
-                                        </div>
-                                        <div class="rightBtn">
-                                            <h5>{{website.name}}</h5>
-                                            {{website.strUri}}
-                                        </div>
-                                    </div>
-                                </p-button>
-                            </div>
-                        </div>
-                    </p-tabPanel>
-                    <p-tabPanel header="K-Lab Apps" leftIcon="pi pi-box">
-                        <h1 class="tabHead">K-Lab Apps</h1>
-                        <div fxLayout="columns wrap" fxLayoutAlign="center start" class="panelDiv">
-                            <div class="sitesDiv" *ngFor="let website of Klab">
-                                <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)">
-                                    <div class="btnDiv" fxLayout="columns wrap" fxLayoutAlign="center">
-                                        <div class="leftBtn">
-                                            <img src="assets/img/panda-logo.png" class="btnImage">
-                                        </div>
-                                        <div class="rightBtn">
-                                            <h5>{{website.name}}</h5>
-                                            {{website.strUri}}
-                                        </div>
-                                    </div>
-                                </p-button>
-                            </div>
-                        </div>
-                    </p-tabPanel>
-                    <p-tabPanel header="Dev Info" leftIcon="pi pi-code">
-                        <h1 class="tabHead">Dev Info</h1>
-                        <div fxLayout="columns wrap" fxLayoutAlign="center" class="panelDiv">
-                            <div class="sitesDiv" *ngFor="let website of DevInfo">
-                                <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)">
-                                    <div class="btnDiv" fxLayout="columns wrap" fxLayoutAlign="center">
-                                        <div class="leftBtn">
-                                            <img src="assets/img/lion-logo.png" class="btnImage">
-                                        </div>
-                                        <div class="rightBtn">
-                                            <h5>{{website.name}}</h5>
-                                            {{website.strUri}}
-                                        </div>
-                                    </div>
-                                </p-button>
-                            </div>
-                        </div>
-                    </p-tabPanel>
-                    <p-tabPanel header="My OIE Projects" leftIcon="pi pi-microsoft">
-                        <h1 class="tabHead">My OIE Projects</h1>
-                        <div fxLayout="columns wrap" fxLayoutAlign="center" class="panelDiv">
-                            <div class="sitesDiv" *ngFor="let website of myProcessedApps">
-                                <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)">
-                                    <div class="btnDiv" fxLayout="columns wrap" fxLayoutAlign="center">
-                                        <div class="leftBtn">
-                                            
-                                            <img src="{{website.logoURI}}" class="myOIEApps">
-                                        </div>
-                                        <div class="rightBtn">
-                                            <h5>{{website.label}}</h5>
-                                            {{website.struri}}
-                                        </div>
-                                    </div>
-                                </p-button>
-                            </div>
-                        </div>
-                    </p-tabPanel>
-                    <p-tabPanel header="Personal Apps" leftIcon="pi pi-table">
-                        <h1 class="tabHead">My Personal Apps</h1>
-                        <div fxLayout="columns wrap" fxLayoutAlign="center" class="panelDiv">
-                            <div class="sitesDiv" *ngFor="let website of personalApps">
-                                <p-button id="sitesBtn" (onClick)="OpenWebsite(website.strUri)">
-                                    <div class="btnDiv" fxLayout="columns wrap" fxLayoutAlign="center">
-                                        <div class="leftBtn">
-                                            <img src="assets/img/panda-logo.png" class="btnImage">
-                                        </div>
-                                        <div class="rightBtn">
-                                            <h5>{{website.name}}</h5>
-                                            {{website.strUri}}
-                                        </div>
-                                    </div>
-                                </p-button>
-                            </div>
-                        </div>
-                    </p-tabPanel>
-
-
-
-                </p-tabView>
-                    
-            
-            
-        </div>
-        <app-add-app-dial></app-add-app-dial>
-    </div>
-    <ng-template #notShow>
-        <div class="loader"></div>
-    </ng-template>
-    
-</div> -->
-
-
 
 
 <!-- ///////////////////////////////////////// -->
