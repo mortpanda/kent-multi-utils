@@ -48,37 +48,37 @@ export class WorldClockService {
 
     switch (strTimeZone) {
       case 'Asia/Tokyo': {
-        this.strTokyoDate = this.datePipe.transform(this.arrTimeData.datetime, "MMMM d, EE", this.arrTimeData.utc_offset);
+        this.strTokyoDate = this.datePipe.transform(this.arrTimeData.datetime, "EE, MMMM d", this.arrTimeData.utc_offset);
         this.strTokyoTime = this.datePipe.transform(this.arrTimeData.datetime, "HH:mm", this.arrTimeData.utc_offset);
         break;
       }
       case 'America/Los_Angeles': {
-        this.strSanFranDate = this.datePipe.transform(this.arrTimeData.datetime, "MMMM d, EE", this.arrTimeData.utc_offset);
+        this.strSanFranDate = this.datePipe.transform(this.arrTimeData.datetime, "EE, MMMM d", this.arrTimeData.utc_offset);
         this.strSanFranTime = this.datePipe.transform(this.arrTimeData.datetime, "HH:mm", this.arrTimeData.utc_offset);
         break;
       }
       case 'Europe/London': {
-        this.strLondonDate = this.datePipe.transform(this.arrTimeData.datetime, "MMMM d, EE", this.arrTimeData.utc_offset);
+        this.strLondonDate = this.datePipe.transform(this.arrTimeData.datetime, "EE, MMMM d", this.arrTimeData.utc_offset);
         this.strLondonTime = this.datePipe.transform(this.arrTimeData.datetime, "HH:mm", this.arrTimeData.utc_offset);
         break;
       }
       case 'Australia/Sydney': {
-        this.strSydneyDate = this.datePipe.transform(this.arrTimeData.datetime, "MMMM d, EE", this.arrTimeData.utc_offset);
+        this.strSydneyDate = this.datePipe.transform(this.arrTimeData.datetime, "EE, MMMM d", this.arrTimeData.utc_offset);
         this.strSydneyTime = this.datePipe.transform(this.arrTimeData.datetime, "HH:mm", this.arrTimeData.utc_offset);
         break;
       }
       case 'Asia/Singapore': {
-        this.strSingaporeDate = this.datePipe.transform(this.arrTimeData.datetime, "MMMM d, EE", this.arrTimeData.utc_offset);
+        this.strSingaporeDate = this.datePipe.transform(this.arrTimeData.datetime, "EE, MMMM d", this.arrTimeData.utc_offset);
         this.strSingaporeTime = this.datePipe.transform(this.arrTimeData.datetime, "HH:mm", this.arrTimeData.utc_offset);
         break;
       }
       case 'America/New_York': {
-        this.strNYDate = this.datePipe.transform(this.arrTimeData.datetime, "MMMM d, EE", this.arrTimeData.utc_offset);
+        this.strNYDate = this.datePipe.transform(this.arrTimeData.datetime, "EE, MMMM d", this.arrTimeData.utc_offset);
         this.strNYTime = this.datePipe.transform(this.arrTimeData.datetime, "HH:mm", this.arrTimeData.utc_offset);
         break;
       }
       case 'Etc/UTC': {
-        this.strUTCDate = this.datePipe.transform(this.arrTimeData.datetime, "MMMM d, EE", this.arrTimeData.utc_offset);
+        this.strUTCDate = this.datePipe.transform(this.arrTimeData.datetime, "EE, MMMM d", this.arrTimeData.utc_offset);
         this.strUTCTime = this.datePipe.transform(this.arrTimeData.datetime, "HH:mm", this.arrTimeData.utc_offset);
         break;
       }
