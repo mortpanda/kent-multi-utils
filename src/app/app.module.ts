@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LandingComponent } from './landing/landing.component';
-import { NavMainComponent } from './shared/nav-main/nav-main.component';
 import { DockModule } from 'primeng/dock';
 import { ButtonModule } from 'primeng/button';
 import { SpeedDialModule } from 'primeng/speeddial';
@@ -41,14 +40,13 @@ import { CompleteItemComponent } from './shared/task-modal/complete-item/complet
 import { AddTaskComponent } from './shared/task-modal/add-task/add-task.component';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
-
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
-    NavMainComponent,
     StartComponent,
     WebsitesComponent,
     AddAppDialComponent,
@@ -87,7 +85,7 @@ import { ToolbarComponent } from './shared/toolbar/toolbar.component';
     MatTableModule,
     DragDropModule,
     InputTextareaModule,
-    
+    ProgressSpinnerModule,
 
   ],
   providers: [HttpClientModule,

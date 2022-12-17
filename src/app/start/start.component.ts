@@ -10,7 +10,7 @@ import { MenuListService } from '../shared/menu-list/menu-list.service';
 import { GetGeolocationService } from '../shared/geolocation/geolocation.service';
 import { GetWeatherService } from '../shared/weather/get-weather.service';
 import { DataService } from '../shared/data-service/data.service';
-
+import { PrimeNGConfig } from 'primeng/api';
 @Component({
   selector: 'app-start',
   templateUrl: './start.component.html',
@@ -30,7 +30,7 @@ export class StartComponent implements OnInit {
   myTemp;
   myLocation;
   myWeather;
-
+  
   constructor(
     private OktaGetTokenService: OktaGetTokenService,
     private OktaSDKAuthService: OktaSDKAuthService,
@@ -41,6 +41,7 @@ export class StartComponent implements OnInit {
     public GetGeolocationService: GetGeolocationService,
     public GetWeatherService: GetWeatherService,
     private DataService: DataService,
+    private primengConfig: PrimeNGConfig,
   ) {
     breakpointObserver.observe([
       Breakpoints.XSmall,
@@ -49,7 +50,7 @@ export class StartComponent implements OnInit {
       this.smallScreen = result.matches;
     });
     this.mainAppMenu = this.MenuListService.mainAppMenu;
-
+    this.primengConfig.ripple = true;
 
 
   }

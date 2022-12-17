@@ -53,33 +53,102 @@ body {
 }
 
 .appMainDiv {
-  border-style: dotted !important;
+  // border-style: dotted !important;
   color: #FFFFFF !important;
   width: 100vw !important;
   height: 100vh !important;
 }
 
 .smAppMainDiv {
-  border-style: dotted !important;
+  // border-style: dotted !important;
   color: #FFFFFF !important;
   width: 100vw !important;
   height: 100vh !important;
 }
 
 .mainDiv {
-  border-style: dotted;
+  // border-style: dotted;
   height: 85vh !important;
   width: 90vw !important;
 }
 
 .smMainDiv {
-  border-style: dotted;
-  height: 85vh !important;
-  width: 90vw !important;
+  // border-style: dotted;
+  height: 90vh !important;
+  width: 95vw !important;
+  position:fixed!important;
+  top: calc(100vh - (100vh - 5vh))!important;
+  left:2.5vw!important;
+}
+
+.infoBar {
+  // border-style: dotted;
+  width: 100% !important;
+  height: 5vh !important;
+}
+
+.infoDiv {
+  // border-style: dotted;
+  width: calc(100% / 3) !important;
+  height: 100% !important;
+}
+
+.smInfoBar {
+  // border-style: dotted;
+  width: 95% !important;
+  height: 10vh !important;
+  // margin-top: 10px !important;
+  position: fixed!important;
+  left:2.5vw!important;
+  top: calc(100vh - (100vh - 5vh))!important;
+}
+
+.smInfoDiv {
+  // border-style: dotted;
+  width: calc(100vw / 3) !important;
+  height: 100% !important;
+  // display: inline-flex;
+}
+
+.startWeatherIcon {
+  width: 50px !important;
 }
 
 .userName{
+  position:fixed!important;
+  bottom:2vh!important;
+  left:2vw!important;
+}
+.startMain {
+  // border-style: dotted;
+  // margin-top: 40px !important;
+  width: 85vw !important;
+  height: 80vh !important;
+  position:fixed!important;
+  top: calc(100vh - (100vh - 10vh))!important;
+}
+
+.lgMain{
+  // border-style: solid;
   position: fixed!important;
-  bottom:1Div!important;
-  left:2!important;
+  top: calc(100vh - (100vh - 15vh))!important;
+  width:85vw!important;
+  height:75vh!important;
+}
+
+.smStartMain{
+  position: fixed!important;
+  // border-style: dotted;
+  top:calc(100vh - (100vh - 15vh))!important;
+  // padding:15px!important;
+}
+
+.loadingDiv{
+  width:100%!important;
+}
+
+.speeddialTask{
+  position:fixed!important;
+  bottom:40vh!important;
+  right:2vw!important;
 }

@@ -1,40 +1,59 @@
-.infoBar{
-    border-style: dotted;
-    width:100%!important;
-    height: 10vh!important;
-}
-.infoDiv{
-    border-style: dotted;
-    width:calc(100% / 3)!important;
-    height:100%!important;
-    
+
+.startMenuDiv {
+    // border-style: dashed;
+    width: 100% !important;
+    height: 95% !important;
+    padding: 15px !important;
+
 }
 
-.startMenuDiv{
-    border-style: dotted;
-    width:95%!important;
-    height:60%!important;
-    
+.startMenuBtnDiv{
+    // border-style: dashed;
+    width:40%!important;
+}
+
+#menuBtn {
+    .p-button {
+        width: 20vw !important;
+        height: 20vh !important;
+
+        border-style: solid !important;
+        border-radius: 5px !important;
+        border-color: #FFFFFF !important;
+        border-width: 1px !important;
+        box-shadow: 0px 5px 12px 0px #6e6e78 !important;
+        background-color: transparent !important;
+        margin: 20px !important;
+        -webkit-backdrop-filter: blur(7px) !important;
+        backdrop-filter: blur(7px) !important;
+    }
+}
+
+.smStartMenuDiv {
+    padding:15px!important;
 }
 
 
-.smInfoBar{
-    border-style: dotted;
-    width:100%!important;
-    height: 10vh!important;
-    margin-top: 10px!important;
-}
-
-.smInfoDiv{
+.smStartMenuDiv {
     // border-style: dotted;
-    width:calc(100% / 3)!important;
-    height:100%!important;
-    // display: inline-flex;
+    width: 100% !important;
+    height: 85% !important;
+
 }
 
-.smStartMenuDiv{
-    // border-style: dotted;
-    width:100%!important;
-    height:85%!important;
-    
+#smMenuBtn {
+    .p-button {
+        width: 45vw !important;
+        height: 10vh !important;
+
+        border-style: solid !important;
+        border-radius: 5px !important;
+        border-color: #FFFFFF !important;
+        border-width: 1px !important;
+        box-shadow: 0px 5px 12px 0px #6e6e78 !important;
+        background-color: transparent !important;
+        margin: 20px !important;
+        -webkit-backdrop-filter: blur(7px) !important;
+        backdrop-filter: blur(7px) !important;
+    }
 }

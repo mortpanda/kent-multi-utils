@@ -4,7 +4,7 @@ import {OktaConfigService} from '../shared/okta/okta-config.service';
 import { ViewEncapsulation } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-
+import {RandomNumberService} from '../shared/random-number/random-number.service';
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
@@ -17,6 +17,7 @@ export class LandingComponent implements OnInit {
     private breakpointObserver: BreakpointObserver,
     private OktaWidgetService:OktaWidgetService,
     private OktaConfigService:OktaConfigService,
+    private RandomNumberService:RandomNumberService,
   ) {
     breakpointObserver.observe([
       Breakpoints.XSmall,
@@ -24,6 +25,7 @@ export class LandingComponent implements OnInit {
     ]).subscribe(result => {
       this.smallScreen = result.matches;
     });
+    this.RandomNumberService.generateRandomNo();
    }
 
    async ngOnInit() {

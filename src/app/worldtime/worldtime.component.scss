@@ -1,28 +1,75 @@
+.clockTile {
+    width: 10vw !important;
+    height: 20vh !important;
+    border-style: solid !important;
+    border-radius: 5px !important;
+    border-color: #FFFFFF !important;
+    border-width: 1px !important;
+    box-shadow: 0px 5px 12px 0px #6e6e78 !important;
+    background-color: transparent !important;
+
+    -webkit-backdrop-filter: blur(7px) !important;
+    backdrop-filter: blur(7px) !important;
+    margin: 10px !important;
+}
+
+.smClockTile {
+    width: 30vw !important;
+    height: 10vh !important;
+    border-style: solid !important;
+    border-radius: 5px !important;
+    border-color: #FFFFFF !important;
+    border-width: 1px !important;
+    box-shadow: 0px 5px 12px 0px #6e6e78 !important;
+    background-color: transparent !important;
+    padding: 10px !important;
+    -webkit-backdrop-filter: blur(7px) !important;
+    backdrop-filter: blur(7px) !important;
+    margin: 10px !important;
+}
+.clockDiv{
+    margin-top:20vh!important;
+}
+
+.clockTileSub {
+    min-width: 10vw !important;
+}
+
+.smClockDiv{
+    margin-top:5vh!important;
+}
+
+.locationTitle {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    margin-bottom: 10px !important;
+}
+
 // .TimeMasterDiv {
 //     // border-style: dotted;
 //     padding-top: 120px !important;
 //     width: 85vw;
 //     text-align: center!important;
 //   }
-  
+
 //   .smTimeMasterDiv {
 //     margin-top: 120px !important;
 //   }
-  
+
 //   .startMainDiv {
 //     // border-style: dotted;
 //     margin-top: 120px !important;
 //     // width: 100%;
 //     width: 85vw;
 //   }
-  
+
 //   .smstartMainDiv {
 //     // border-style: dotted;
 //     margin-top: 20px !important;
 //     // width: 100%;
 //     width: 85vw;
 //   }
-  
+
 //   .userName {
 //     text-align: end !important;
 //     color: #ffffff !important;
@@ -33,13 +80,13 @@
 //     right: 0;
 //     width: 90vw;
 //   }
-  
+
 //   .SMuserName {
 //     color: #ffffff !important;
 //     margin-top: 90px !important;
 //     position: fixed !important;
 //   }
-  
+
 //   #appBtn {
 //     .p-button {
 //       width: 150px;
@@ -77,14 +124,14 @@
 //       margin-left: 15px !important;
 //     }
 //   }
-  
+
 //   .PanelDiv {
 //     width: 150px;
 //     height: 100px;
 //     margin-top: 20px !important;
 //     margin-left: 15px !important;
 //   }
-  
+
 //   .pageTitleDiv {
 //     width: 100%;
 //     text-align: center !important;
@@ -100,19 +147,19 @@
 //     font-weight: 800 !important;
 //     margin-top: 20px !important;
 //   }
-  
+
 //   #fieldSet {
 //     .p-fieldset {
 //       width: 300px !important;
 //     }
 //   }
-  
+
 //   .timeDiv {
 //     margin-top: 20px !important;
 //     text-align: center !important;
 //     z-index: 8000!important;
 //   }
-  
+
 //   #lgDateTimePanel {
 //     font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
 //       "Cantarell", "Helvetica Neue", sans-serif !important;
@@ -142,5 +189,3 @@
 //       }
 //     }
 //   }
-  
-  
